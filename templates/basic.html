@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Extra Header Content -->
-    {% block head %}{% endblock head %}
+    {% block extrahead %}{% endblock extrahead %}
 </head>
 <body>
     <!-- NavBar -->
@@ -77,25 +77,25 @@
                             </div>
                         </div>
                     {% else %}
+                        {% comment %}
                         <!-- Dropdowns -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button">
                             Sign Up
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Admin</a></li>
-                                <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Patient</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Doctor</a></li>
                             </ul>
                         </li>
+                        {% endcomment %}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button">
                             Sign In
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Admin</a></li>
+                                <li><a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Patient</a></li>
                                 <li><hr class="dropdown-divider"></li>

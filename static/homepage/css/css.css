@@ -42,6 +42,7 @@ nav {
     background: linear-gradient(135deg, #2b5876, #4e4376);
     padding: 10px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .navbar-nav .nav-item .nav-link {
@@ -70,6 +71,7 @@ nav {
 /* Footer Styling */
 #footer {
     border-radius: 0;
+    font-family: 'Courier New', Courier, monospace;
 }
 .footer-heading {
     font-size: 20px;
