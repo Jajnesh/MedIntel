@@ -1,0 +1,19 @@
+{% extends 'admin/base.html' %}
+
+{% block extrastyle %}{{ block.super }}
+<style>
+html[data-theme="light"], :root {
+  --primary: #000;
+  --secondary: #222;
+  --breadcrumbs-bg:#000;
+}
+</style>
+{% endblock %}
+{% block branding %}
+    <h1 id="site-name">
+      <a href="{% url "admin:index" %}">
+        MedIntel | AI Driven Health Care and Prediction
+      </a>
+    </h1>
+{% endblock branding %}
+
