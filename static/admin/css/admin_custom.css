@@ -1,0 +1,9 @@
+/* Admin site styles */
+html[data-theme="light"], :root {
+    --primary: #1a003d;
+    --secondary: linear-gradient(135deg, #2b5876, #4e4376);
+}
+
+.login #content {
+    border: 1px solid #1a003d;
+}

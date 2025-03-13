@@ -1,21 +1,14 @@
 {% extends 'admin/base.html' %}
+{% load static %}
 
 {% block title %}MedIntel || Site Administration{% endblock title %}
 
 {% block extrastyle %}{{ block.super }}
-<style>
-html[data-theme="light"], :root {
-  --primary: #000;
-  --secondary: #222;
-  --breadcrumbs-bg:#000;
-}
-</style>
+<link rel="stylesheet" href="{% static "admin/css/admin_custom.css" %}">
 {% endblock %}
 {% block branding %}
     <h1 id="site-name">
-      <a href="{% url "admin:index" %}">
-        MedIntel
-      </a>
+      MedIntel
     </h1>
 {% endblock branding %}
 
