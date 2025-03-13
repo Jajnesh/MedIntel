@@ -1,5 +1,7 @@
 {% extends 'admin/base.html' %}
 
+{% block title %}MedIntel || Site Administration{% endblock title %}
+
 {% block extrastyle %}{{ block.super }}
 <style>
 html[data-theme="light"], :root {
@@ -12,7 +14,7 @@ html[data-theme="light"], :root {
 {% block branding %}
     <h1 id="site-name">
       <a href="{% url "admin:index" %}">
-        MedIntel | AI Driven Health Care and Prediction
+        MedIntel
       </a>
     </h1>
 {% endblock branding %}
