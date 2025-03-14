@@ -29,7 +29,7 @@ class Doctor(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='doctor_profile')
     name = models.CharField(max_length = 100)
-    prac_address = models.ForeignKey(Address, on_delete=models.SET_NULL)
+    # prac_address = models.ForeignKey(Address, on_delete=models.SET_NULL)
     mobile_no = models.CharField(max_length = 20)
     gender = models.CharField(max_length = 10, choices=GENDER_CHOICES)
     medical_license_no = models.CharField(max_length = 20)

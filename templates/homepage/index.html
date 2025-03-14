@@ -1,13 +1,1284 @@
-{% extends "basic.html" %}
+{% extends 'basic.html' %}
+{% block head %}
 {% load static %}
+      <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta name="description" content="MedIntel uses advanced AI to predict health conditions with accuracy. Connect with verified doctors, receive personalized health reports, and manage your healthcare journey efficiently.">
+      <meta name="theme-color" content="#ffffff">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="robots" content="">
+      <title>MedIntel - AI-Powered Health Prediction System for Patients and Doctors</title>
+      <!-- SEO Description -->
+      <meta name="description" content="MedIntel uses advanced AI to predict health conditions with accuracy. Connect with verified doctors, receive personalized health reports, and manage your healthcare journey efficiently.">
+      <link rel="stylesheet" href="{% static "homepage/css/css.css" %}">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      
+      <!-- Header Scripts -->
+      <script id="header-scripts">
+        // This script tag will be replaced with actual scripts.head content
+        if (window.scripts && window.scripts.head) {
+          document.getElementById('header-scripts').outerHTML = window.scripts.head;
+        }
+      </script>
 
-<!-- Page Title -->
-{% block title %} Homepage {% endblock title %}
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (window.location.hash) {
+                const element = document.querySelector(window.location.hash);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+        });
+      </script>
 
-<!-- Header Content -->
-{% block extrahead %}{% endblock extrahead %}
+      <!-- Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- Page Content -->
+      <!-- Font stylesheet -->
+
+      <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+      <meta name="robots" content="">
+      <meta name="google-site-verification" content="">
+      <meta name="baidu-verification" content="">
+      <meta name="yandex-verification" content="">
+      <meta name="bing-verification" content="">
+      <meta property="og:title" content="">
+      <meta property="og:description" content="">
+      <meta property="og:image" content="">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="MedIntel AI Health Prediction System">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="">
+      <meta name="twitter:description" content="">
+      <meta name="twitter:image" content="">
+    
+      
+      <!-- Font Links -->
+     
+      <link rel="icon" type="image/x-icon" href="">
+
+      <style>
+        h1, h2, h3, h4, h5, h6 {
+          font-family: Roboto, sans-serif, Inter, system-ui, sans-serif;
+        }
+        body {
+          font-family: Open Sans, sans-serif, Inter, system-ui, sans-serif;
+        }
+        html {
+          scroll-behavior: smooth;
+      }
+
+      </style>
+{% endblock %}
 {% block content %}
-    <h1>Hallooo!!!</h1>
-{% endblock content %}
+
+   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          if (window.location.hash) {
+              const element = document.querySelector(window.location.hash);
+              if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+              }
+          }
+      });
+  </script>
+      <!-- Skip to main content link for accessibility -->
+      {% comment %} <a href="#main-content" 
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a> {% endcomment %}
+
+      <!-- Main content area -->
+      <main id="main-content" class="flex-1 relative h-full">
+        <div id="RolloutPageContent"><element id="129ea146-fdfb-4d70-a25a-961db794bdbd" data-section-id="129ea146-fdfb-4d70-a25a-961db794bdbd">
+
+
+<div id="root">
+</div>
+
+</element><element id="87f2082f-49ee-4765-89b2-533e3bfd2c4a" data-section-id="87f2082f-49ee-4765-89b2-533e3bfd2c4a">
+
+
+<div id="root">
+  <section id="hero" class="px-6 mx-auto lg:px-12 bg-gradient-to-br from-blue-600 to-blue-900 dark:from-neutral-800 dark:to-neutral-900 text-white py-24">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center justify-between">
+        <div class="lg:w-1/2 lg:pr-8 mb-10 lg:mb-0">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <span class="text-blue-200">AI-Powered</span> Health Prediction System
+          </h1>
+          <p class="text-xl mb-8 text-blue-100">
+            MedIntel uses advanced artificial intelligence to predict potential health conditions with high accuracy, connecting patients with verified doctors for consultation and treatment.
+          </p>
+          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            {% comment %} <a href="#register" class="bg-white text-blue-800 hover:bg-blue-100 font-semibold py-3 px-6 rounded-lg transition duration-300 text-center shadow-lg">
+              Register Now
+            </a> {% endcomment %}
+            <a href="#services" class="bg-transparent border-2 border-white hover:bg-white/10 font-semibold py-3 px-6 rounded-lg transition duration-300 text-center">
+              Learn More
+            </a>
+          </div>
+        </div>
+        <div class="lg:w-1/2 relative">
+          <img src="{% static 'homepage/images/photo.webp' %}" class="w-[730px] h-[450px]">
+        </div>
+      </div>
+      <div class="mt-16 pt-8 border-t border-blue-500/30 flex flex-wrap justify-center gap-8 text-center">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+          <span class="text-blue-100">Verified Medical Data</span>
+        </div>
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          <span class="text-blue-100">End-to-End Encryption</span>
+        </div>
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="text-blue-100">Real-time Analysis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</element><element id="eb58e8cb-a1b1-4c9d-8b03-2d621c4ac740" data-section-id="eb58e8cb-a1b1-4c9d-8b03-2d621c4ac740">
+
+<div id="root">
+  <section id="about" class="px-6 mx-auto lg:px-12 py-20 bg-gray-100 dark:bg-neutral-800">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">About MedIntel</h2>
+        <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+        <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Revolutionizing healthcare with AI-powered disease prediction technology, connecting patients with verified specialists for seamless healthcare experiences.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <h3 class="text-2xl font-bold text-blue-700 dark:text-blue-400 mb-6">Transforming Healthcare Through Artificial Intelligence</h3>
+          
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="bg-blue-600 rounded-full p-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-1">Advanced Disease Prediction</h4>
+                <p class="text-gray-600 dark:text-gray-300">
+                  Our AI algorithm analyzes symptoms and medical history to predict potential healthconditions with up to 95% accuracy, allowing for early intervention.
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="bg-blue-600 rounded-full p-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-1">Verified Medical Professionals</h4>
+                <p class="text-gray-600 dark:text-gray-300">
+                  Connect with qualified doctors who undergo a strict verification process by our admin team to ensure the highest quality of care.
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="bg-blue-600 rounded-full p-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-1">Secure Multi-User System</h4>
+                <p class="text-gray-600 dark:text-gray-300">
+                  Our platform serves patients, doctors, and administrators with role-specific features while maintaining the highest standards of data security.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="order-1 lg:order-2">
+          <div class="dark:bg-neutral-700 rounded-2xl shadow-xl overflow-hidden">
+            <div class="p-8">
+              <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center">
+                  <h3 class="ml-4 text-xl font-bold text-gray-800 dark:text-gray-100">How MedIntel Works</h3>
+                </div>
+              </div>
+              <div class="space-y-6">
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">1</div>
+                    <div class="h-full w-0.5 bg-blue-600 mx-auto mt-2"></div>
+                  </div>
+                  <div class="ml-4 pb-6">
+                    <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Register as a Patient</h4>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Create your secure patient profile and enter your medical history and symptoms.</p>
+                  </div>
+                </div>
+                
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">2</div>
+                    <div class="h-full w-0.5 bg-blue-600 mx-auto mt-2"></div>
+                  </div>
+                  <div class="ml-4 pb-6">
+                    <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100">AI Analysis</h4>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Our advanced AI system analyzes your data and calculates prediction percentages for potential conditions.</p>
+                  </div>
+                </div>
+                
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">3</div>
+                    <div class="h-full w-0.5 bg-blue-600 mx-auto mt-2"></div>
+                  </div>
+                  <div class="ml-4 pb-6">
+                    <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Receive Detailed Report</h4>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Get a comprehensive health report with risk assessments and recommended next steps.</p>
+                  </div>
+                </div>
+                
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full text-white font-bold">4</div>
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Connect with Specialists</h4>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Consult with verified doctors who can review your AI predictions and provide medical guidance.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-blue-600 py-4 px-8">
+              <div class="flex justify-between items-center">
+                <p class="text-white font-medium">Ready to take control of your health?</p>
+                <a href="#register" class="bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg font-medium transition duration-300">Get Started</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white dark:bg-neutral-700 p-6 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">Customizable</h3>
+          <p class="text-gray-600 dark:text-gray-300">Personalized health analysis based on your unique medical profile and history.</p>
+        </div>
+        
+        <div class="bg-white dark:bg-neutral-700 p-6 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">Secure</h3>
+          <p class="text-gray-600 dark:text-gray-300">End-to-end encryption and HIPAA-compliant data storage to protect your medical information.</p>
+        </div>
+        
+        <div class="bg-white dark:bg-neutral-700 p-6 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">Fast</h3>
+          <p class="text-gray-600 dark:text-gray-300">Get health predictions and connect with specialists in minutes, not days or weeks.</p>
+        </div>
+        
+        <div class="bg-white dark:bg-neutral-700 p-6 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">Accurate</h3>
+          <p class="text-gray-600 dark:text-gray-300">Our AI models are continuously trained on verified medical data to ensure high prediction accuracy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</element><element id="b4d1d74c-ccba-408e-8849-c70d4c391af8" data-section-id="b4d1d74c-ccba-408e-8849-c70d4c391af8">
+
+<div id="root">
+  <section id="services" class="px-6 mx-auto lg:px-12 py-20 bg-white dark:bg-neutral-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">Our Services</h2>
+        <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          MedIntel offers a comprehensive suite of AI-powered health services designed for patients, doctors, and administrators.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="bg-gray-50 dark:bg-neutral-800 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+          <div class="h-2 bg-blue-600"></div>
+          <div class="p-8">
+            <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">AI Disease Prediction</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Our advanced AI algorithms analyze your symptoms and medical history to predict potential health conditions with high accuracy.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Symptom analysis</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Risk assessment scores</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Detailed health reports</span>
+              </li>
+            </ul>
+            <a href="#register" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+              Try It Now
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="bg-gray-50 dark:bg-neutral-800 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+          <div class="h-2 bg-blue-600"></div>
+          <div class="p-8">
+            <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">Doctor Consultation</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Connect with verified medical professionals who can review your AI predictions and provide expert medical guidance.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Specialist matching</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Secure messaging system</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Treatment recommendations</span>
+              </li>
+            </ul>
+            <a href="#doctors" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+              Find a Doctor
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="bg-gray-50 dark:bg-neutral-800 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+          <div class="h-2 bg-blue-600"></div>
+          <div class="p-8">
+            <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">Health Reports</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Receive comprehensive health reports with detailed analysis and personalized recommendations for your wellbeing.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Detailed analysis visualizations</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Preventive care suggestions</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Progress tracking</span>
+              </li>
+            </ul>
+            <a href="#register" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Types Section -->
+      <div class="mt-20">
+        <h3 class="text-2xl font-bold text-center text-gray-800 dark:text-gray-100 mb-12">For Every Health Stakeholder</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Patient -->
+          <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-8 relative">
+            <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+              Patient
+            </div>
+            <div class="w-20 h-20 bg-blue-600/10 rounded-full flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">For Patients</h4>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Easy registration and profile management</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Instant disease prediction reports</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Direct connection with verified doctors</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Feedback submission for continuous improvement</span>
+              </li>
+            </ul>
+            <a href="#register" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+              Register as Patient
+            </a>
+          </div>
+
+          <!-- Doctor -->
+          <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-8 relative">
+            <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+              Doctor
+            </div>
+            <div class="w-20 h-20 bg-blue-600/10 rounded-full flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">For Doctors</h4>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Professional registration with credentials verification</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Access to patient AI prediction reports</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Secure communication with patients</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Professional profile for potential patients</span>
+              </li>
+            </ul>
+            <a href="#register" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+              Register as Doctor
+            </a>
+          </div>
+
+          <!-- Admin -->
+          <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-8 relative">
+            <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+              Admin
+            </div>
+            <div class="w-20 h-20 bg-blue-600/10 rounded-full flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">For Administrators</h4>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Complete system management dashboard</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Doctor verification and approval process</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">User data management and oversight</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">Enhanced system performance monitoring efficiency</span>
+              </li>
+            </ul>
+            <a href="{% url 'admin:index' %}" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+              Admin Sign In
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- How It Works -->
+    </div>
+  </section>
+</div>
+</element><element id="1160350c-1ba0-4264-8d38-57a7927d2109" data-section-id="1160350c-1ba0-4264-8d38-57a7927d2109">
+
+<div id="root">
+  <section id="how-it-works" class="px-6 mx-auto lg:px-12 bg-gray-100 dark:bg-neutral-800">
+    <div class="container mx-auto px-4 py-16">
+      <!-- Demo Preview -->
+      <div class="bg-white dark:bg-neutral-700 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-8 md:p-10">
+          <div class="flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+              <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">See MedIntel in Action</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-6">
+                Experience how our AI health prediction system works through this interactive demonstration.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-800 dark:text-gray-100">Privacy Protected</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">All demo data is anonymized and secure</p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-800 dark:text-gray-100">Real-time Analysis</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">See results generated in seconds</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8">
+                <a href="#demo" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300">
+                  Try Our AI Tool
+                </a>
+              </div>
+            </div>
+            
+            <div class="md:w-1/2 bg-gray-50 dark:bg-neutral-800 p-6 rounded-xl">
+              <div class="relative">
+                <div class="absolute -top-3 -right-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+                  Demo
+                </div>
+                <div class="mb-4 pb-4 border-b border-gray-200 dark:border-gray-600">
+                  <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-1">Symptom Analysis</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-300">AI processing selected symptoms...</p>
+                </div>
+                
+                <div class="space-y-4">
+                  <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                      <span class="text-sm text-gray-600 dark:text-gray-300">Data processing</span>
+                      <span class="text-sm font-medium text-gray-800 dark:text-gray-100">100%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                      <div class="bg-blue-600 h-2 rounded-full w-full"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                      <span class="text-sm text-gray-600 dark:text-gray-300">AI prediction model</span>
+                      <span class="text-sm font-medium text-gray-800 dark:text-gray-100">87%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                      <div class="bg-blue-600 h-2 rounded-full w-[87%]"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                      <span class="text-sm text-gray-600 dark:text-gray-300">Report generation</span>
+                      <span class="text-sm font-medium text-gray-800 dark:text-gray-100">65%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                      <div class="bg-blue-600 h-2 rounded-full w-[65%]"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
+                  <div class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <h5 class="text-sm font-medium text-gray-800 dark:text-gray-100 mb-1">Preliminary Result</h5>
+                      <p class="text-xs text-gray-600 dark:text-gray-300">Based on the symptoms provided, our AI suggests consulting with a cardiologist. Prediction confidence: 83%</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                  <span class="inline-block text-xs text-gray-500 dark:text-gray-400">This is a simulation for demonstration purposes only</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</element><element id="c2cf8d01-147f-48a7-a0be-51018313eb3e" data-section-id="c2cf8d01-147f-48a7-a0be-51018313eb3e">
+
+<div id="root">
+  <section id="doctors" class="px-6 mx-auto lg:px-12 py-20 bg-white dark:bg-neutral-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">Our Medical Specialists</h2>
+        <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+        <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          MedIntel partners with verified healthcare professionals to provide expert consultation based on AI predictions.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Doctor 1 -->
+        <div class="bg-gray-50 dark:bg-neutral-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+          <div class="h-2 bg-blue-600"></div>
+          <div class="p-6">
+            <div class="flex items-center justify-center mb-6">
+              <div class="w-24 h-24 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center overflow-hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="text-center">
+              <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-1">Dr. Sarah Johnson</h3>
+              <p class="text-blue-600 dark:text-blue-400 font-medium mb-3">Cardiologist</p>
+              <div class="flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-5">
+                Specializing in cardiovascular health with over 12 years of experience in preventive cardiac care.
+              </p>
+              <div class="flex flex-wrap gap-2 justify-center mb-6">
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full">Heart Disease</span>
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full">Hypertension</span>
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full">Cardiac Rehab</span>
+              </div>
+              {% comment %} <a href="#book-appointment" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+                Book Consultation
+              </a> {% endcomment %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Doctor 2 -->
+        <div class="bg-gray-50 dark:bg-neutral-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+          <div class="h-2 bg-blue-600"></div>
+          <div class="p-6">
+            <div class="flex items-center justify-center mb-6">
+              <div class="w-24 h-24 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center overflow-hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="text-center">
+              <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-1">Dr. Robert Chen</h3>
+              <p class="text-blue-600 dark:text-blue-400 font-medium mb-3">Neurologist</p>
+              <div class="flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 dark:text-gray-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-5">
+                Expert in neurological disorders with a focus on early detection and treatment of cognitive conditions.
+              </p>
+              <div class="flex flex-wrap gap-2 justify-center mb-6">
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full">Alzheimer's</span>
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full">Dementia</span>
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full">Stroke</span>
+              </div>
+              {% comment %} <a href="#book-appointment" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+                Book Consultation
+              </a> {% endcomment %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Doctor 3 -->
+        <div class="bg-gray-50 dark:bg-neutral-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+          <div class="h-2 bg-blue-600"></div>
+          <div class="p-6">
+            <div class="flex items-center justify-center mb-6">
+              <div class="w-24 h-24 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center overflow-hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="text-center">
+              <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-1">Dr. Maria Patel</h3>
+              <p class="text-blue-600 dark:text-blue-400 font-medium mb-3">Endocrinologist</p>
+              <div class="flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-5">
+                Specialized in metabolic disorders and diabetes management with a holistic approach to treatment.
+              </p>
+              <div class="flex flex-wrap gap-2 justify-center mb-6">
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full">Diabetes</span>
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full">Thyroid</span>
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full">Metabolism</span>
+              </div>
+              {% comment %} <a href="#book-appointment" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+                Book Consultation
+              </a> {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doctor Registration Call-to-Action -->
+      <div class="mt-16 bg-blue-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-8 md:p-10">
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-2/3 mb-8 md:mb-0 md:pr-8">
+              <h3 class="text-2xl font-bold text-white mb-4">Are You a Healthcare Professional?</h3>
+              <p class="text-blue-100 mb-6">
+                Join our network of verified medical specialists and connect with patients who need your expertise. MedIntel's AI technology helps match you with patients based on your specialization.
+              </p>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-200 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-blue-100">Expand your practice with telehealth consultations</span>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-200 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-blue-100">Access AI-analyzed patient data for informed decisions</span>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-200 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-blue-100">Flexible scheduling to fit your availability</span>
+                </li>
+              </ul>
+              <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#register-doctor" class="bg-white text-blue-600 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg transition duration-300 text-center shadow-lg">
+                  Register as Doctor
+                </a>
+                <a href="#doctor-info" class="bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 text-center">
+                  Learn More
+                </a>
+              </div>
+            </div>
+            <div class="md:w-1/3">
+              <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                <div class="text-center mb-4">
+                  <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  </div>
+                  <h4 class="text-lg font-semibold text-white mt-4">Doctor Registration</h4>
+                </div>
+                <div class="space-y-4">
+                  <div class="space-y-1">
+                    <div class="flex justify-between items-center">
+                      <span class="text-sm text-blue-100">Medical License Verification</span>
+                      <span class="text-sm font-medium text-blue-100">Required</span>
+                    </div>
+                    <div class="w-full bg-white/10 rounded-full h-1.5">
+                      <div class="bg-blue-300 h-1.5 rounded-full w-full"></div>
+                    </div>
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex justify-between items-center">
+                      <span class="text-sm text-blue-100">Admin Approval</span>
+                      <span class="text-sm font-medium text-blue-100">Required</span>
+                    </div>
+                    <div class="w-full bg-white/10 rounded-full h-1.5">
+                      <div class="bg-blue-300 h-1.5 rounded-full w-full"></div>
+                    </div>
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex justify-between items-center">
+                      <span class="text-sm text-blue-100">Profile Completion</span>
+                      <span class="text-sm font-medium text-blue-100">Required</span>
+                    </div>
+                    <div class="w-full bg-white/10 rounded-full h-1.5">
+                      <div class="bg-blue-300 h-1.5 rounded-full w-full"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-6 text-center">
+                  <span class="text-xs text-blue-200">Average approval time: 24-48 hours</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>    
+    </div>
+  </section>
+</div>
+</element><element id="4b9a9c71-51d9-42b5-94be-f94edd257717" data-section-id="4b9a9c71-51d9-42b5-94be-f94edd257717">
+
+<div id="root">
+  <section id="user-reviews" class="px-6 mx-auto lg:px-12 py-20 bg-gray-100 dark:bg-neutral-800">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">User Experiences</h2>
+        <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+        <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Hear what our users have to say about their experience with MedIntel's AI-powered health prediction system.
+        </p>
+      </div>
+
+      <!-- Testimonials Slider -->
+      <div class="relative max-w-5xl mx-auto">
+        <!-- Testimonials Container -->
+        <div id="testimonials-container" class="overflow-hidden">
+          <div id="testimonials-track" class="flex transition-transform duration-500 ease-in-out">
+            <!-- Testimonial 1 -->
+            <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+              <div class="bg-white dark:bg-neutral-700 rounded-xl shadow-lg p-8 h-full">
+                <div class="flex items-center mb-6">
+                  <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-bold text-gray-800 dark:text-gray-100">Michael R.</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Patient</p>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <p class="text-gray-600 dark:text-gray-300 italic">
+                    "MedIntel's AI accurately identified my risk for hypertension before I even had symptoms. I was able to consult with a cardiologist immediately and start preventive measures. This system likely saved me from a serious health event."
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-gray-200 dark:border-gray-600">
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Used MedIntel for: <span class="font-medium text-gray-700 dark:text-gray-300">Cardiovascular Assessment</span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+              <div class="bg-white dark:bg-neutral-700 rounded-xl shadow-lg p-8 h-full">
+                <div class="flex items-center mb-6">
+                  <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-bold text-gray-800 dark:text-gray-100">Jennifer L.</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Patient</p>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <p class="text-gray-600 dark:text-gray-300 italic">
+                    "The interface is intuitive and easy to use. I uploaded my previous medical records and the system provided an in-depth analysis of potential health risks. Being able to connect with a specialist directly through the platform was incredibly convenient."
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-gray-200 dark:border-gray-600">
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Used MedIntel for: <span class="font-medium text-gray-700 dark:text-gray-300">General Health Assessment</span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+              <div class="bg-white dark:bg-neutral-700 rounded-xl shadow-lg p-8 h-full">
+                <div class="flex items-center mb-6">
+                  <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-bold text-gray-800 dark:text-gray-100">Dr. David K.</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Registered Doctor</p>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <p class="text-gray-600 dark:text-gray-300 italic">
+                    "As a physician, I'm impressed with the accuracy of MedIntel's AI predictions. The system provides me with comprehensive patient data and risk assessments that help inform my diagnoses. The verification process was thorough, ensuring only qualified providers can access the platform."
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-gray-200 dark:border-gray-600">
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Using MedIntel as: <span class="font-medium text-gray-700 dark:text-gray-300">Consulting Physician</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button id="prev-testimonial" class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-5 w-10 h-10 bg-white dark:bg-neutral-600 rounded-full shadow-lg flex items-center justify-center focus:outline-none hover:bg-gray-100 dark:hover:bg-neutral-500 transition duration-300 z-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button id="next-testimonial" class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-5 w-10 h-10 bg-white dark:bg-neutral-600 rounded-full shadow-lg flex items-center justify-center focus:outline-none hover:bg-gray-100 dark:hover:bg-neutral-500 transition duration-300 z-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+      </div>
+
+      <!-- Call to Action -->
+      <div class="mt-16 text-center">
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6">Ready to Take Control of Your Health?</h3>
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+          <a href="#register" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 shadow-lg">
+            Register Now
+          </a>
+          <a href="#contact" class="inline-block bg-gray-200 dark:bg-neutral-700 hover:bg-gray-300 dark:hover:bg-neutral-600 text-gray-800 dark:text-gray-200 font-semibold py-3 px-8 rounded-lg transition duration-300">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</element><element id="828aced0-95ab-4d3e-bf54-b101a45ff86b" data-section-id="828aced0-95ab-4d3e-bf54-b101a45ff86b">
+
+<div id="root">
+  <section id="faq" class="px-6 mx-auto lg:px-12 py-20 bg-white dark:bg-neutral-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">Frequently Asked Questions</h2>
+        <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+        <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Find answers to common questions about MedIntel's AI health prediction system and how it can help you manage your health.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <!-- FAQ Item 1 -->
+        <div class="mb-6">
+          <button class="faq-toggle flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 dark:bg-neutral-800 hover:bg-gray-100 dark:hover:bg-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300" aria-expanded="false">
+            <span class="text-lg font-semibold text-gray-800 dark:text-gray-100">How does MedIntel's AI prediction system work?</span>
+            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content hidden overflow-hidden transition-all duration-300 max-h-0">
+            <div class="px-6 py-4 bg-white dark:bg-neutral-800 rounded-b-lg border-t border-gray-200 dark:border-gray-700">
+              <p class="text-gray-600 dark:text-gray-300">
+                MedIntel uses advanced machine learning algorithms trained on vast datasets of medical information. When you input your symptoms and medical history, our AI analyzes this data against patterns of various diseases and conditions. It then calculates probability percentages for potential health concerns, generates a detailed report, and suggests appropriate medical specialists for consultation if needed.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="mb-6">
+          <button class="faq-toggle flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 dark:bg-neutral-800 hover:bg-gray-100 dark:hover:bg-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300" aria-expanded="false">
+            <span class="text-lg font-semibold text-gray-800 dark:text-gray-100">How accurate are the health predictions?</span>
+            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content hidden overflow-hidden transition-all duration-300 max-h-0">
+            <div class="px-6 py-4 bg-white dark:bg-neutral-800 rounded-b-lg border-t border-gray-200 dark:border-gray-700">
+              <p class="text-gray-600 dark:text-gray-300">
+                MedIntel's AI system has achieved an average accuracy rate of 95% across major health conditions. However, it's important to understand that our system is designed to be a supportive tool for healthcare professionals, not a replacement. All predictions should be discussed with a qualified doctor, which is why we integrate direct consultation features with verified physicians on our platform.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="mb-6">
+          <button class="faq-toggle flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 dark:bg-neutral-800 hover:bg-gray-100 dark:hover:bg-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300" aria-expanded="false">
+            <span class="text-lg font-semibold text-gray-800 dark:text-gray-100">Is my medical data secure on MedIntel?</span>
+            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content hidden overflow-hidden transition-all duration-300 max-h-0">
+            <div class="px-6 py-4 bg-white dark:bg-neutral-800 rounded-b-lg border-t border-gray-200 dark:border-gray-700">
+              <p class="text-gray-600 dark:text-gray-300">
+                Yes, we take data security extremely seriously. MedIntel employs end-to-end encryption for all data transmission and storage. We're fully HIPAA compliant and adhere to the highest standards of medical data protection. Your personal and medical information is never shared with third parties without your explicit consent, and we implement strict access controls even within our system.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="mb-6">
+          <button class="faq-toggle flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 dark:bg-neutral-800 hover:bg-gray-100 dark:hover:bg-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300" aria-expanded="false">
+            <span class="text-lg font-semibold text-gray-800 dark:text-gray-100">How does the doctor verification process work?</span>
+            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content hidden overflow-hidden transition-all duration-300 max-h-0">
+            <div class="px-6 py-4 bg-white dark:bg-neutral-800 rounded-b-lg border-t border-gray-200 dark:border-gray-700">
+              <p class="text-gray-600 dark:text-gray-300">
+                Doctors who register on MedIntel undergo a rigorous verification process. When physicians sign up, they must provide their medical license information, professional credentials, and practice details. Our admin team manually verifies these credentials against official medical registries and databases. Only after successful verification are doctors approved to consult with patients through our platform. This ensures that all medical professionals on MedIntel are qualified and legitimate practitioners.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="mb-6">
+          <button class="faq-toggle flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 dark:bg-neutral-800 hover:bg-gray-100 dark:hover:bg-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300" aria-expanded="false">
+            <span class="text-lg font-semibold text-gray-800 dark:text-gray-100">What types of health conditions can MedIntel predict?</span>
+            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content hidden overflow-hidden transition-all duration-300 max-h-0">
+            <div class="px-6 py-4 bg-white dark:bg-neutral-800 rounded-b-lg border-t border-gray-200 dark:border-gray-700">
+              <p class="text-gray-600 dark:text-gray-300">
+                MedIntel can analyze and predict risk factors for a wide range of health conditions across various medical specialties. This includes cardiovascular diseases, respiratory conditions, metabolic disorders like diabetes, neurological issues, and common infectious diseases. Our system is continually expanding its knowledge base and improving prediction accuracy through machine learning. However, it's important to note that while we cover many conditions, we always recommend professional medical consultation for definitive diagnoses.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="mb-6">
+          <button class="faq-toggle flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 dark:bg-neutral-800 hover:bg-gray-100 dark:hover:bg-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300" aria-expanded="false">
+            <span class="text-lg font-semibold text-gray-800 dark:text-gray-100">What's the difference between patient and doctor accounts?</span>
+            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content hidden overflow-hidden transition-all duration-300 max-h-0">
+            <div class="px-6 py-4 bg-white dark:bg-neutral-800 rounded-b-lg border-t border-gray-200 dark:border-gray-700">
+              <p class="text-gray-600 dark:text-gray-300">
+                Patient accounts allow users to input symptoms, receive AI health predictions, view detailed reports, and connect with doctors for consultations. Doctor accounts enable verified medical professionals to review patient data and AI predictions, provide professional consultations, and offer medical guidance. Doctors can also manage their professional profile, which is visible to patients seeking specialists. Admin accounts are reserved for system management, including doctor verification, user data oversight, and platform maintenance.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 7 -->
+        <div class="mb-6">
+          <button class="faq-toggle flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 dark:bg-neutral-800 hover:bg-gray-100 dark:hover:bg-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300" aria-expanded="false">
+            <span class="text-lg font-semibold text-gray-800 dark:text-gray-100">How do I consult with a doctor after getting my prediction results?</span>
+            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content hidden overflow-hidden transition-all duration-300 max-h-0">
+            <div class="px-6 py-4 bg-white dark:bg-neutral-800 rounded-b-lg border-t border-gray-200 dark:border-gray-700">
+              <p class="text-gray-600 dark:text-gray-300">
+                After receiving your AI prediction report, you'll see a "Consult a Doctor" option. The system will recommend specialists based on your health prediction results. You can browse doctor profiles, check their specialties and availability, and request a consultation. Once a doctor accepts your request, you can communicate through our secure messaging system, share your AI prediction results, and receive professional medical advice. All consultations are conducted with strict privacy protections in place.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 8 -->
+        <div class="mb-6">
+          <button class="faq-toggle flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 dark:bg-neutral-800 hover:bg-gray-100 dark:hover:bg-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300" aria-expanded="false">
+            <span class="text-lg font-semibold text-gray-800 dark:text-gray-100">Does MedIntel replace traditional medical care?</span>
+            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content hidden overflow-hidden transition-all duration-300 max-h-0">
+            <div class="px-6 py-4 bg-white dark:bg-neutral-800 rounded-b-lg border-t border-gray-200 dark:border-gray-700">
+              <p class="text-gray-600 dark:text-gray-300">
+                No, MedIntel is designed to complement traditional healthcare, not replace it. Our AI system serves as an initial screening tool that can help identify potential health concerns early and connect you with appropriate medical specialists. We emphasize that our predictions should always be reviewed by qualified healthcare professionals, which is why we integrate direct doctor consultation in our platform. MedIntel helps make healthcare more accessible and efficient but works alongside conventional medical care.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Help Section -->
+      <div class="mt-16 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-8 max-w-4xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6 md:mb-0 md:mr-6 flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">Still have questions?</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              If you couldn't find the answer to your question, our support team is here to help.
+            </p>
+            <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
+              <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+                Contact Support
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</element><element id="52d081c9-0ab8-470d-b01b-2b0561c97cf7" data-section-id="52d081c9-0ab8-470d-b01b-2b0561c97cf7">
+</div>
+</element><element id="2dcb2de9-97b9-4040-b138-99e1ce0824f4" data-section-id="2dcb2de9-97b9-4040-b138-99e1ce0824f4">
+
+<div id="root">
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 opacity-0 invisible">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+</div>
+      <!-- {bodyScripts} -->
+      <script src="{% static "homepage/js/base.js" %}"></script>
+</body>
+{% endblock %}

@@ -1,64 +1,156 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedIntel || {% block title %}{% endblock title %}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static "homepage/css/css.css" %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="description" content="MedIntel uses advanced AI to predict health conditions with accuracy. Connect with verified doctors, receive personalized health reports, and manage your healthcare journey efficiently.">
+    <meta name="theme-color" content="#ffffff">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="">
+    <meta name="description" content="MedIntel uses advanced AI to predict health conditions with accuracy. Connect with verified doctors, receive personalized health reports, and manage your healthcare journey efficiently.">
+    {% block title %}
+    <title>MedIntel - AI-Powered Health Prediction System for Patients and Doctors</title>
+    {% endblock title %}
+    {% comment %} <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}"> {% endcomment %}
+    {% comment %} <link rel="stylesheet" href="{% static "homepage/css/css.css" %}"> {% endcomment %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <!-- Performance optimization: Preload critical resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      
+      <!-- Header Scripts -->
+      <script id="header-scripts">
+        // This script tag will be replaced with actual scripts.head content
+        if (window.scripts && window.scripts.head) {
+          document.getElementById('header-scripts').outerHTML = window.scripts.head;
+        }
+      </script>
+
+      {% comment %} <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (window.location.hash) {
+                const element = document.querySelector(window.location.hash);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+        });
+      </script> {% endcomment %}
+
+      <!-- Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+      <!-- Font stylesheet -->
+
+      <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+    
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+      <meta name="robots" content="">
+      <meta name="google-site-verification" content="">
+      <meta name="baidu-verification" content="">
+      <meta name="yandex-verification" content="">
+      <meta name="bing-verification" content="">
+      <meta property="og:title" content="">
+      <meta property="og:description" content="">
+      <meta property="og:image" content="">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="MedIntel AI Health Prediction System">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="">
+      <meta name="twitter:description" content="">
+      <meta name="twitter:image" content="">
+    
+      
+      <!-- Font Links -->
+     
+      <link rel="icon" type="image/x-icon" href="">
+
+      <style>
+        h1, h2, h3, h4, h5, h6 {
+          font-family: Roboto, sans-serif, Inter, system-ui, sans-serif;
+        }
+        body {
+          font-family: Open Sans, sans-serif, Inter, system-ui, sans-serif;
+          scroll-behavior: smooth;
+        }
+        html {
+          scroll-behavior: smooth;
+      }
+      </style>
 
     <!-- Extra Header Content -->
     {% block extrahead %}{% endblock extrahead %}
 </head>
 <body>
     <!-- NavBar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><h2>MedIntel</h2></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                    </li>
-
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          if (window.location.hash) {
+              const element = document.querySelector(window.location.hash);
+              if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+              }
+          }
+      });
+  </script>
+    <header id="header" class="bg-white dark:bg-neutral-900 shadow-md sticky top-0 z-50">
+        <nav class="mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#hero" class="text-2xl font-bold text-blue-700 dark:text-blue-400">
+                        MedIntel
+                    </a>
+                </div>
+    
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-5">
+                    <a href="{% url 'home' %}#hero" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Home</a>
+                    <a href="{% url 'home' %}#about" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">About Us</a>
+                    <a href="{% url 'home' %}#services" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Services</a>
+                    <a href="{% url 'home' %}#user-reviews" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Reviews</a>
+                    <a href="{% url 'home' %}#contact" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Contact</a>
+                </div>
+    
+                <!-- Authentication & Dropdowns -->
+                <div class="hidden md:flex items-center space-x-3">
                     {% if user.is_authenticated %}
                         {% if user.patient %}
-                            <li class="nav-item">
-                                <a class="nav-link text-success font-weight-bold" style="font-size:20px;">Hello, {{user.patient.name}}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-hover" style="font-size:20px;" href="#">Profile</a>
-                            </li>
+                            <span class="text-green-600 font-medium">Hello, {{ user.patient.name }}</span>
+                            <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Profile</a>
                         {% endif %}
-                        
                         {% if user.doctor %}
-                            <li class="nav-item">
-                                <a class="nav-link text-warning font-weight-bold" style="font-size:20px;">Hello, Dr. {{user.doctor.name}}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-hover" style="font-size:20px;" href="#">Profile</a>
-                            </li>
+                            <span class="text-yellow-500 font-medium">Hello, Dr. {{ user.doctor.name }}</span>
+                            <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Profile</a>
                         {% endif %}
-        
                         {% if user.is_superuser %}
-                            <li class="nav-item">
-                                <a class="nav-link text-danger font-weight-bold" style="font-size:20px;">Admin: {{user.username}}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-hover" style="font-size:20px;" href="#" style="color:white;font-size:20px;">Profile</a>
-                            </li>
+                            <span class="text-red-600 font-medium">Admin: {{ user.username }}</span>
+                            <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Profile</a>
                         {% endif %}
-        
-                        <li class="nav-item">
-                            <button class="btn btn-outline-light ml-3 logout-btn" style="font-size:20px;" data-toggle="modal" data-target="#logout-modal">Log out</button>
-                        </li>
-
+    
+                        <!-- Logout Button -->
+                        <button class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300" data-toggle="modal" data-target="#logout-modal">Log out</button>
+                        
                         <!-- Logout Modal -->
                         <div class="modal fade" id="logout-modal" tabindex="-1" role="dialog">
                             <div class="modal-dialog modal-sm">
@@ -67,8 +159,8 @@
                                         <h4 class="modal-title">Logout <i class="fa fa-lock"></i></h4>
                                     </div>
                                     <div class="modal-body">
-                                        <i class="fa fa-question-circle"></i> 
-                                        <span class="text-success">{{user.patient.name}}</span>, Are you sure you want to log out?
+                                        <i class="fa fa-question-circle"></i>
+                                        <span class="text-success">{{ user.patient.name }}</span>, Are you sure you want to log out?
                                     </div>
                                     <div class="modal-footer">
                                         <a href="{% url 'logout' %}" class="btn btn-danger btn-block">Logout</a>
@@ -77,98 +169,302 @@
                             </div>
                         </div>
                     {% else %}
-                        {% comment %}
-                        <!-- Dropdowns -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button">
-                            Sign Up
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Patient</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Doctor</a></li>
+                
+
+                      <!-- Sign In Dropdown -->
+                      <div class="relative inline-block text-left">
+                        <button
+                          data-dropdown-toggle="dropdownHover" 
+                          data-dropdown-trigger="hover"
+                          class="dropclass text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
+                          type="button">
+                          Sign In
+                          <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                          </svg>
+                    </button>
+                    
+                        <!-- Dropdown menu -->
+                        <div class="dropclasshover hidden absolute top-full right-0 w-44 mt-1 bg-white divide-y divide-gray-100 rounded-lg shadow-lg dark:bg-gray-700">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+                                <li><a href="{% url 'admin:index' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Admin</a></li>
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Patient</a></li>
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Doctor</a></li>
                             </ul>
+                        </div>
+                    </div>
+
+
+                    <!-- Register -->
+                    
+                    <!-- Register Button -->
+                    <div class="relative inline-block text-left">
+                    <button
+                          data-dropdown-toggle="dropdownHover" 
+                          data-dropdown-trigger="hover"
+                          class="dropclass text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
+                          type="button">
+                          Register
+                          <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                          </svg>
+                    </button>
+
+                    <!-- Dropdown menu -->
+                    <div class="dropclasshover hidden absolute top-full right-0 w-44 mt-1 bg-white divide-y divide-gray-100 rounded-lg shadow-lg dark:bg-gray-700">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                        <li>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Patient</a>
                         </li>
-                        {% endcomment %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button">
-                            Sign In
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Patient</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Doctor</a></li>
-                            </ul>
+                        <li>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Doctor</a>
                         </li>
+                        </ul>
+                        </div>
+                  </div>
                     {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">About Us</a>
-                    </li>
-                </ul>
+                </div>
+    
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none" id="mobile-menu-button" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </div>
-    </nav>
+    
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="{% url 'home' %}" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Home</a>
+                    <a href="{% url 'home' %}#about" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">About Us</a>
+                    <a href="{% url 'home' %}#services" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Services</a>
+                    <a href="{% url 'home' %}#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Reviews</a>
+                    <a href="{% url 'home' %}#contact" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Contact</a>
+    
+                    {% if user.is_authenticated %}
+                        <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Profile</a>
+                        <button class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300" data-toggle="modal" data-target="#logout-modal">Log out</button>
+                    {% else %}
+                        <!-- Sign In Dropdown -->
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" 
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
+                               font-medium rounded-lg text-sm px-4 py-2 w-fit flex items-center dark:bg-blue-600 
+                               dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Sign In
+                          <svg class="w-2.5 h-2.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                          </svg>
+                        </button>
+                          
+                          <!-- Dropdown menu -->
+                      <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                              <li>
+                                <a href="{% url 'admin:index' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Admin</a>
+                              </li>
+                              <li>
+                                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Patient</a>
+                              </li>
+                              <li>
+                                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Doctor</a>
+                              </li>
+                            </ul>
+                        </div>
+
+
+                    <!-- Register Dropdown -->
+                    
+                    
+                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" 
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
+                           font-medium rounded-lg text-sm px-4 py-2 w-fit flex items-center dark:bg-blue-600 
+                           dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Register
+                    <svg class="w-2.5 h-2.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                </button>
+                      
+                      <!-- Dropdown menu -->
+                      <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
+                          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                            <li>
+                              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Patient</a>
+                            </li>
+                            <li>
+                              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Doctor</a>
+                            </li>
+                          </ul>
+                      </div>
+  
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+
 
     <!-- Page Content -->
     <div class="container-fluid pgcontent">
         {% block content %}{% endblock content %}
     </div>
 
-    <!-- Footer -->
-    <div id="footer" class="card bg-dark text-white mt-5 pt-2 pb-2">
-        <div class="card-body">
-            <div class="row justify-content-center">
-                <!-- Left Side: Contact Info -->
-                <div class="col-md-4 px-0 mx-0">
-                    <h4 class="footer-heading">Contact Information</h4>
-                    <ul class="footer-list">
-                        <li><strong>Email:</strong> <a href="mailto:medintel@gmail.com" class="footer-link">medintel@gmail.com</a></li>
-                        <li><strong>Contact No:</strong> <a href="tel:+918328921788" class="footer-link">+91 8328921788</a></li>
-                        <li><strong>Address:</strong> Silicon University, Bhubaneswar, Odisha, India</li>
-                    </ul>
-        
-                    <h4 class="footer-heading">Quick Links</h4>
-                    <ul class="footer-list">
-                        <li><a href="#" class="footer-link">About Us</a></li>
-                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
-                        <li><a href="#" class="footer-link">Terms &amp; Conditions</a></li>
-                    </ul>
-        
-                    <h4 class="footer-heading">Follow Us</h4>
-                    <div class="footer-icons">
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                    </div>
-        
-                    <div class="footer-copyright mt-3">
-                        &copy; 2025 <a href="#" class="text-white footer-link">MedIntel.com</a> | All Rights Reserved
-                    </div>
-                </div>
-        
-                <!-- Right Side: Embedded Google Map -->
-                <div class="col-md-6 px-0 mx-0">
-                    <h4 class="footer-heading">Find Us</h4>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.211569649361!2d85.80376107469674!3d20.350682310723464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1908e064769e73%3A0x9288172f3a98c7a4!2sSilicon%20University!5e1!3m2!1sen!2sin!4v1741313964295!5m2!1sen!2sin" 
-                        width="100%" 
-                        height="300" 
-                        style="border:0; border-radius: 10px; box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
+    <div id="root">
+    <footer id="contact" class="px-6 mx-auto lg:px-12 bg-gray-800 dark:bg-neutral-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+          <!-- Footer Main Content -->
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">Contact Us</h2>
+            <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+            <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Have questions about MedIntel? We're here to help. Reach out to our team for assistance with our platform or partnership inquiries.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <!-- Company Info -->
+            <div>
+              <h3 class="text-xl font-bold mb-4 text-white">MedIntel</h3>
+              <p class="text-gray-300 dark:text-gray-400 mb-4">
+                Advanced AI-powered health prediction system providing accurate disease risk assessment and connecting patients with qualified healthcare professionals.
+              </p>
+              <div class="flex space-x-4">
+                <a href="#" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                  <span class="sr-only">Facebook</span>
+                  <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+                  </svg>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                  <span class="sr-only">Twitter</span>
+                  <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                  </svg>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                  <span class="sr-only">LinkedIn</span>
+                  <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path>
+                  </svg>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                  <span class="sr-only">Instagram</span>
+                  <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
+                  </svg>
+                </a>
+              </div>
             </div>
-        </div>
-    </div>
     
+            <!-- Quick Links -->
+            <div>
+              <h3 class="text-xl font-bold mb-4 text-white">Quick Links</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a href="#hero" class="text-gray-300 hover:text-blue-400 transition duration-300">Home</a>
+                </li>
+                <li>
+                  <a href="#about" class="text-gray-300 hover:text-blue-400 transition duration-300">About Us</a>
+                </li>
+                <li>
+                  <a href="#services" class="text-gray-300 hover:text-blue-400 transition duration-300">Services</a>
+                </li>
+                <li>
+                  <a href="#how-it-works" class="text-gray-300 hover:text-blue-400 transition duration-300">How It Works</a>
+                </li>
+                <li>
+                  <a href="#doctors" class="text-gray-300 hover:text-blue-400 transition duration-300">Doctors</a>
+                </li>
+                <li>
+                  <a href="#faq" class="text-gray-300 hover:text-blue-400 transition duration-300">FAQs</a>
+                </li>
+                <li>
+                  <a href="#contact" class="text-gray-300 hover:text-blue-400 transition duration-300">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+    
+            <!-- User Resources -->
+            <div>
+              <h3 class="text-xl font-bold mb-4 text-white">User Resources</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a href="#signin" class="text-gray-300 hover:text-blue-400 transition duration-300">Sign In</a>
+                </li>
+                <li>
+                  <a href="#register" class="text-gray-300 hover:text-blue-400 transition duration-300">Register as Patient</a>
+                </li>
+                <li>
+                  <a href="#register-doctor" class="text-gray-300 hover:text-blue-400 transition duration-300">Register as Doctor</a>
+                </li>
+                <li>
+                  <a href="#admin" class="text-gray-300 hover:text-blue-400 transition duration-300">Admin Portal</a>
+                </li>
+                <li>
+                  <a href="#help-center" class="text-gray-300 hover:text-blue-400 transition duration-300">Help Center</a>
+                </li>
+                <li>
+                  <a href="#blog" class="text-gray-300 hover:text-blue-400 transition duration-300">Health Blog</a>
+                </li>
+              </ul>
+            </div>
+    
+            <!-- Contact Info -->
+            <div>
+              <h3 class="text-xl font-bold mb-4 text-white">Contact Information</h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <span class="text-gray-300">Silicon University<br/>Bhubaneswar, 751024</span>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span class="text-gray-300">support@medintel.com</span>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span class="text-gray-300">+91 (8328921788) MED-INTL</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+    
+          <!-- Bottom Footer -->
+          <div class="border-t border-gray-700 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+              <div class="mb-4 md:mb-0">
+                <p class="text-gray-400 text-sm">
+                  &copy; 2023 MedIntel. All rights reserved.
+                </p>
+              </div>
+              <div class="flex space-x-6">
+                <a href="#privacy" class="text-gray-400 hover:text-blue-400 text-sm transition duration-300">Privacy Policy</a>
+                <a href="#terms" class="text-gray-400 hover:text-blue-400 text-sm transition duration-300">Terms of Service</a>
+                <a href="#cookies" class="text-gray-400 hover:text-blue-400 text-sm transition duration-300">Cookie Policy</a>
+                <a href="#sitemap" class="text-gray-400 hover:text-blue-400 text-sm transition duration-300">Sitemap</a>
+              </div>
+            </div>
+            <div class="mt-6 text-center text-gray-500 text-xs">
+              <p>MedIntel is a medical information platform designed to provide health predictions and connect patients with doctors. It is not a substitute for professional medical advice, diagnosis, or treatment.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static "homepage/js/base.js" %}"></script>
+    <script src="{% static "homepage/js/dropdown.js" %}"></script>
 
     {% block extrajs %}{% endblock extrajs %}
 </body>
