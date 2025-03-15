@@ -7,7 +7,7 @@ from django.views.decorators.cache import never_cache
 from main_app.models import Doctor
 
 # Create your views here.
-def logout(request):
+def log_out(request):
     request.session.pop("doctorusername", None)
     logout(request)
     return redirect('home')
@@ -21,15 +21,20 @@ def signup_doctor(request):
         username = request.POST['username']
         password = request.POST['password']
         email = request.POST['email']
-        name = request.POST['fname']
+        fname = request.POST['fname']
+        lname = request.POST['lname']
         gender = request.POST['gender']
-        prac_address = request.POST['prac_address']
         mobile_no = request.POST['mobile']
         medical_license_no = request.POST['medical_license_no']
+        registration_no = request.POST['registration_no']
+        year_of_registration = request.POST['year_of_registration']
         qualification = request.POST['qualification']
-        medical_uni = request.POST['medical_uni']
+        qualification_doc = request.POST['qualification_doc']
+        state_medical_council = request.POST['state_medical_council']
         specialization = request.POST['specialization']
-        other_specialization = request.POST.get("other_specialization")
+        other_specialization = request.POST['other_specialization']
+        aadhar_no = request.POST['aadhar_no']
+        aadhar_doc = request.POST['aadhar_doc']
 
         if specialization == "other":
             specialization = other_specialization
@@ -43,14 +48,22 @@ def signup_doctor(request):
             return redirect('signup_doctor')
 
         else:
-            user = User.objects.create_user(username=username, password=password, email=email)
-            user.status = 'Blocked'
+            user = User.objects.create_user(username=username, password=password, email=email, first_name=fname, last_name=lname)
             user.save()
 
             new_doctor = Doctor(
-                user=user, name=name, gender=gender, prac_address=prac_address, 
-                mobile_no=mobile_no, medical_license_no=medical_license_no, qualification=qualification,
-                medical_uni=medical_uni, specialization=specialization
+                user=user,
+                gender=gender,
+                mobile_no=mobile_no,
+                medical_license_no=medical_license_no,
+                registration_no=registration_no,
+                year_of_registration=year_of_registration,
+                qualification=qualification,
+                qualification_doc = qualification_doc,
+                state_medical_council=state_medical_council,
+                specialization=specialization,
+                aadhar_no=aadhar_no,
+                aadhar_doc=aadhar_doc
             )
             new_doctor.save()
 

@@ -1,13 +1,14 @@
 {% extends 'basic.html' %}
-{% block head %}
 {% load static %}
+
+{% block head %}
       <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
       <meta name="description" content="MedIntel uses advanced AI to predict health conditions with accuracy. Connect with verified doctors, receive personalized health reports, and manage your healthcare journey efficiently.">
       <meta name="theme-color" content="#ffffff">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="robots" content="">
-      <title>MedIntel - AI-Powered Health Prediction System for Patients and Doctors</title>
+      {% block title %} Homepage {% endblock title %}  
       <!-- SEO Description -->
       <meta name="description" content="MedIntel uses advanced AI to predict health conditions with accuracy. Connect with verified doctors, receive personalized health reports, and manage your healthcare journey efficiently.">
       <link rel="stylesheet" href="{% static "homepage/css/css.css" %}">

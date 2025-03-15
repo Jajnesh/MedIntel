@@ -131,3 +131,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Redirect admin to homepage on logging out of admin page
 LOGOUT_REDIRECT_URL = '/'
+
+# Media files (documents)
+# Base url to serve media files
+MEDIA_URL = '/media/'
+# Path where media is stored'
+MEDIA_ROOT = BASE_DIR / 'media'
