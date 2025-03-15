@@ -7,7 +7,7 @@ from django.views.decorators.cache import never_cache
 from main_app.models import Doctor
 
 # Create your views here.
-def logout(request):
+def log_out(request):
     request.session.pop("doctorusername", None)
     logout(request)
     return redirect('home')

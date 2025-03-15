@@ -5,3 +5,7 @@ from django.shortcuts import render
 # Home view
 def home(request):
     return render(request,'homepage/index.html')
+
+# Our Doctors View
+def our_docts(request):
+    return render(request,'homepage/our_doctors.html')

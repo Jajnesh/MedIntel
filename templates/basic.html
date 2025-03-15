@@ -8,9 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="">
     <meta name="description" content="MedIntel uses advanced AI to predict health conditions with accuracy. Connect with verified doctors, receive personalized health reports, and manage your healthcare journey efficiently.">
-    {% block title %}
-    <title>MedIntel - AI-Powered Health Prediction System for Patients and Doctors</title>
-    {% endblock title %}
+    
+    <title>MedIntel || {% block title %}{% endblock title %}</title>
+    
     {% comment %} <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}"> {% endcomment %}
     {% comment %} <link rel="stylesheet" href="{% static "homepage/css/css.css" %}"> {% endcomment %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -112,6 +112,15 @@
               }
           }
       });
+      // Open Modal Function
+      function openModal() {
+        document.getElementById('logout-modal').classList.remove('hidden');
+      }
+
+      // Close Modal Function
+      function closeModal() {
+        document.getElementById('logout-modal').classList.add('hidden');
+      }
   </script>
     <header id="header" class="bg-white dark:bg-neutral-900 shadow-md sticky top-0 z-50">
         <nav class="mx-auto px-4 py-3">
@@ -126,6 +135,7 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-5">
                     <a href="{% url 'home' %}#hero" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Home</a>
+                    <a href="{% url 'our_docts' %}" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Our Doctors</a>
                     <a href="{% url 'home' %}#about" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">About Us</a>
                     <a href="{% url 'home' %}#services" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Services</a>
                     <a href="{% url 'home' %}#user-reviews" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Reviews</a>
@@ -136,38 +146,20 @@
                 <div class="hidden md:flex items-center space-x-3">
                     {% if user.is_authenticated %}
                         {% if user.patient %}
-                            <span class="text-green-600 font-medium">Hello, {{ user.patient.name }}</span>
+                            User: <span class="text-blue-700 dark:text-blue-400 font-medium"> {{ user.patient.name }}</span>
                             <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Profile</a>
                         {% endif %}
                         {% if user.doctor %}
-                            <span class="text-yellow-500 font-medium">Hello, Dr. {{ user.doctor.name }}</span>
+                            User: <span class="text-blue-700 dark:text-blue-400 font-medium"> Dr. {{ user.doctor.name }}</span>
                             <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Profile</a>
                         {% endif %}
                         {% if user.is_superuser %}
-                            <span class="text-red-600 font-medium">Admin: {{ user.username }}</span>
-                            <a href="#" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Profile</a>
+                            Superuser: <span class="text-blue-700 dark:text-blue-400 font-medium"> {{ user.username }}</span>
+                            <a href="{% url 'admin:index' %}" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition duration-300">Admin Site</a>
                         {% endif %}
     
                         <!-- Logout Button -->
-                        <button class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300" data-toggle="modal" data-target="#logout-modal">Log out</button>
-                        
-                        <!-- Logout Modal -->
-                        <div class="modal fade" id="logout-modal" tabindex="-1" role="dialog">
-                            <div class="modal-dialog modal-sm">
-                                <div class="modal-content">
-                                    <div class="modal-header bg-danger text-white">
-                                        <h4 class="modal-title">Logout <i class="fa fa-lock"></i></h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <i class="fa fa-question-circle"></i>
-                                        <span class="text-success">{{ user.patient.name }}</span>, Are you sure you want to log out?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a href="{% url 'logout' %}" class="btn btn-danger btn-block">Logout</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <button onclick="openModal()" class="bg-blue-600 text-white px-4 py-2 rounded">Log out</button>
                     {% else %}
                 
 
@@ -306,7 +298,24 @@
         </nav>
     </header>
 
+    <!-- Logout Modal -->
+    <div id="logout-modal" class="fixed inset-0 z-50 hidden bg-gray-800 bg-opacity-50 flex items-center justify-center">
+      <div class="bg-white rounded-lg w-1/3">
+        <div class="flex justify-between items-center p-4 border-b">
+          <h1 class="text-xl font-semibold">Logout</h1>
+          <button onclick="closeModal()" class="text-gray-600 hover:text-gray-800 focus:outline-none">&times;</button>
+        </div>
+        <div class="p-4">
+          <p>Are you sure you want to log out?</p>
+        </div>
+        <div class="flex justify-end p-4 border-t">
+          <button onclick="closeModal()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded mr-2">Close</button>
+          <a href="{% url 'logout' %}" class="bg-red-600 text-white px-4 py-2 rounded">Logout</a>
+        </div>
+      </div>
+    </div>
 
+    
     <!-- Page Content -->
     <div class="container-fluid pgcontent">
         {% block content %}{% endblock content %}
@@ -317,7 +326,7 @@
         <div class="container mx-auto px-4">
           <!-- Footer Main Content -->
           <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">Contact Us</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-white-800 dark:text-white-100 mb-4">Contact Us</h2>
             <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
             <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Have questions about MedIntel? We're here to help. Reach out to our team for assistance with our platform or partnership inquiries.
