@@ -6,490 +6,490 @@
 
 <!-- Header Content -->
 {% block extrahead %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="description" content="Search for doctors based on name, specialization, or locality. Find the right healthcare professional for your needs with our easy-to-use doctor search tool.">
-    <meta name="theme-color" content="#ffffff">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="Search for doctors based on name, specialization, or locality. Find the right healthcare professional for your needs with our easy-to-use doctor search tool.">
+<meta name="theme-color" content="#ffffff">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="">
 
-    <!-- SEO Description -->
-    <meta name="description" content="Search for doctors based on name, specialization, or locality. Find the right healthcare professional for your needs with our easy-to-use doctor search tool.">
+<!-- SEO Description -->
+<meta name="description" content="Search for doctors based on name, specialization, or locality. Find the right healthcare professional for your needs with our easy-to-use doctor search tool.">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <!-- Performance optimization: Preload critical resources -->
-    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<!-- Performance optimization: Preload critical resources -->
+<link rel="preload" href="https://cdn.tailwindcss.com" as="script">
 
-    <!-- Header Scripts -->
-    <script id="header-scripts">
-    // This script tag will be replaced with actual scripts.head content
-    if (window.scripts && window.scripts.head) {
-        document.getElementById('header-scripts').outerHTML = window.scripts.head;
-    }
-    </script>
+<!-- Header Scripts -->
+<script id="header-scripts">
+// This script tag will be replaced with actual scripts.head content
+if (window.scripts && window.scripts.head) {
+    document.getElementById('header-scripts').outerHTML = window.scripts.head;
+}
+</script>
 
-    <!-- Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<!-- Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 
-    <!-- Font stylesheet -->
+<!-- Font stylesheet -->
 
-    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
 
-    <!-- Core CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-    // render the settings object
-    //console.log('settings', [object Object]);
-    document.addEventListener('DOMContentLoaded', function() {
-    tailwind.config = {
-        theme: {
-        extend: {
-            colors: {
-            primary: {
-                DEFAULT: '#1E88E5',
-                50: '#f8f8f8',
-                100: '#e8e8e8', 
-                200: '#d3d3d3',
-                300: '#a3a3a3',
-                400: '#737373',
-                500: '#525252',
-                600: '#404040',
-                700: '#262626',
-                800: '#171717',
-                900: '#0a0a0a',
-                950: '#030303',
-            },
-            secondary: {
-                DEFAULT: '#F5F5F5',
-                50: '#f8f8f8',
-                100: '#e8e8e8',
-                200: '#d3d3d3', 
-                300: '#a3a3a3',
-                400: '#737373',
-                500: '#525252',
-                600: '#404040',
-                700: '#262626',
-                800: '#171717',
-                900: '#0a0a0a',
-                950: '#030303',
-            },
-            accent: {
-                DEFAULT: '',
-                50: '#f8f8f8',
-                100: '#e8e8e8',
-                200: '#d3d3d3',
-                300: '#a3a3a3', 
-                400: '#737373',
-                500: '#525252',
-                600: '#404040',
-                700: '#262626',
-                800: '#171717',
-                900: '#0a0a0a',
-                950: '#030303',
-            },
-            },
-            fontFamily: {
-            sans: ['Roboto, sans-serif', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
-            heading: ['Open Sans, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
-            body: ['Open Sans, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
-            },
-            spacing: {
-            '18': '4.5rem',
-            '22': '5.5rem',
-            '30': '7.5rem',
-            },
-            maxWidth: {
-            '8xl': '88rem',
-            '9xl': '96rem',
-            },
-            animation: {
-            'fade-in': 'fadeIn 0.5s ease-in',
-            'fade-out': 'fadeOut 0.5s ease-out',
-            'slide-up': 'slideUp 0.5s ease-out',
-            'slide-down': 'slideDown 0.5s ease-out',
-            'slide-left': 'slideLeft 0.5s ease-out',
-            'slide-right': 'slideRight 0.5s ease-out',
-            'scale-in': 'scaleIn 0.5s ease-out',
-            'scale-out': 'scaleOut 0.5s ease-out',
-            'spin-slow': 'spin 3s linear infinite',
-            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'bounce-slow': 'bounce 3s infinite',
-            'float': 'float 3s ease-in-out infinite',
-            },
-            keyframes: {
-            fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
-            },
-            fadeOut: {
-                '0%': { opacity: '1' },
-                '100%': { opacity: '0' },
-            },
-            slideUp: {
-                '0%': { transform: 'translateY(20px)', opacity: '0' },
-                '100%': { transform: 'translateY(0)', opacity: '1' },
-            },
-            slideDown: {
-                '0%': { transform: 'translateY(-20px)', opacity: '0' },
-                '100%': { transform: 'translateY(0)', opacity: '1' },
-            },
-            slideLeft: {
-                '0%': { transform: 'translateX(20px)', opacity: '0' },
-                '100%': { transform: 'translateX(0)', opacity: '1' },
-            },
-            slideRight: {
-                '0%': { transform: 'translateX(-20px)', opacity: '0' },
-                '100%': { transform: 'translateX(0)', opacity: '1' },
-            },
-            scaleIn: {
-                '0%': { transform: 'scale(0.9)', opacity: '0' },
-                '100%': { transform: 'scale(1)', opacity: '1' },
-            },
-            scaleOut: {
-                '0%': { transform: 'scale(1.1)', opacity: '0' },
-                '100%': { transform: 'scale(1)', opacity: '1' },
-            },
-            float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-            },
-            },
-            aspectRatio: {
-            'portrait': '3/4',
-            'landscape': '4/3',
-            'ultrawide': '21/9',
-            },
+<!-- Core CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+// render the settings object
+//console.log('settings', [object Object]);
+document.addEventListener('DOMContentLoaded', function() {
+tailwind.config = {
+    theme: {
+    extend: {
+        colors: {
+        primary: {
+            DEFAULT: '#1E88E5',
+            50: '#f8f8f8',
+            100: '#e8e8e8', 
+            200: '#d3d3d3',
+            300: '#a3a3a3',
+            400: '#737373',
+            500: '#525252',
+            600: '#404040',
+            700: '#262626',
+            800: '#171717',
+            900: '#0a0a0a',
+            950: '#030303',
+        },
+        secondary: {
+            DEFAULT: '#F5F5F5',
+            50: '#f8f8f8',
+            100: '#e8e8e8',
+            200: '#d3d3d3', 
+            300: '#a3a3a3',
+            400: '#737373',
+            500: '#525252',
+            600: '#404040',
+            700: '#262626',
+            800: '#171717',
+            900: '#0a0a0a',
+            950: '#030303',
+        },
+        accent: {
+            DEFAULT: '',
+            50: '#f8f8f8',
+            100: '#e8e8e8',
+            200: '#d3d3d3',
+            300: '#a3a3a3', 
+            400: '#737373',
+            500: '#525252',
+            600: '#404040',
+            700: '#262626',
+            800: '#171717',
+            900: '#0a0a0a',
+            950: '#030303',
         },
         },
-        variants: {
-        extend: {
-            opacity: ['disabled'],
-            cursor: ['disabled'],
-            backgroundColor: ['active', 'disabled'],
-            textColor: ['active', 'disabled'],
+        fontFamily: {
+        sans: ['Roboto, sans-serif', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        heading: ['Open Sans, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+        body: ['Open Sans, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+        },
+        spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+        '30': '7.5rem',
+        },
+        maxWidth: {
+        '8xl': '88rem',
+        '9xl': '96rem',
+        },
+        animation: {
+        'fade-in': 'fadeIn 0.5s ease-in',
+        'fade-out': 'fadeOut 0.5s ease-out',
+        'slide-up': 'slideUp 0.5s ease-out',
+        'slide-down': 'slideDown 0.5s ease-out',
+        'slide-left': 'slideLeft 0.5s ease-out',
+        'slide-right': 'slideRight 0.5s ease-out',
+        'scale-in': 'scaleIn 0.5s ease-out',
+        'scale-out': 'scaleOut 0.5s ease-out',
+        'spin-slow': 'spin 3s linear infinite',
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'bounce-slow': 'bounce 3s infinite',
+        'float': 'float 3s ease-in-out infinite',
+        },
+        keyframes: {
+        fadeIn: {
+            '0%': { opacity: '0' },
+            '100%': { opacity: '1' },
+        },
+        fadeOut: {
+            '0%': { opacity: '1' },
+            '100%': { opacity: '0' },
+        },
+        slideUp: {
+            '0%': { transform: 'translateY(20px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        slideDown: {
+            '0%': { transform: 'translateY(-20px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        slideLeft: {
+            '0%': { transform: 'translateX(20px)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        slideRight: {
+            '0%': { transform: 'translateX(-20px)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        scaleIn: {
+            '0%': { transform: 'scale(0.9)', opacity: '0' },
+            '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        scaleOut: {
+            '0%': { transform: 'scale(1.1)', opacity: '0' },
+            '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        float: {
+            '0%, 100%': { transform: 'translateY(0)' },
+            '50%': { transform: 'translateY(-10px)' },
         },
         },
-    }
-    });
-    </script>
+        aspectRatio: {
+        'portrait': '3/4',
+        'landscape': '4/3',
+        'ultrawide': '21/9',
+        },
+    },
+    },
+    variants: {
+    extend: {
+        opacity: ['disabled'],
+        cursor: ['disabled'],
+        backgroundColor: ['active', 'disabled'],
+        textColor: ['active', 'disabled'],
+    },
+    },
+}
+});
+</script>
 
-    <!-- Utilities and Components -->
-    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
-    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+<!-- Utilities and Components -->
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
 
-    <!-- Optimized Font Loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<!-- Optimized Font Loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-    <!-- Dynamic Meta Tags -->
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="robots" content="">
-    <meta name="google-site-verification" content="">
-    <meta name="baidu-verification" content="">
-    <meta name="yandex-verification" content="">
-    <meta name="bing-verification" content="">
-    <meta property="og:title" content="">
-    <meta property="og:description" content="">
-    <meta property="og:image" content="">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:site_name" content="Our Doctors">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="">
-    <meta name="twitter:description" content="">
-    <meta name="twitter:image" content="">
+<!-- Dynamic Meta Tags -->
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="robots" content="">
+<meta name="google-site-verification" content="">
+<meta name="baidu-verification" content="">
+<meta name="yandex-verification" content="">
+<meta name="bing-verification" content="">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Our Doctors">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="">
 
 
-    <!-- Font Links -->
-    <link rel="icon" type="image/x-icon" href="">
+<!-- Font Links -->
+<link rel="icon" type="image/x-icon" href="">
 
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="{% static "homepage/css/our_doc.css" %}">
+<!-- Custom styles -->
+<link rel="stylesheet" href="{% static "homepage/css/our_doc.css" %}">
 {% endblock extrahead %}
 
 <!-- Page Content -->
 {% block content %}
-    <div class="antialiased text-gray-800 min-h-screen flex flex-col">
-        <!-- Main content area -->
-        <main id="main-content" class="flex-1 relative h-full">
-            <div id="RolloutPageContent">
-                <div id="root">
-                    <section id="search" class="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-neutral-900">
-                        <div class="max-w-7xl mx-auto">
-                            <div class="text-center mb-10">
-                            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Doctors</h1>
-                            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Find the right specialist for your needs by searching for doctor name, specialization, or locality.</p>
+<div class="antialiased text-gray-800 min-h-screen flex flex-col">
+    <!-- Main content area -->
+    <main id="main-content" class="flex-1 relative h-full">
+        <div id="RolloutPageContent">
+            <div id="root">
+                <section id="search" class="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-neutral-900">
+                    <div class="max-w-7xl mx-auto">
+                        <div class="text-center mb-10">
+                        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Doctors</h1>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Find the right specialist for your needs by searching for doctor name, specialization, or locality.</p>
+                        </div>
+                        
+                        <div class="max-w-3xl mx-auto mb-8">
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                            </svg>
                             </div>
-                            
-                            <div class="max-w-3xl mx-auto mb-8">
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                            <input id="doctor-search" type="text" placeholder="Search by doctor name, specialization, or locality..." class="block w-full pl-10 pr-3 py-4 border border-gray-300 rounded-lg bg-white dark:bg-neutral-800 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 shadow-sm">
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mt-4 justify-center">
+                            <button type="button" class="py-2 px-4 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full text-sm font-medium hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">All</button>
+                            <button type="button" class="py-2 px-4 bg-gray-100 text-gray-800 dark:bg-neutral-800 dark:text-gray-200 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Cardiologists</button>
+                            <button type="button" class="py-2 px-4 bg-gray-100 text-gray-800 dark:bg-neutral-800 dark:text-gray-200 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Dermatologists</button>
+                            <button type="button" class="py-2 px-4 bg-gray-100 text-gray-800 dark:bg-neutral-800 dark:text-gray-200 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Neurologists</button>
+                            <button type="button" class="py-2 px-4 bg-gray-100 text-gray-800 dark:bg-neutral-800 dark:text-gray-200 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Pediatricians</button>
+                        </div>
+                        </div>
+                        
+                        <!-- Results Counter -->
+                        <div class="max-w-7xl mx-auto mb-6">
+                        <p class="text-sm text-gray-600 dark:text-gray-400" id="results-count">Showing all 10 doctors</p>
+                        </div>
+                        
+                        <!-- Doctors List Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto" id="doctors-list">
+                        <!-- Doctor Card 1 -->
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden mr-4">
+                                <svg class="h-8 w-8 text-blue-600 dark:text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                 </svg>
                                 </div>
-                                <input id="doctor-search" type="text" placeholder="Search by doctor name, specialization, or locality..." class="block w-full pl-10 pr-3 py-4 border border-gray-300 rounded-lg bg-white dark:bg-neutral-800 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 shadow-sm">
+                                <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. Sarah Johnson</h3>
+                                <p class="text-blue-600 dark:text-blue-400 font-medium">Cardiologist</p>
+                                </div>
                             </div>
-                            
-                            <div class="flex flex-wrap gap-2 mt-4 justify-center">
-                                <button type="button" class="py-2 px-4 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full text-sm font-medium hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">All</button>
-                                <button type="button" class="py-2 px-4 bg-gray-100 text-gray-800 dark:bg-neutral-800 dark:text-gray-200 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Cardiologists</button>
-                                <button type="button" class="py-2 px-4 bg-gray-100 text-gray-800 dark:bg-neutral-800 dark:text-gray-200 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Dermatologists</button>
-                                <button type="button" class="py-2 px-4 bg-gray-100 text-gray-800 dark:bg-neutral-800 dark:text-gray-200 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Neurologists</button>
-                                <button type="button" class="py-2 px-4 bg-gray-100 text-gray-800 dark:bg-neutral-800 dark:text-gray-200 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors">Pediatricians</button>
-                            </div>
-                            </div>
-                            
-                            <!-- Results Counter -->
-                            <div class="max-w-7xl mx-auto mb-6">
-                            <p class="text-sm text-gray-600 dark:text-gray-400" id="results-count">Showing all 10 doctors</p>
-                            </div>
-                            
-                            <!-- Doctors List Grid -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto" id="doctors-list">
-                            <!-- Doctor Card 1 -->
-                            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                                <div class="p-6">
+                            <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
+                                <div class="flex items-start mb-2">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <p class="text-gray-600 dark:text-gray-300">Downtown Medical Center, New York</p>
+                                </div>
                                 <div class="flex items-center mb-4">
-                                    <div class="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden mr-4">
-                                    <svg class="h-8 w-8 text-blue-600 dark:text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                    </svg>
-                                    </div>
-                                    <div>
-                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. Sarah Johnson</h3>
-                                    <p class="text-blue-600 dark:text-blue-400 font-medium">Cardiologist</p>
-                                    </div>
+                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <p class="text-gray-600 dark:text-gray-300">Available Mon-Fri</p>
                                 </div>
-                                <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
-                                    <div class="flex items-start mb-2">
-                                    <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    <p class="text-gray-600 dark:text-gray-300">Downtown Medical Center, New York</p>
-                                    </div>
-                                    <div class="flex items-center mb-4">
-                                    <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                    </svg>
-                                    <p class="text-gray-600 dark:text-gray-300">Available Mon-Fri</p>
-                                    </div>
-                                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
-                                    Book Appointment
-                                    </button>
-                                </div>
-                                </div>
+                                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+                                Book Appointment
+                                </button>
                             </div>
-                            
-                            <!-- Doctor Card 2 -->
-                            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                                <div class="p-6">
-                                <div class="flex items-center mb-4">
-                                    <div class="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden mr-4">
-                                    <svg class="h-8 w-8 text-blue-600 dark:text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                    </svg>
-                                    </div>
-                                    <div>
-                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. Michael Chen</h3>
-                                    <p class="text-blue-600 dark:text-blue-400 font-medium">Neurologist</p>
-                                    </div>
-                                </div>
-                                <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
-                                    <div class="flex items-start mb-2">
-                                    <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    <p class="text-gray-600 dark:text-gray-300">City Neuro Clinic, Boston</p>
-                                    </div>
-                                    <div class="flex items-center mb-4">
-                                    <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                    </svg>
-                                    <p class="text-gray-600 dark:text-gray-300">Available Tue-Sat</p>
-                                    </div>
-                                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
-                                    Book Appointment
-                                    </button>
-                                </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Doctor Card 3 -->
-                            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                                <div class="p-6">
-                                <div class="flex items-center mb-4">
-                                    <div class="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden mr-4">
-                                    <svg class="h-8 w-8 text-blue-600 dark:text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                    </svg>
-                                    </div>
-                                    <div>
-                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. Emily Rodriguez</h3>
-                                    <p class="text-blue-600 dark:text-blue-400 font-medium">Pediatrician</p>
-                                    </div>
-                                </div>
-                                <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
-                                    <div class="flex items-start mb-2">
-                                    <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    <p class="text-gray-600 dark:text-gray-300">Child Care Hospital, Chicago</p>
-                                    </div>
-                                    <div class="flex items-center mb-4">
-                                    <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                    </svg>
-                                    <p class="text-gray-600 dark:text-gray-300">Available Mon-Wed, Fri</p>
-                                    </div>
-                                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
-                                    Book Appointment
-                                    </button>
-                                </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Doctor Card 4 -->
-                            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                                <div class="p-6">
-                                <div class="flex items-center mb-4">
-                                    <div class="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden mr-4">
-                                    <svg class="h-8 w-8 text-blue-600 dark:text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                    </svg>
-                                    </div>
-                                    <div>
-                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. James Wilson</h3>
-                                    <p class="text-blue-600 dark:text-blue-400 font-medium">Dermatologist</p>
-                                    </div>
-                                </div>
-                                <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
-                                    <div class="flex items-start mb-2">
-                                    <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    <p class="text-gray-600 dark:text-gray-300">Skin Care Center, Los Angeles</p>
-                                    </div>
-                                    <div class="flex items-center mb-4">
-                                    <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                    </svg>
-                                    <p class="text-gray-600 dark:text-gray-300">Available Mon, Wed, Fri</p>
-                                    </div>
-                                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
-                                    Book Appointment
-                                    </button>
-                                </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Doctor Card 5 -->
-                            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                                <div class="p-6">
-                                <div class="flex items-center mb-4">
-                                    <div class="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden mr-4">
-                                    <svg class="h-8 w-8 text-blue-600 dark:text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                    </svg>
-                                    </div>
-                                    <div>
-                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. Olivia Thompson</h3>
-                                    <p class="text-blue-600 dark:text-blue-400 font-medium">Cardiologist</p>
-                                    </div>
-                                </div>
-                                <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
-                                    <div class="flex items-start mb-2">
-                                    <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    <p class="text-gray-600 dark:text-gray-300">Heart Institute, San Francisco</p>
-                                    </div>
-                                    <div class="flex items-center mb-4">
-                                    <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                    </svg>
-                                    <p class="text-gray-600 dark:text-gray-300">Available Tue-Sat</p>
-                                    </div>
-                                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
-                                    Book Appointment
-                                    </button>
-                                </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Doctor Card 6 -->
-                            <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-                                <div class="p-6">
-                                <div class="flex items-center mb-4">
-                                    <div class="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden mr-4">
-                                    <svg class="h-8 w-8 text-blue-600 dark:text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                    </svg>
-                                    </div>
-                                    <div>
-                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. Robert Kim</h3>
-                                    <p class="text-blue-600 dark:text-blue-400 font-medium">Neurologist</p>
-                                    </div>
-                                </div>
-                                <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
-                                    <div class="flex items-start mb-2">
-                                    <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    <p class="text-gray-600 dark:text-gray-300">Brain &amp; Nerve Center, Seattle</p>
-                                    </div>
-                                    <div class="flex items-center mb-4">
-                                    <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                    </svg>
-                                    <p class="text-gray-600 dark:text-gray-300">Available Mon-Thu</p>
-                                    </div>
-                                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
-                                    Book Appointment
-                                    </button>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                            
-                            <!-- Load More Button -->
-                            <div class="mt-12 text-center">
-                            <button class="bg-white dark:bg-neutral-800 border border-gray-300 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-700 text-gray-700 dark:text-gray-300 font-medium py-3 px-6 rounded-lg transition-colors">
-                                Load More Doctors
-                            </button>
-                            </div>
-                            
-                            <!-- No Results Message - Hidden by default -->
-                            <div id="no-results" class="hidden py-12 text-center">
-                            <svg class="h-16 w-16 text-gray-400 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">No doctors found</h3>
-                            <p class="text-gray-600 dark:text-gray-400 max-w-md mx-auto">We couldn't find any doctors matching your search criteria. Please try different keywords or browse all doctors.</p>
-                            <button class="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
-                                View All Doctors
-                            </button>
                             </div>
                         </div>
-                    </section>
-                </div>
+                        
+                        <!-- Doctor Card 2 -->
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden mr-4">
+                                <svg class="h-8 w-8 text-blue-600 dark:text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                                </div>
+                                <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. Michael Chen</h3>
+                                <p class="text-blue-600 dark:text-blue-400 font-medium">Neurologist</p>
+                                </div>
+                            </div>
+                            <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
+                                <div class="flex items-start mb-2">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <p class="text-gray-600 dark:text-gray-300">City Neuro Clinic, Boston</p>
+                                </div>
+                                <div class="flex items-center mb-4">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <p class="text-gray-600 dark:text-gray-300">Available Tue-Sat</p>
+                                </div>
+                                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+                                Book Appointment
+                                </button>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Doctor Card 3 -->
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden mr-4">
+                                <svg class="h-8 w-8 text-blue-600 dark:text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                                </div>
+                                <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. Emily Rodriguez</h3>
+                                <p class="text-blue-600 dark:text-blue-400 font-medium">Pediatrician</p>
+                                </div>
+                            </div>
+                            <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
+                                <div class="flex items-start mb-2">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <p class="text-gray-600 dark:text-gray-300">Child Care Hospital, Chicago</p>
+                                </div>
+                                <div class="flex items-center mb-4">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <p class="text-gray-600 dark:text-gray-300">Available Mon-Wed, Fri</p>
+                                </div>
+                                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+                                Book Appointment
+                                </button>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Doctor Card 4 -->
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden mr-4">
+                                <svg class="h-8 w-8 text-blue-600 dark:text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                                </div>
+                                <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. James Wilson</h3>
+                                <p class="text-blue-600 dark:text-blue-400 font-medium">Dermatologist</p>
+                                </div>
+                            </div>
+                            <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
+                                <div class="flex items-start mb-2">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <p class="text-gray-600 dark:text-gray-300">Skin Care Center, Los Angeles</p>
+                                </div>
+                                <div class="flex items-center mb-4">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <p class="text-gray-600 dark:text-gray-300">Available Mon, Wed, Fri</p>
+                                </div>
+                                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+                                Book Appointment
+                                </button>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Doctor Card 5 -->
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden mr-4">
+                                <svg class="h-8 w-8 text-blue-600 dark:text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                                </div>
+                                <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. Olivia Thompson</h3>
+                                <p class="text-blue-600 dark:text-blue-400 font-medium">Cardiologist</p>
+                                </div>
+                            </div>
+                            <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
+                                <div class="flex items-start mb-2">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <p class="text-gray-600 dark:text-gray-300">Heart Institute, San Francisco</p>
+                                </div>
+                                <div class="flex items-center mb-4">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <p class="text-gray-600 dark:text-gray-300">Available Tue-Sat</p>
+                                </div>
+                                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+                                Book Appointment
+                                </button>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Doctor Card 6 -->
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden mr-4">
+                                <svg class="h-8 w-8 text-blue-600 dark:text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                                </div>
+                                <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. Robert Kim</h3>
+                                <p class="text-blue-600 dark:text-blue-400 font-medium">Neurologist</p>
+                                </div>
+                            </div>
+                            <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
+                                <div class="flex items-start mb-2">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <p class="text-gray-600 dark:text-gray-300">Brain &amp; Nerve Center, Seattle</p>
+                                </div>
+                                <div class="flex items-center mb-4">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <p class="text-gray-600 dark:text-gray-300">Available Mon-Thu</p>
+                                </div>
+                                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+                                Book Appointment
+                                </button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        
+                        <!-- Load More Button -->
+                        <div class="mt-12 text-center">
+                        <button class="bg-white dark:bg-neutral-800 border border-gray-300 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-700 text-gray-700 dark:text-gray-300 font-medium py-3 px-6 rounded-lg transition-colors">
+                            Load More Doctors
+                        </button>
+                        </div>
+                        
+                        <!-- No Results Message - Hidden by default -->
+                        <div id="no-results" class="hidden py-12 text-center">
+                        <svg class="h-16 w-16 text-gray-400 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">No doctors found</h3>
+                        <p class="text-gray-600 dark:text-gray-400 max-w-md mx-auto">We couldn't find any doctors matching your search criteria. Please try different keywords or browse all doctors.</p>
+                        <button class="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                            View All Doctors
+                        </button>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
+</div>
 
-    <!-- {bodyScripts} -->
-    <svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg>
-  
+<!-- {bodyScripts} -->
+<svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg>
+
 {% endblock content %}
