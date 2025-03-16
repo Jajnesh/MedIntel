@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.cache import never_cache
 
-from main_app.models import Doctor
+from main_app.models import Doctor, Document
 
 # Create your views here.
 def log_out(request):
@@ -29,27 +29,37 @@ def signup_doctor(request):
         registration_no = request.POST['registration_no']
         year_of_registration = request.POST['year_of_registration']
         qualification = request.POST['qualification']
-        qualification_doc = request.POST['qualification_doc']
+        qualification_doc = request.FILES.get('qualification_doc')
         state_medical_council = request.POST['state_medical_council']
         specialization = request.POST['specialization']
-        other_specialization = request.POST['other_specialization']
+        other_specialization = request.POST.get('other_specialization', None)
         aadhar_no = request.POST['aadhar_no']
-        aadhar_doc = request.POST['aadhar_doc']
+        aadhar_doc = request.FILES.get('aadhar_doc')
 
         if specialization == "other":
             specialization = other_specialization
 
         if User.objects.filter(username=username).exists():
             messages.info(request, "Username already taken")
+            print(f"Username '{username}' is already taken.")
             return redirect('signup_doctor')
 
         elif User.objects.filter(email=email).exists():
             messages.info(request, "Email already taken")
+            print(f"Email '{email}' is already taken.")
             return redirect('signup_doctor')
 
         else:
             user = User.objects.create_user(username=username, password=password, email=email, first_name=fname, last_name=lname)
             user.save()
+
+            doc_description = f"Qualification Document for {fname} {lname}"
+            qualification_document = Document(description=doc_description, document=qualification_doc)
+            qualification_document.save()
+
+            doc_description = f"Aadhar Document for {fname} {lname}"
+            aadhar_document = Document(description=doc_description, document=aadhar_doc)
+            aadhar_document.save()
 
             new_doctor = Doctor(
                 user=user,
@@ -59,11 +69,11 @@ def signup_doctor(request):
                 registration_no=registration_no,
                 year_of_registration=year_of_registration,
                 qualification=qualification,
-                qualification_doc = qualification_doc,
+                qualification_doc = qualification_document,
                 state_medical_council=state_medical_council,
                 specialization=specialization,
                 aadhar_no=aadhar_no,
-                aadhar_doc=aadhar_doc
+                aadhar_doc=aadhar_document
             )
             new_doctor.save()
 
