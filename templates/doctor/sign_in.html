@@ -8,6 +8,7 @@
 {% block extrahead %}
 <!-- Performance optimization: Preload critical resources -->
 <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <!-- Header Scripts -->
 <script id="header-scripts">
     // This script tag will be replaced with actual scripts.head content
@@ -212,6 +213,53 @@ document.addEventListener('DOMContentLoaded', function() {
         outline: none;
         box-shadow: 0 0 0 3px rgba(174, 174, 174, 0.5);
     }
+    /* Input Fields */
+input {
+    background-color: #f3f4f6; /* Light gray background */
+    border: 2px solid #000000; /* Black border */
+    color: #333; /* Dark text */
+    padding: 10px 40px; /* Space for icons */
+    border-radius: 8px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Focus Effect */
+input:focus {
+    border-color: #1e40af !important; /* Blue border on focus */
+    box-shadow: 0 0 5px #1e40af !important;
+    background-color: #ffffff; /* White background on focus */
+}
+
+/* Icons */
+.relative i {
+    color: #6b7280; /* Gray icon color */
+}
+
+/* Error Messages */
+.text-red-600 {
+    color: #dc2626 !important; /* Bright red for better visibility */
+    font-weight: bold;
+}
+
+/* Submit Button */
+button {
+    background: linear-gradient(to right, #3b82f6, #4f46e5); /* Blue gradient */
+    color: #ffffff; /* White text */
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 12px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Hover Effect */
+button:hover {
+    background: linear-gradient(to right, #4f46e5, #3b82f6);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
 </style>
 {% endblock extrahead %}
 
@@ -221,8 +269,9 @@ document.addEventListener('DOMContentLoaded', function() {
     {% if messages %}
     <div class="fixed top-20 right-5 space-y-2 z-50">
         {% for message in messages %}
-            <div class="flex items-center justify-between px-4 py-3 rounded-lg shadow-lg text-dark 
+            <div class="flex items-center justify-between px-4 py-3 rounded-lg shadow-lg w-max whitespace-nowrap 
                 {% if message.tags == 'success' %} bg-green-200 {% elif message.tags == 'error' %} bg-red-200 {% else %} bg-blue-200 {% endif %}">
+                
                 <!-- ✅ Tick Icon -->
                 <div class="flex items-center">
                     {% if message.tags == 'success' %}
@@ -236,39 +285,56 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
 
                 <!-- ❌ Close Button -->
-                <button onclick="this.parentElement.remove()" class="ml-4 text-lg font-bold tex-dark">✖</button>
+                <button onclick="this.parentElement.remove()" class="ml-4 text-lg font-bold">✖</button>
             </div>
         {% endfor %}
     </div>
-    {% endif %}
+{% endif %}
     <section id="signin-form" class="py-16">
         <div class="container mx-auto px-4">
             <div class="max-w-xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 animate__animated animate__fadeIn">Doctor Login Portal</h2>
                 
-                <div class="bg-blue-600 rounded-lg shadow-xl p-6 md:p-8 animate__animated animate__fadeInUp">
+                <div class="rounded-lg shadow-xl shadow-gray-500 p-6 md:p-8 ">
                     <form id="doctor-signin-form" method="POST">
                         {% csrf_token %}
-                    <!-- Credential Information -->
+                        
+                        <!-- Credential Information -->
                         <div class="mb-8">
                             <div class="grid gap-4">
+                                
+                                <!-- Username Field -->
                                 <div>
-                                    <label for="username" class="block mb-2 font-medium">Username</label>
-                                    <input type="text" id="username" name="username" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                                    <p id="username_error" class="error-message text-red-500 text-sm text-center"></p>
+                                    <label for="username" class="block font-medium text-gray-700 mb-2">Enter Username</label>
+                                    <div class="relative">
+                                        <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                                        <input type="text" id="username" name="username"
+                                            class="w-full px-10 py-2 border border-black rounded-lg bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white">
+                                    </div>
+                                    <p id="username_error" class="error-message text-red-600 text-sm mt-2"></p>
                                 </div>
+                    
+                                <!-- Password Field -->
                                 <div>
-                                    <label for="password" class="block mb-2 font-medium">Password</label>
-                                    <input type="password" id="password" name="password" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                                    <p id="password_error" class="error-message text-red-500 text-sm text-center"></p>
+                                    <label for="password" class="block font-medium text-gray-700 mb-2">Enter Password</label>
+                                    <div class="relative">
+                                        <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                                        <input type="password" id="password" name="password"
+                                            class="w-full px-10 py-2 border border-black rounded-lg bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white">
+                                    </div>
+                                    <p id="password_error" class="error-message text-red-600 text-sm mt-2"></p>
                                 </div>
+                    
                             </div>
                         </div>
-                        
+                    
                         <!-- Submit Button -->
                         <div class="text-center">
-                            <p id="error-message" style="display:none;" class="text-sm text-red-500"></p>
-                            <button type="submit" class="px-8 py-3 bg-white border border-neutral-600 hover:bg-gray-600 hover:text-white hover:border-white font-medium rounded-lg text-lg">Login</button>
+                            <p id="error-message" style="display:none;" class="text-sm text-red-600 font-semibold"></p>
+                            <button type="submit"
+                                class="px-8 py-3 w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium rounded-lg text-lg shadow-md hover:shadow-lg hover:from-indigo-600 hover:to-blue-500 transition-all duration-300">
+                                <i class="fas fa-sign-in-alt mr-2"></i> Login
+                            </button>
                         </div>
                     </form>
                 </div>

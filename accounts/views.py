@@ -58,9 +58,9 @@ def signup_doctor(request):
             print(f"License no'{medical_license_no}' is already taken.")
             return redirect('signup_doctor')
         
-        elif Doctor.objects.filter(registration_no=registration_no).exists():
-            messages.error(request, "Already taken. Registration no should be unique !!")
-            print(f"Registration no '{registration_no}' is already taken.")
+        elif Doctor.objects.filter(registration_no=registration_no, state_medical_council=state_medical_council).exists():
+            messages.error(request, "Registration number should be unique within the same State Medical Council!")
+            print(f"Registration no '{registration_no}' is already taken in '{state_medical_council}'.")
             return redirect('signup_doctor')
 
 
@@ -103,7 +103,7 @@ def signin_doctor(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-
+               
         # Try to get the user object
         try:
             user = User.objects.get(username=username)
