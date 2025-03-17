@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
 {% block content %}
 <div id="root">
     {% if messages %}
-    <div class="fixed top-15 right-5 space-y-2 z-50">
+    <div class="fixed top-20 right-5 space-y-2 z-50">
         {% for message in messages %}
             <div class="flex items-center justify-between px-4 py-3 rounded-lg shadow-lg text-dark 
                 {% if message.tags == 'success' %} bg-green-200 {% elif message.tags == 'error' %} bg-red-200 {% else %} bg-blue-200 {% endif %}">
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="bg-blue-600 rounded-lg shadow-xl p-6 md:p-8 animate__animated animate__fadeInUp">
                 <form id="doctor-registration-form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                <!-- Credential Information -->
+                    <!-- Credential Information -->
                     <div class="mb-8">
                         <h3 class="text-xl font-semibold mb-6 pb-2 border-b border-white">Credentials</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                             <div>
                                 <label for="password" class="block mb-2 font-medium">Password</label>
-                                <input type="text" id="password" name="password" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                <input type="password" id="password" name="password" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
                                 <p id="password_error" class="error-message text-red-500 text-sm text-center"></p>
                             </div>
                         </div>
@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <!-- Submit Button -->
                     <div class="text-center">
                         <p id="error-message" style="display:none;" class="text-sm text-red-500"></p>
-                        <button type="submit" class="px-8 py-4 hover:bg-gray-600 hover:text-white font-medium rounded-lg text-lg transition-colors duration-300 animate__animated animate__pulse animate__infinite">Submit Registration</button>
+                        <button type="submit" class="px-8 py-3 bg-white border border-neutral-600 hover:bg-gray-600 hover:text-white hover:border-white font-medium rounded-lg text-lg">Submit Registration</button>
                         <p class="mt-4 text-sm text-neutral-200">Your information will be verified within 2-3 business days</p>
                     </div>
                 </form>
