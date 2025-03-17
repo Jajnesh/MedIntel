@@ -120,6 +120,9 @@ def signin_doctor(request):
                 if user.doctor.status == 'Approved':
                     login(request, user)
                     return redirect('doctor_ui')
+                elif user.doctor.status == 'Blocked':
+                    messages.error(request, 'Sorry. Your account is blocked!. Kindly contact us for further enquiry.')
+                    return redirect('signin_doctor')
                 else:
                     messages.info(request, 'Please wait. Your approval is pending!')
                     return redirect('signin_doctor')
