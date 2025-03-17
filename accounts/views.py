@@ -98,22 +98,34 @@ def signup_doctor(request):
 @never_cache
 def signin_doctor(request):
     if request.method == 'GET':
-       return render(request,'doctor/sign_in.html')
+        return render(request, 'doctor/sign_in.html')
 
     if request.method == 'POST':
-        username =  request.POST.get('username')
-        password =  request.POST.get('password')
-        user = authenticate(request, username=username,password=password)
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-        if user is not None :
-            if ( user.doctor.status == 'Approved' ) :
-                login(request,user)
-                request.session['doctorusername'] = user.username
-                return redirect('doctor_ui')
-            else :
-                messages.info(request,'Please wait. Your approval is pending!!')
+        # Try to get the user object
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
+            messages.error(request, 'Invalid credentials')
+            return redirect('signin_doctor')
+
+        # If user exists, authenticate them
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            # Check if user is a doctor
+            if hasattr(user, 'doctor'):
+                if user.doctor.status == 'Approved':
+                    login(request, user)
+                    return redirect('doctor_ui')
+                else:
+                    messages.info(request, 'Please wait. Your approval is pending!')
+                    return redirect('signin_doctor')
+            else:
+                messages.error(request, 'You are not a registered doctor.')
                 return redirect('signin_doctor')
-
-        else :
-            messages.error(request,'Invalid credentials')
+        else:
+            messages.error(request, 'Invalid credentials')
             return redirect('signin_doctor')

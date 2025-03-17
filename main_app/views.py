@@ -9,3 +9,7 @@ def home(request):
 # Our Doctors View
 def our_docts(request):
     return render(request,'homepage/our_doctors.html')
+
+# Doctor UI
+def doctor_ui(request):
+    return render(request, 'doctor/index.html')
