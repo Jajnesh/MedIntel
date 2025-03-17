@@ -16,6 +16,20 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'terms', validator: validateTerms }
     ];
 
+    const specializationSelect = document.getElementById("specialization");
+        const otherSpecializationInput = document.getElementById("other_specialization");
+
+        specializationSelect.addEventListener("change", function () {
+            if (this.value === "other") {
+                otherSpecializationInput.removeAttribute("disabled");
+                otherSpecializationInput.setAttribute("required", "true");
+            } else {
+                otherSpecializationInput.setAttribute("disabled", "true");
+                otherSpecializationInput.removeAttribute("required");
+                otherSpecializationInput.value = ""; // Clear the input if not needed
+            }
+        });
+
     // Attach focus event to each field
     formFields.forEach(field => {
         const fieldElement = document.getElementById(field.id);
