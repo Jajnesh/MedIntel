@@ -122,7 +122,29 @@
 </div>
 
 </element><element id="87f2082f-49ee-4765-89b2-533e3bfd2c4a" data-section-id="87f2082f-49ee-4765-89b2-533e3bfd2c4a">
+  {% if messages %}
+  <div class="fixed top-15 right-5 space-y-2 z-50">
+    {% for message in messages %}
+      <div class="flex items-center justify-between px-4 py-3 rounded-lg shadow-lg text-dark 
+        {% if message.tags == 'success' %} bg-green-200 {% elif message.tags == 'error' %} bg-red-200 {% else %} bg-blue-200 {% endif %}">
+          <!-- ✅ Tick Icon -->
+            <div class="flex items-center">
+              {% if message.tags == 'success' %}
+                <span class="mr-2">✅</span>
+              {% elif message.tags == 'error' %}
+                <span class="mr-2">❌</span>
+              {% else %}
+                <span class="mr-2">ℹ️</span>
+              {% endif %}
+                <span>{{ message }}</span>
+            </div>
 
+        <!-- ❌ Close Button -->
+            <button onclick="this.parentElement.remove()" class="ml-4 text-lg font-bold tex-dark">✖</button>
+          </div>
+      {% endfor %}
+    </div>
+  {% endif %}
 
 <div id="root">
 <section id="hero" class="px-6 mx-auto lg:px-12 bg-gradient-to-br from-blue-600 to-blue-900 dark:from-neutral-800 dark:to-neutral-900 text-white py-24">

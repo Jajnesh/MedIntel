@@ -3,7 +3,6 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.cache import never_cache
-
 from main_app.models import Doctor, Document
 
 # Create your views here.
@@ -40,14 +39,30 @@ def signup_doctor(request):
             specialization = other_specialization
 
         if User.objects.filter(username=username).exists():
-            messages.info(request, "Username already taken")
+            messages.error(request, "Username already taken")
             print(f"Username '{username}' is already taken.")
             return redirect('signup_doctor')
 
         elif User.objects.filter(email=email).exists():
-            messages.info(request, "Email already taken")
+            messages.error(request, "Email already taken")
             print(f"Email '{email}' is already taken.")
             return redirect('signup_doctor')
+        
+        elif Doctor.objects.filter(aadhar_no=aadhar_no).exists():
+            messages.error(request, "Aadhar no should be unique !!")
+            print(f"Aadhar '{aadhar_no}' is already taken.")
+            return redirect('signup_doctor')
+        
+        elif Doctor.objects.filter(medical_license_no=medical_license_no).exists():
+            messages.error(request, "Already taken. Medical License no should be unique !!")
+            print(f"License no'{medical_license_no}' is already taken.")
+            return redirect('signup_doctor')
+        
+        elif Doctor.objects.filter(registration_no=registration_no).exists():
+            messages.error(request, "Already taken. Registration no should be unique !!")
+            print(f"Registration no '{registration_no}' is already taken.")
+            return redirect('signup_doctor')
+
 
         else:
             user = User.objects.create_user(username=username, password=password, email=email, first_name=fname, last_name=lname)
@@ -77,13 +92,13 @@ def signup_doctor(request):
             )
             new_doctor.save()
 
-            messages.info(request, "Registration successful! Wait for admin approval.")
+            messages.success(request, "Registration successful! Wait for admin approval.")
             return redirect('home')
 
 @never_cache
 def signin_doctor(request):
     if request.method == 'GET':
-       return render(request,'doctor/signin.html')
+       return render(request,'doctor/sign_in.html')
 
     if request.method == 'POST':
         username =  request.POST.get('username')
@@ -100,5 +115,5 @@ def signin_doctor(request):
                 return redirect('signin_doctor')
 
         else :
-            messages.info(request,'Invalid credentials')
+            messages.error(request,'Invalid credentials')
             return redirect('signin_doctor')
