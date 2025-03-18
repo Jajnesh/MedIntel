@@ -16,17 +16,17 @@ class DoctorAdmin(admin.ModelAdmin):
             'fields': ('qualification_doc', 'aadhar_doc')
         }),
     )
+    
+    # readonly_fields = [  
+    #     'user', 'mobile_no', 'gender', 'medical_license_no', 'year_of_registration', 
+    #     'specialization', 'aadhar_no', 'qualification_doc', 'aadhar_doc'
+    # ]
 
-    readonly_fields = [  # Make all fields read-only except 'status'
-        'user', 'mobile_no', 'gender', 'medical_license_no', 'year_of_registration', 
-        'specialization', 'aadhar_no', 'qualification_doc', 'aadhar_doc'
-    ]
-
-    def get_readonly_fields(self, request, obj=None):
-        """Allows editing only the 'status' field."""
-        if obj:  # If editing an existing record
-            return self.readonly_fields  # Keep all fields read-only except 'status'
-        return []  # Allow editing when creating a new record
+    # def get_readonly_fields(self, request, obj=None):
+    #     """Allows editing only the 'status' field."""
+    #     if obj:  
+    #         return self.readonly_fields  
+    #     return []  
 
     def download_aadhar(self, obj):
         """Creates a downloadable link for the Aadhar document."""
