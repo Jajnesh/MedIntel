@@ -1,7 +1,11 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.shortcuts import redirect, render
+from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 from django.db import models
-from main_app.models import Doctor
+from main_app.models import Doctor, Address
 
 # Create your views here.
 
@@ -32,4 +36,46 @@ def our_docts(request):
 
 # Doctor UI
 def doctor_ui(request):
-    return render(request, 'doctor/index.html')
+    user_id = request.session.get('user_id', None)
+    if user_id is None:
+        messages.error(request, 'You are not logged in as a doctor.')
+        return redirect('signin_doctor')
+
+    user = User.objects.get(id=user_id)
+    doctor = user.doctor
+
+    return render(request, 'doctor/index.html', {'doctor': doctor})
+
+# Update address
+@login_required
+def update_address(request):
+    if request.method == 'POST':
+        # Get the form data
+        address_line_one = request.POST.get('address_line_one')
+        locality = request.POST.get('locality')
+        city = request.POST.get('city')
+        state = request.POST.get('state')
+        country = request.POST.get('country')
+
+        # Validation
+        if not address_line_one or not locality or not city or not state or not country:
+            return JsonResponse({'success': False, 'message': 'All fields are required.'})
+
+        # Create or update the address
+        address, created = Address.objects.update_or_create(
+            address_line_one=address_line_one,
+            locality=locality,
+            city=city,
+            state=state,
+            country=country
+        )
+
+        # Update the doctor's practice address if it's the logged-in doctor
+        doctor = Doctor.objects.get(user=request.user)
+        doctor.prac_address = address
+        doctor.save()
+
+        # Return success response
+        return JsonResponse({'success': True, 'message': 'Address updated successfully'})
+
+    return JsonResponse({'success': False, 'message': 'Invalid request.'})

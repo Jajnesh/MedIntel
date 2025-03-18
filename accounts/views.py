@@ -7,7 +7,7 @@ from main_app.models import Doctor, Document
 
 # Create your views here.
 def log_out(request):
-    request.session.pop("doctorusername", None)
+    request.session.pop("user_id", None)
     logout(request)
     return redirect('home')
 
@@ -119,6 +119,7 @@ def signin_doctor(request):
             if hasattr(user, 'doctor'):
                 if user.doctor.status == 'Approved':
                     login(request, user)
+                    request.session['user_id'] = user.id
                     return redirect('doctor_ui')
                 elif user.doctor.status == 'Blocked':
                     messages.error(request, 'Sorry. Your account is blocked!. Kindly contact us for further enquiry.')

@@ -2,12 +2,371 @@
 {% load static %}
 
 <!-- Page Title -->
-{% block title %} Doctor Page {% endblock title %}
+{% block title %}Doctor Page{% endblock title %}
 
 <!-- Header Content -->
-{% block extrahead %}{% endblock extrahead %}
+{% block extrahead %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="Search for doctors based on name, specialization, or locality. Find the right healthcare professional for your needs with our easy-to-use doctor search tool.">
+<meta name="theme-color" content="#ffffff">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="">
+
+<!-- SEO Description -->
+<meta name="description" content="Search for doctors based on name, specialization, or locality. Find the right healthcare professional for your needs with our easy-to-use doctor search tool.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<!-- Performance optimization: Preload critical resources -->
+<link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+
+<!-- Header Scripts -->
+<script id="header-scripts">
+// This script tag will be replaced with actual scripts.head content
+if (window.scripts && window.scripts.head) {
+    document.getElementById('header-scripts').outerHTML = window.scripts.head;
+}
+</script>
+
+<!-- Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+<!-- Font stylesheet -->
+
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+<!-- Core CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+// render the settings object
+//console.log('settings', [object Object]);
+document.addEventListener('DOMContentLoaded', function() {
+tailwind.config = {
+    theme: {
+    extend: {
+        colors: {
+        primary: {
+            DEFAULT: '#1E88E5',
+            50: '#f8f8f8',
+            100: '#e8e8e8', 
+            200: '#d3d3d3',
+            300: '#a3a3a3',
+            400: '#737373',
+            500: '#525252',
+            600: '#404040',
+            700: '#262626',
+            800: '#171717',
+            900: '#0a0a0a',
+            950: '#030303',
+        },
+        secondary: {
+            DEFAULT: '#F5F5F5',
+            50: '#f8f8f8',
+            100: '#e8e8e8',
+            200: '#d3d3d3', 
+            300: '#a3a3a3',
+            400: '#737373',
+            500: '#525252',
+            600: '#404040',
+            700: '#262626',
+            800: '#171717',
+            900: '#0a0a0a',
+            950: '#030303',
+        },
+        accent: {
+            DEFAULT: '',
+            50: '#f8f8f8',
+            100: '#e8e8e8',
+            200: '#d3d3d3',
+            300: '#a3a3a3', 
+            400: '#737373',
+            500: '#525252',
+            600: '#404040',
+            700: '#262626',
+            800: '#171717',
+            900: '#0a0a0a',
+            950: '#030303',
+        },
+        },
+        fontFamily: {
+        sans: ['Roboto, sans-serif', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        heading: ['Open Sans, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+        body: ['Open Sans, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+        },
+        spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+        '30': '7.5rem',
+        },
+        maxWidth: {
+        '8xl': '88rem',
+        '9xl': '96rem',
+        },
+        animation: {
+        'fade-in': 'fadeIn 0.5s ease-in',
+        'fade-out': 'fadeOut 0.5s ease-out',
+        'slide-up': 'slideUp 0.5s ease-out',
+        'slide-down': 'slideDown 0.5s ease-out',
+        'slide-left': 'slideLeft 0.5s ease-out',
+        'slide-right': 'slideRight 0.5s ease-out',
+        'scale-in': 'scaleIn 0.5s ease-out',
+        'scale-out': 'scaleOut 0.5s ease-out',
+        'spin-slow': 'spin 3s linear infinite',
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'bounce-slow': 'bounce 3s infinite',
+        'float': 'float 3s ease-in-out infinite',
+        },
+        keyframes: {
+        fadeIn: {
+            '0%': { opacity: '0' },
+            '100%': { opacity: '1' },
+        },
+        fadeOut: {
+            '0%': { opacity: '1' },
+            '100%': { opacity: '0' },
+        },
+        slideUp: {
+            '0%': { transform: 'translateY(20px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        slideDown: {
+            '0%': { transform: 'translateY(-20px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        slideLeft: {
+            '0%': { transform: 'translateX(20px)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        slideRight: {
+            '0%': { transform: 'translateX(-20px)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        scaleIn: {
+            '0%': { transform: 'scale(0.9)', opacity: '0' },
+            '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        scaleOut: {
+            '0%': { transform: 'scale(1.1)', opacity: '0' },
+            '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        float: {
+            '0%, 100%': { transform: 'translateY(0)' },
+            '50%': { transform: 'translateY(-10px)' },
+        },
+        },
+        aspectRatio: {
+        'portrait': '3/4',
+        'landscape': '4/3',
+        'ultrawide': '21/9',
+        },
+    },
+    },
+    variants: {
+    extend: {
+        opacity: ['disabled'],
+        cursor: ['disabled'],
+        backgroundColor: ['active', 'disabled'],
+        textColor: ['active', 'disabled'],
+    },
+    },
+}
+});
+</script>
+
+<!-- Utilities and Components -->
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+
+<!-- Optimized Font Loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<!-- Dynamic Meta Tags -->
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="robots" content="">
+<meta name="google-site-verification" content="">
+<meta name="baidu-verification" content="">
+<meta name="yandex-verification" content="">
+<meta name="bing-verification" content="">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Our Doctors">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="">
+
+
+<!-- Font Links -->
+<link rel="icon" type="image/x-icon" href="">
+
+<!-- Custom styles -->
+
+{% endblock extrahead %}
 
 <!-- Page Content -->
 {% block content %}
-    <h1>Hallo</h1>
+<div class="antialiased text-gray-800 min-h-screen flex flex-col">
+    <!-- Main content area -->
+    <main id="main-content" class="flex-1 relative h-full">
+        <div id="RolloutPageContent">
+            {% if messages %}
+                <div class="fixed top-20 right-5 space-y-2 z-50">
+                    {% for message in messages %}
+                        <div class="flex items-center justify-between px-4 py-3 rounded-lg shadow-lg w-max whitespace-nowrap 
+                            {% if message.tags == 'success' %} bg-green-200 {% elif message.tags == 'error' %} bg-red-200 {% else %} bg-blue-200 {% endif %}">
+                            
+                            <!-- ✅ Tick Icon -->
+                            <div class="flex items-center">
+                                {% if message.tags == 'success' %}
+                                    <span class="mr-2">✅</span>
+                                {% elif message.tags == 'error' %}
+                                    <span class="mr-2">❌</span>
+                                {% else %}
+                                    <span class="mr-2">ℹ️</span>
+                                {% endif %}
+                                <span>{{ message }}</span>
+                            </div>
+
+                            <!-- ❌ Close Button -->
+                            <button onclick="this.parentElement.remove()" class="ml-4 text-lg font-bold">✖</button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="root mx-auto my-auto px-10 py-10">
+                <div class="credential-card bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                    <div class="bg-blue-600 p-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-4">
+                                <span class="text-blue-600 font-bold text-lg">{{ doctor.user.first_name|slice:":1" }}{{ doctor.user.last_name|slice:":1" }}</span>
+                            </div>
+                            <div class="text-white">
+                            <h3 class="text-xl font-semibold">Dr. {{doctor.user.first_name}} {{doctor.user.last_name}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="credential-section mb-6">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                                <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                                Practice Address
+                            </h4>
+                            <div class="space-y-3">
+                                <div class="p-3 bg-gray-100 rounded-md">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <p class="font-medium text-gray-800">
+                                                {% if doctor.prac_address %}
+                                                    {{doctor.prac_address}}
+                                                {% else %}
+                                                    None
+                                                {% endif %}
+                                                
+                                            </p>
+                                            <p class="text-sm text-gray-600"></p>
+                                        </div>
+                                        <div class="text-right">
+                                            <button id="openAddressModal" class="bg-blue-600 text-white px-4 py-2 rounded">Update Address</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </main>
+
+    <!-- Address Modal -->
+    <div id="addressModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-lg max-w-md w-full mx-4">
+            <div class="p-6 border-b border-neutral-200/30 dark:border-neutral-700/30 flex justify-between items-center">
+                <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">Update Practice Address</h3>
+                <button id="closeAddressModal" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="p-6 pt-1">
+                <form id="address-form" method="POST" action="{% url 'update_address' %}">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <label for="address_line_one" class="block text-md font-medium text-gray-700 dark:text-gray-300 mb-1">
+                            Address Line One
+                        </label>
+                        <input type="text" id="address_line_one" name="address_line_one" 
+                        class="w-full px-4 py-2 bg-gray-200 dark:bg-neutral-700 border border-neutral-200/30 dark:border-neutral-700/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-gray-700 dark:text-gray-200" />
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="locality" class="block text-md font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                Locality
+                            </label>
+                            <input type="text" id="locality" name="locality"
+                            class="w-full px-4 py-2 bg-gray-200 dark:bg-neutral-700 border border-neutral-200/30 dark:border-neutral-700/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-gray-700 dark:text-gray-200" />
+                        </div>
+                        
+                        <div>
+                            <label for="city" class="block text-md font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                City
+                            </label>
+                            <input type="text" id="city" name="city"
+                            class="w-full px-4 py-2 bg-gray-200 dark:bg-neutral-700 border border-neutral-200/30 dark:border-neutral-700/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-gray-700 dark:text-gray-200" />
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="state" class="block text-md font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                State
+                            </label>
+                            <input type="text" id="state" name="state"
+                            class="w-full px-4 py-2 bg-gray-200 dark:bg-neutral-700 border border-neutral-200/30 dark:border-neutral-700/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-gray-700 dark:text-gray-200" />
+                        </div>
+                        <div>
+                            <label for="country" class="block text-md font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                Country
+                            </label>
+                            <input type="text" id="country" name="country"
+                            class="w-full px-4 py-2 bg-gray-200 dark:bg-neutral-700 border border-neutral-200/30 dark:border-neutral-700/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-gray-700 dark:text-gray-200" />
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center space-x-3 mt-6">
+                        <button type="button" id="cancelAddressModal" class="px-4 py-2 bg-gray-200 dark:bg-neutral-700 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-300 dark:hover:bg-neutral-600 transition-colors duration-200 text-md font-medium">
+                            Cancel
+                        </button>
+                        <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors duration-200 text-md font-medium">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- {bodyScripts} -->
+<svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg>
+
+<script src="{% static "doctor/js/index.js" %}"></script>
+
 {% endblock content %}

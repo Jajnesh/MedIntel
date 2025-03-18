@@ -23,7 +23,7 @@ class Address(models.Model):
     country = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.locality + ',' + self.city + ',' + self.state
+        return self.address_line_one + ', ' + self.locality + ', ' + self.city + ', ' + self.state
 
 class Doctor(models.Model):
     STATUS_CHOICES = [
