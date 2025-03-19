@@ -5,10 +5,343 @@
 {% block title %} Sign In As Patient {% endblock title %}
 
 <!-- Header Content -->
-{% block extrahead %}{% endblock extrahead %}
+{% block extrahead %}
+<!-- Performance optimization: Preload critical resources -->
+<link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Header Scripts -->
+<script id="header-scripts">
+    // This script tag will be replaced with actual scripts.head content
+    if (window.scripts && window.scripts.head) {
+        document.getElementById('header-scripts').outerHTML = window.scripts.head;
+    }
+    </script>
+    <!-- Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Font stylesheet -->
+
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+<!-- Core CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+// render the settings object
+//console.log('settings', [object Object]);
+document.addEventListener('DOMContentLoaded', function() {
+    tailwind.config = {
+    theme: {
+        extend: {
+        colors: {
+            primary: {
+            DEFAULT: '#1E88E5',
+            50: '#f8f8f8',
+            100: '#e8e8e8', 
+            200: '#d3d3d3',
+            300: '#a3a3a3',
+            400: '#737373',
+            500: '#525252',
+            600: '#404040',
+            700: '#262626',
+            800: '#171717',
+            900: '#0a0a0a',
+            950: '#030303',
+            },
+            secondary: {
+            DEFAULT: '#F5F5F5',
+            50: '#f8f8f8',
+            100: '#e8e8e8',
+            200: '#d3d3d3', 
+            300: '#a3a3a3',
+            400: '#737373',
+            500: '#525252',
+            600: '#404040',
+            700: '#262626',
+            800: '#171717',
+            900: '#0a0a0a',
+            950: '#030303',
+            },
+            accent: {
+            DEFAULT: '',
+            50: '#f8f8f8',
+            100: '#e8e8e8',
+            200: '#d3d3d3',
+            300: '#a3a3a3', 
+            400: '#737373',
+            500: '#525252',
+            600: '#404040',
+            700: '#262626',
+            800: '#171717',
+            900: '#0a0a0a',
+            950: '#030303',
+            },
+        },
+        fontFamily: {
+            sans: ['Roboto, sans-serif', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+            heading: ['Open Sans, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+            body: ['Open Sans, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+        },
+        spacing: {
+            '18': '4.5rem',
+            '22': '5.5rem',
+            '30': '7.5rem',
+        },
+        maxWidth: {
+            '8xl': '88rem',
+            '9xl': '96rem',
+        },
+        animation: {
+            'fade-in': 'fadeIn 0.5s ease-in',
+            'fade-out': 'fadeOut 0.5s ease-out',
+            'slide-up': 'slideUp 0.5s ease-out',
+            'slide-down': 'slideDown 0.5s ease-out',
+            'slide-left': 'slideLeft 0.5s ease-out',
+            'slide-right': 'slideRight 0.5s ease-out',
+            'scale-in': 'scaleIn 0.5s ease-out',
+            'scale-out': 'scaleOut 0.5s ease-out',
+            'spin-slow': 'spin 3s linear infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-slow': 'bounce 3s infinite',
+            'float': 'float 3s ease-in-out infinite',
+        },
+        keyframes: {
+            fadeIn: {
+            '0%': { opacity: '0' },
+            '100%': { opacity: '1' },
+            },
+            fadeOut: {
+            '0%': { opacity: '1' },
+            '100%': { opacity: '0' },
+            },
+            slideUp: {
+            '0%': { transform: 'translateY(20px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            slideDown: {
+            '0%': { transform: 'translateY(-20px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            slideLeft: {
+            '0%': { transform: 'translateX(20px)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+            slideRight: {
+            '0%': { transform: 'translateX(-20px)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+            scaleIn: {
+            '0%': { transform: 'scale(0.9)', opacity: '0' },
+            '100%': { transform: 'scale(1)', opacity: '1' },
+            },
+            scaleOut: {
+            '0%': { transform: 'scale(1.1)', opacity: '0' },
+            '100%': { transform: 'scale(1)', opacity: '1' },
+            },
+            float: {
+            '0%, 100%': { transform: 'translateY(0)' },
+            '50%': { transform: 'translateY(-10px)' },
+            },
+        },
+        aspectRatio: {
+            'portrait': '3/4',
+            'landscape': '4/3',
+            'ultrawide': '21/9',
+        },
+        },
+    },
+    variants: {
+        extend: {
+        opacity: ['disabled'],
+        cursor: ['disabled'],
+        backgroundColor: ['active', 'disabled'],
+        textColor: ['active', 'disabled'],
+        },
+    },
+    }
+});
+</script>
+
+<!-- Utilities and Components -->
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+
+<!-- Optimized Font Loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<!-- Font Links -->
+
+<link rel="icon" type="image/x-icon" href="">
+
+<style>
+    h1, h2, h3, h4, h5, h6 {
+        font-family: Roboto, sans-serif, Inter, system-ui, sans-serif;
+    }
+    body {
+        font-family: Open Sans, sans-serif, Inter, system-ui, sans-serif;
+    }
+    h3, label{
+        color: white;
+    }
+    .checkbox:checked {
+        background-color: gray;
+        border-color: black;
+    }
+    .checkbox {
+        appearance: none;
+        background-color: white;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        width: 16px;
+        height: 16px;
+        position: relative;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    .checkbox:checked::before {
+        content: '✔';
+        color: white;
+        font-size: 12px;
+        position: absolute;
+        top: 0;
+        left: 3px;
+    }
+    .checkbox:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(174, 174, 174, 0.5);
+    }
+    /* Input Fields */
+input {
+    background-color: #f3f4f6; /* Light gray background */
+    border: 2px solid #000000; /* Black border */
+    color: #333; /* Dark text */
+    padding: 10px 40px; /* Space for icons */
+    border-radius: 8px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Focus Effect */
+input:focus {
+    border-color: #1e40af !important; /* Blue border on focus */
+    box-shadow: 0 0 5px #1e40af !important;
+    background-color: #ffffff; /* White background on focus */
+}
+
+/* Icons */
+.relative i {
+    color: #6b7280; /* Gray icon color */
+}
+
+/* Error Messages */
+.text-red-600 {
+    color: #dc2626 !important; /* Bright red for better visibility */
+    font-weight: bold;
+}
+
+/* Submit Button */
+button {
+    background: linear-gradient(to right, #3b82f6, #4f46e5); /* Blue gradient */
+    color: #ffffff; /* White text */
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 12px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Hover Effect */
+button:hover {
+    background: linear-gradient(to right, #4f46e5, #3b82f6);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+</style>
+{% endblock extrahead %}
 
 <!-- Page Content -->
 {% block content %}
-    <!-- Make sign in form here -->
-     
+<div id="root">
+    {% if messages %}
+    <div class="fixed top-20 right-5 space-y-2 z-50">
+        {% for message in messages %}
+            <div class="flex items-center justify-between px-4 py-3 rounded-lg shadow-lg w-max whitespace-nowrap 
+                {% if message.tags == 'success' %} bg-green-200 {% elif message.tags == 'error' %} bg-red-200 {% else %} bg-blue-200 {% endif %}">
+                
+                <!-- ✅ Tick Icon -->
+                <div class="flex items-center">
+                    {% if message.tags == 'success' %}
+                        <span class="mr-2">✅</span>
+                    {% elif message.tags == 'error' %}
+                        <span class="mr-2">❌</span>
+                    {% else %}
+                        <span class="mr-2">ℹ️</span>
+                    {% endif %}
+                    <span>{{ message }}</span>
+                </div>
+
+                <!-- ❌ Close Button -->
+                <button onclick="this.parentElement.remove()" class="ml-4 text-lg font-bold">✖</button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+    <section id="signin-form" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 animate__animated animate__fadeIn">Patient Login Portal</h2>
+                
+                <div class="rounded-lg shadow-xl shadow-gray-500 p-6 md:p-8 ">
+                    <form id="patient-signin-form" method="POST">
+                        {% csrf_token %}
+                        
+                        <!-- Credential Information -->
+                        <div class="mb-8">
+                            <div class="grid gap-4">
+                                
+                                <!-- Username Field -->
+                                <div>
+                                    <label for="username" class="block font-medium text-gray-700 mb-2">Enter Username</label>
+                                    <div class="relative">
+                                        <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                                        <input type="text" id="username" name="username"
+                                            class="w-full px-10 py-2 border border-black rounded-lg bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white">
+                                    </div>
+                                    <p id="username_error" class="error-message text-red-600 text-sm mt-2"></p>
+                                </div>
+                    
+                                <!-- Password Field -->
+                                <div>
+                                    <label for="password" class="block font-medium text-gray-700 mb-2">Enter Password</label>
+                                    <div class="relative">
+                                        <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                                        <input type="password" id="password" name="password"
+                                            class="w-full px-10 py-2 border border-black rounded-lg bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white">
+                                    </div>
+                                    <p id="password_error" class="error-message text-red-600 text-sm mt-2"></p>
+                                </div>
+                    
+                            </div>
+                        </div>
+                    
+                        <!-- Submit Button -->
+                        <div class="text-center">
+                            <p id="error-message" style="display:none;" class="text-sm text-red-600 font-semibold"></p>
+                            <button type="submit"
+                                class="px-8 py-3 w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium rounded-lg text-lg shadow-md hover:shadow-lg hover:from-indigo-600 hover:to-blue-500 transition-all duration-300">
+                                <i class="fas fa-sign-in-alt mr-2"></i> Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="{% static "patient/js/signin_form.js" %}"></script>
 {% endblock content %}

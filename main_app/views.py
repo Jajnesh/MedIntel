@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 from django.db import models
-from main_app.models import Doctor, Address
+from main_app.models import Doctor, Address, Patient
 
 # Create your views here.
 
@@ -45,6 +45,18 @@ def doctor_ui(request):
     doctor = user.doctor
 
     return render(request, 'doctor/index.html', {'doctor': doctor})
+
+# Patient UI
+def patient_ui(request):
+    user_id = request.session.get('user_id', None)
+    if user_id is None:
+        messages.error(request, 'You are not logged in as a patient.')
+        return redirect('signin_patient')
+
+    user = User.objects.get(id=user_id)
+    patient = user.patient
+
+    return render(request, 'patient/index.html', {'patient': patient})
 
 # Update address
 @login_required

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Doctor, Document
+from .models import Doctor, Document, Patient
 
 class DoctorAdmin(admin.ModelAdmin):
     list_display = ('user', 'mobile_no', 'gender', 'medical_license_no', 'status', 'specialization', 'year_of_registration', 'download_aadhar', 'download_qualification')
@@ -16,17 +16,6 @@ class DoctorAdmin(admin.ModelAdmin):
             'fields': ('qualification_doc', 'aadhar_doc')
         }),
     )
-    
-    # readonly_fields = [  
-    #     'user', 'mobile_no', 'gender', 'medical_license_no', 'year_of_registration', 
-    #     'specialization', 'aadhar_no', 'qualification_doc', 'aadhar_doc'
-    # ]
-
-    # def get_readonly_fields(self, request, obj=None):
-    #     """Allows editing only the 'status' field."""
-    #     if obj:  
-    #         return self.readonly_fields  
-    #     return []  
 
     def download_aadhar(self, obj):
         """Creates a downloadable link for the Aadhar document."""
@@ -42,4 +31,13 @@ class DoctorAdmin(admin.ModelAdmin):
         return "No document"
     download_qualification.short_description = "Qualification Document"
 
+
+
+class PatientAdmin(admin.ModelAdmin):
+    model = Patient
+    raw_id_fields = ('patient',)
+    list_display = ('patient', 'full_name', 'email', 'date_of_birth', 'mobile_no', 'gender')
+    search_fields = ('patient__username', 'patient__first_name', 'mobile_no')
+
+admin.site.register(Patient,PatientAdmin)
 admin.site.register(Doctor, DoctorAdmin)

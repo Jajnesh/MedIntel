@@ -60,13 +60,20 @@ class Doctor(models.Model):
         verbose_name_plural = 'Doctors'
 
 class Patient(models.Model):
+    patient = models.OneToOneField(User,on_delete=models.CASCADE,null=True)
+    date_of_birth = models.DateField()
+    background_history = models.TextField(default="", blank=True)
+    mobile_no = models.CharField(max_length=10, unique=True, null=True, blank=True)
     GENDER_CHOICES = [
-        ('Male', 'Male'),
-        ('Female', 'Female'),
-        ('Other', 'Other'),
+        ('M', 'Male'),
+        ('F', 'Female'),
+        ('O', 'Other')
     ]
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, blank=True)
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='patient')
-    mobile_no = models.CharField(max_length = 20)
-    gender = models.CharField(max_length = 10, choices=GENDER_CHOICES)
-    dob = models.DateField()
+    def __str__(self):
+        return self.patient.username
+    def full_name(self):
+        return f"{self.patient.first_name} {self.patient.last_name}"
+    def email(self):
+        return f"{self.patient.email}"

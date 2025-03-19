@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.cache import never_cache
-from main_app.models import Doctor, Document
+from main_app.models import Doctor, Document,Patient
 
 # Create your views here.
 def log_out(request):
@@ -133,3 +133,82 @@ def signin_doctor(request):
         else:
             messages.error(request, 'Invalid credentials')
             return redirect('signin_doctor')
+        
+# Patient authentication
+def signup_patient(request):
+    if request.method == "GET":
+        return render(request, 'patient/sign_up.html')
+
+    if request.method == "POST":
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        date_of_birth = request.POST.get("dob")  # Get date of birth from form
+        mobile_no = request.POST.get("mobile_no")
+        gender = request.POST.get("gender")
+
+        # Validation checks
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "Username is already taken!")
+            return redirect('signup_patient')
+
+        elif User.objects.filter(email=email).exists():
+            messages.error(request, "Email is already taken!")
+            return redirect('signup_patient')
+        elif Patient.objects.filter(mobile_no=mobile_no).exists():
+            messages.error(request, "Mobile number is already registered!")
+            return redirect('signup_patient')
+
+        else:
+            # Create User
+            user = User.objects.create_user(
+                first_name=first_name,
+                last_name=last_name,
+                username=username,
+                email=email,
+                password=password
+            )
+            user.save()
+
+            # ✅ Create Patient Profile
+            new_patient = Patient.objects.create(
+                patient=user,
+                date_of_birth=date_of_birth,
+                mobile_no=mobile_no,
+                gender=gender
+            )
+            new_patient.save()
+
+            messages.success(request, "Registration successful! You can now log in.")
+            return redirect('home')
+        
+@never_cache
+def signin_patient(request):
+    if request.method == "GET":
+        return render(request, 'patient/sign_in.html')
+
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
+            messages.error(request, "Invalid credentials")
+            return redirect('signin_patient')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            if Patient.objects.filter(patient=user).exists():  # Check if Patient object exists
+                login(request, user)
+                request.session['user_id'] = user.id
+                return redirect('home')  # Redirect patient to home or dashboard
+            else:
+                messages.error(request, "You are not registered as a patient.")
+                return redirect('signin_patient')
+        else:
+            messages.error(request, "Invalid credentials")
+            return redirect('signin_patient')

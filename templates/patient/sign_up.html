@@ -5,10 +5,511 @@
 {% block title %} Sign Up As Patient {% endblock title %}
 
 <!-- Header Content -->
-{% block extrahead %}{% endblock extrahead %}
+{% block extrahead %}
+<!-- Performance optimization: Preload critical resources -->
+<link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+<!-- Header Scripts -->
+<script id="header-scripts">
+    // This script tag will be replaced with actual scripts.head content
+    if (window.scripts && window.scripts.head) {
+        document.getElementById('header-scripts').outerHTML = window.scripts.head;
+    }
+    </script>
+    <!-- Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Font stylesheet -->
+
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+<!-- Core CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+// render the settings object
+//console.log('settings', [object Object]);
+document.addEventListener('DOMContentLoaded', function() {
+    tailwind.config = {
+    theme: {
+        extend: {
+        colors: {
+            primary: {
+            DEFAULT: '#1E88E5',
+            50: '#f8f8f8',
+            100: '#e8e8e8', 
+            200: '#d3d3d3',
+            300: '#a3a3a3',
+            400: '#737373',
+            500: '#525252',
+            600: '#404040',
+            700: '#262626',
+            800: '#171717',
+            900: '#0a0a0a',
+            950: '#030303',
+            },
+            secondary: {
+            DEFAULT: '#F5F5F5',
+            50: '#f8f8f8',
+            100: '#e8e8e8',
+            200: '#d3d3d3', 
+            300: '#a3a3a3',
+            400: '#737373',
+            500: '#525252',
+            600: '#404040',
+            700: '#262626',
+            800: '#171717',
+            900: '#0a0a0a',
+            950: '#030303',
+            },
+            accent: {
+            DEFAULT: '',
+            50: '#f8f8f8',
+            100: '#e8e8e8',
+            200: '#d3d3d3',
+            300: '#a3a3a3', 
+            400: '#737373',
+            500: '#525252',
+            600: '#404040',
+            700: '#262626',
+            800: '#171717',
+            900: '#0a0a0a',
+            950: '#030303',
+            },
+        },
+        fontFamily: {
+            sans: ['Roboto, sans-serif', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+            heading: ['Open Sans, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+            body: ['Open Sans, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+        },
+        spacing: {
+            '18': '4.5rem',
+            '22': '5.5rem',
+            '30': '7.5rem',
+        },
+        maxWidth: {
+            '8xl': '88rem',
+            '9xl': '96rem',
+        },
+        animation: {
+            'fade-in': 'fadeIn 0.5s ease-in',
+            'fade-out': 'fadeOut 0.5s ease-out',
+            'slide-up': 'slideUp 0.5s ease-out',
+            'slide-down': 'slideDown 0.5s ease-out',
+            'slide-left': 'slideLeft 0.5s ease-out',
+            'slide-right': 'slideRight 0.5s ease-out',
+            'scale-in': 'scaleIn 0.5s ease-out',
+            'scale-out': 'scaleOut 0.5s ease-out',
+            'spin-slow': 'spin 3s linear infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-slow': 'bounce 3s infinite',
+            'float': 'float 3s ease-in-out infinite',
+        },
+        keyframes: {
+            fadeIn: {
+            '0%': { opacity: '0' },
+            '100%': { opacity: '1' },
+            },
+            fadeOut: {
+            '0%': { opacity: '1' },
+            '100%': { opacity: '0' },
+            },
+            slideUp: {
+            '0%': { transform: 'translateY(20px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            slideDown: {
+            '0%': { transform: 'translateY(-20px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            slideLeft: {
+            '0%': { transform: 'translateX(20px)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+            slideRight: {
+            '0%': { transform: 'translateX(-20px)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+            scaleIn: {
+            '0%': { transform: 'scale(0.9)', opacity: '0' },
+            '100%': { transform: 'scale(1)', opacity: '1' },
+            },
+            scaleOut: {
+            '0%': { transform: 'scale(1.1)', opacity: '0' },
+            '100%': { transform: 'scale(1)', opacity: '1' },
+            },
+            float: {
+            '0%, 100%': { transform: 'translateY(0)' },
+            '50%': { transform: 'translateY(-10px)' },
+            },
+        },
+        aspectRatio: {
+            'portrait': '3/4',
+            'landscape': '4/3',
+            'ultrawide': '21/9',
+        },
+        },
+    },
+    variants: {
+        extend: {
+        opacity: ['disabled'],
+        cursor: ['disabled'],
+        backgroundColor: ['active', 'disabled'],
+        textColor: ['active', 'disabled'],
+        },
+    },
+    }
+});
+</script>
+
+<!-- Utilities and Components -->
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+
+<!-- Optimized Font Loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<!-- Font Links -->
+
+<link rel="icon" type="image/x-icon" href="">
+
+<style>
+    h1, h2, h3, h4, h5, h6 {
+        font-family: Roboto, sans-serif, Inter, system-ui, sans-serif;
+    }
+    body {
+        font-family: Open Sans, sans-serif, Inter, system-ui, sans-serif;
+    }
+    h3, label{
+        color: black;
+    }
+    .checkbox:checked {
+        background-color: gray;
+        border-color: black;
+    }
+    .checkbox {
+        appearance: none;
+        background-color: white;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        width: 16px;
+        height: 16px;
+        position: relative;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    .checkbox:checked::before {
+        content: '✔';
+        color: white;
+        font-size: 12px;
+        position: absolute;
+        top: 0;
+        left: 3px;
+    }
+    .checkbox:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(174, 174, 174, 0.5);
+    }
+    input {
+        background-color: #ffffff
+        border: 2px solid #000000; /* Black border */
+        color: #333; /* Dark text */
+        padding: 10px 40px; /* Space for icons */
+        border-radius: 8px;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    /* Focus Effect */
+    input:focus {
+        border-color: #1e40af !important; /* Blue border on focus */
+        box-shadow: 0 0 5px #1e40af !important;
+        background-color: #ffffff; /* White background on focus */
+    }
+    
+    /* Icons */
+    .relative i {
+        color: #6b7280; /* Gray icon color */
+    }
+    
+    /* Error Messages */
+    .text-red-600 {
+        color: #dc2626 !important; /* Bright red for better visibility */
+        font-weight: bold;
+    }
+    
+    /* Submit Button */
+    button {
+        background: linear-gradient(to right, #3b82f6, #4f46e5); /* Blue gradient */
+        color: #ffffff; /* White text */
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 12px;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    }
+    
+    /* Hover Effect */
+    button:hover {
+        background: linear-gradient(to right, #4f46e5, #3b82f6);
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+</style>
+{% endblock extrahead %}
 
 <!-- Page Content -->
 {% block content %}
-    <!-- Make sign up form here -->
-     
+<div id="root">
+    {% if messages %}
+    <div class="fixed top-20 right-5 space-y-2 z-50">
+        {% for message in messages %}
+            <div class="flex items-center justify-between px-4 py-3 rounded-lg shadow-lg text-dark 
+                {% if message.tags == 'success' %} bg-green-200 {% elif message.tags == 'error' %} bg-red-200 {% else %} bg-blue-200 {% endif %}">
+                <!-- ✅ Tick Icon -->
+                <div class="flex items-center">
+                    {% if message.tags == 'success' %}
+                        <span class="mr-2">✅</span>
+                    {% elif message.tags == 'error' %}
+                        <span class="mr-2">❌</span>
+                    {% else %}
+                        <span class="mr-2">ℹ️</span>
+                    {% endif %}
+                    <span>{{ message }}</span>
+                </div>
+
+                <!-- ❌ Close Button -->
+                <button onclick="this.parentElement.remove()" class="ml-4 text-lg font-bold tex-dark">✖</button>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <section id="registration-form" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 animate__animated animate__fadeIn">Patient Registration Portal</h2>
+                <p class="text-center text-lg mb-8 text-neutral-400 animate__animated animate__fadeIn animate__delay-1s">
+                    Sign up to access quality healthcare and medical consultation.
+                </p>
+    
+                <div class="rounded-lg shadow-xl shadow-gray-500 p-6 md:p-8">
+                    <form id="patient-registration-form" method="POST">
+                        {% csrf_token %}
+                        
+                        <!-- Account Information -->
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold mb-4 pb-2 border-b border-white">Personal Information</h3>
+                            <label for="username" class="block font-medium text-gray-700 mb-2">Enter Username</label>
+                            <input type="text" id="username" name="username"
+                                class="w-full px-4 py-2 border border-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            <p id="username_error" class="error-message text-red-600 text-sm mt-2"></p>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="fname" class="block font-medium text-gray-700 mb-2">First Name</label>
+                            <input type="text" id="fname" name="first_name"
+                                class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            <p id="fname_error" class="error-message text-red-600 text-sm mt-2"></p>
+                        </div>
+    
+                        <div class="mb-6">
+                            <label for="lname" class="block font-medium text-gray-700 mb-2">Last Name</label>
+                            <input type="text" id="lname" name="last_name"
+                                class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            <p id="lname_error" class="error-message text-red-600 text-sm mt-2"></p>
+                        </div>
+    
+                        <div class="mb-6">
+                            <label for="dob" class="block font-medium text-gray-700 mb-2">Date of Birth</label>
+                            <input type="date" id="dob" name="dob"
+                                class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            <p id="dob_error" class="error-message text-red-600 text-sm mt-2"></p>
+                        </div>
+
+                        <!-- Mobile Number -->
+                        <div class="mb-6">
+                            <label for="mobile_no" class="block font-medium text-gray-700 mb-2">Mobile Number</label>
+                            <input type="tel" id="mobile_no" name="mobile_no" pattern="[0-9]{10}"
+                                class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                required>
+                            <p id="mobile_no_error" class="error-message text-red-600 text-sm mt-2"></p>
+                        </div>
+
+                        <!-- Gender Selection -->
+                        <div class="mb-6">
+                            <label for="gender" class="block font-medium text-gray-700 mb-2">Gender</label>
+                            <select id="gender" name="gender"
+                                class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                required>
+                                <option value="">Select Gender</option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                                <option value="O">Other</option>
+                            </select>
+                            <p id="gender_error" class="error-message text-red-600 text-sm mt-2"></p>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="email" class="block font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            <p id="email_error" class="error-message text-red-600 text-sm mt-2"></p>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="password" class="block font-medium text-gray-700 mb-2">Enter Password</label>
+                            <input type="password" id="password" name="password"
+                                class="w-full px-4 py-2 border border-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            <p id="password_error" class="error-message text-red-600 text-sm mt-2"></p>
+                        </div>
+    
+                        <div class="mb-6">
+                            <label for="confirm_password" class="block font-medium text-gray-700 mb-2">Confirm Password</label>
+                            <input type="password" id="confirm_password" name="confirm_password"
+                                class="w-full px-4 py-2 border border-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            <p id="confirm_password_error" class="error-message text-red-600 text-sm mt-2"></p>
+                        </div>
+    
+                        <!-- Terms and Conditions -->
+                        <div class="mb-6">
+                            <div class="flex items-start">
+                                <input id="terms" type="checkbox" class="w-4 h-4 border border-neutral-800 rounded focus:ring-3 focus:ring-green-500" required>
+                                <label for="terms" class="ml-2 text-sm">
+                                    I agree to the <a href="#" class="text-neutral-700 hover:text-neutral-900 hover:underline">Terms of Service</a> and <a href="#" class="text-neutral-700 hover:text-neutral-900 hover:underline">Privacy Policy</a>
+                                </label>
+                            </div>
+                            <p id="terms_error" class="error-message text-red-600 text-sm mt-2"></p>
+                        </div>
+    
+                        <!-- Submit Button -->
+                        <div class="text-center">
+                            <button type="submit"
+                                class="bg-blue-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300">
+                                Register as Patient
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section id="registration-steps" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate__animated animate__fadeIn">Registration Process</h2>
+            
+            <div class="space-y-12 md:space-y-0 md:grid md:grid-cols-3 md:gap-8">
+                <!-- Step 1 -->
+                <div class="flex flex-col items-center animate__animated animate__fadeInUp">
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-white text-2xl font-bold">1</span>
+                        </div>
+                        <div class="hidden md:block absolute top-8 left-full w-full h-0.5 bg-blue-200"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Complete Registration Form</h3>
+                    <p class="text-gray-600 text-center">Fill out your professional details, qualifications, and credentials in our secure registration portal.</p>
+                    <div class="mt-4 bg-blue-50 p-3 rounded-lg w-full">
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Personal information
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Professional details
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Upload credentials
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="flex flex-col items-center animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-white text-2xl font-bold">2</span>
+                        </div>
+                        <div class="hidden md:block absolute top-8 left-full w-full h-0.5 bg-blue-200"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Verification Process</h3>
+                    <p class="text-gray-600 text-center">Our team verifies your documents and professional background for quality assurance.</p>
+                    <div class="mt-4 bg-blue-50 p-3 rounded-lg w-full">
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Document verification
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                License validation
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Background check
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="flex flex-col items-center animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-white text-2xl font-bold">3</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Profile Activation</h3>
+                    <p class="text-gray-600 text-center">Upon approval, your profile is activated and becomes visible to patients searching for specialists.</p>
+                    <div class="mt-4 bg-blue-50 p-3 rounded-lg w-full">
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Profile activation
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Patient visibility
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Begin receiving appointments
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<script src="{% static "patient/js/sigup_form.js" %}"></script>
 {% endblock content %}
