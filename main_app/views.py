@@ -57,10 +57,6 @@ def update_address(request):
         state = request.POST.get('state')
         country = request.POST.get('country')
 
-        # Validation
-        if not address_line_one or not locality or not city or not state or not country:
-            return JsonResponse({'success': False, 'message': 'All fields are required.'})
-
         # Create or update the address
         address, created = Address.objects.update_or_create(
             address_line_one=address_line_one,
@@ -75,7 +71,7 @@ def update_address(request):
         doctor.prac_address = address
         doctor.save()
 
-        # Return success response
-        return JsonResponse({'success': True, 'message': 'Address updated successfully'})
+        return redirect('doctor_ui')
 
-    return JsonResponse({'success': False, 'message': 'Invalid request.'})
+    messages.error(request, 'Invalid request.')
+    return redirect('doctor_ui')
