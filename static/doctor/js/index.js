@@ -41,17 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'POST',
             body: formData,
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Close the modal and reset the form
-                addressModal.classList.add('hidden');
-                addressForm.reset();
-                alert('Address updated successfully!');
-                // Optionally, update the displayed address on the page
-            } else {
-                alert('Error updating the address.');
-            }
+        .then(() => {
+            // Refresh the page
+            window.location.reload();
         })
         .catch(error => {
             console.error('Error:', error);
