@@ -228,19 +228,56 @@ tailwind.config = {
                         </div>
                         
                         <!-- Search Doctors -->
-                        <form method="GET" class="max-w-3xl mx-auto mb-8">
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-                                    </svg>
+                        <form method="GET" class="max-w-5xl mx-auto mb-8">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                
+                                <!-- Doctor Name -->
+                                <div>
+                                    <label for="doctor-name" class="block font-medium text-gray-700 dark:text-gray-300 text-center">Doctor Name</label>
+                                    <input id="doctor-name" name="doctor-name" type="text"
+                                        placeholder="Enter doctor's name"
+                                        class="block w-full px-4 py-3 border border-gray-300 rounded-lg bg-white dark:bg-neutral-800 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 shadow-sm"
+                                        value="{{ request.GET.doctorname }}">
                                 </div>
-                                <input id="doctor-search" name="doctor-search" type="text" placeholder="Search by doctor name, specialization, or locality..." class="block w-full pl-10 pr-3 py-4 border border-gray-300 rounded-lg bg-white dark:bg-neutral-800 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 shadow-sm" value="{{ search_query }}">
+
+                                <!-- Specialization -->
+                                <div>
+                                    <label for="specialization" class="block font-medium text-gray-700 dark:text-gray-300 text-center">Specialization</label>
+                                    <select id="specialization" name="specialization"
+                                        class="block w-full px-4 py-3 border border-gray-300 rounded-lg bg-white dark:bg-neutral-800 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 dark:text-white shadow-sm">
+                                        <option value="">Select Specialization</option>
+                                        <option value="cardiology" {% if request.GET.specialization == "cardiology" %}selected{% endif %}>Cardiology</option>
+                                        <option value="dermatology" {% if request.GET.specialization == "dermatology" %}selected{% endif %}>Dermatology</option>
+                                        <option value="neurology" {% if request.GET.specialization == "neurology" %}selected{% endif %}>Neurology</option>
+                                        <option value="orthopedics" {% if request.GET.specialization == "orthopedics" %}selected{% endif %}>Orthopedics</option>
+                                        <option value="pediatrics" {% if request.GET.specialization == "pediatrics" %}selected{% endif %}>Pediatrics</option>
+                                        <option value="psychiatry" {% if request.GET.specialization == "psychiatry" %}selected{% endif %}>Psychiatry</option>
+                                        <option value="oncology" {% if request.GET.specialization == "oncology" %}selected{% endif %}>Oncology</option>
+                                        <option value="gynecology" {% if request.GET.specialization == "gynecology" %}selected{% endif %}>Gynecology</option>
+                                        <option value="ophthalmology" {% if request.GET.specialization == "ophthalmology" %}selected{% endif %}>Ophthalmology</option>
+                                    </select>
+                                </div>
+
+                                <!-- Locality -->
+                                <div>
+                                    <label for="locality" class="block font-medium text-gray-700 dark:text-gray-300 text-center">Locality</label>
+                                    <input id="locality" name="locality" type="text"
+                                        placeholder="Enter locality"
+                                        class="block w-full px-4 py-3 border border-gray-300 rounded-lg bg-white dark:bg-neutral-800 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 shadow-sm"
+                                        value="{{ request.GET.locality }}">
+                                </div>
+                            </div>
+
+                            <!-- Search Button -->
+                            <div class="mt-4 text-center">
+                                <button type="submit" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                    Search
+                                </button>
                             </div>
                         </form>
                         
                         <!-- Results Counter -->
-                        <div class="max-w-7xl mx-auto mb-6">
+                        <div class="flex justify-between items-center max-w-7xl mx-auto mb-4">
                             <p class="text-sm text-gray-600 dark:text-gray-400" id="results-count">
                                 {% if doctors_found %}
                                     Showing {{ doctors.count }} doctor(s)
@@ -248,6 +285,12 @@ tailwind.config = {
                                     No doctors found
                                 {% endif %}
                             </p>
+                            <form method="GET">
+                                <!-- All Doctors Button -->
+                                <button type="submit" class="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                    Show All Doctors
+                                </button>
+                            </form>
                         </div>
                         
                         <!-- Doctors List Grid -->
@@ -257,32 +300,27 @@ tailwind.config = {
                                     <!-- Doctor Card -->
                                     <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
                                         <div class="p-6">
-                                        <div class="flex items-center mb-4">
-                                            <div class="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden mr-4">
-                                            <svg class="h-8 w-8 text-blue-600 dark:text-blue-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                            </svg>
+                                            <div class="flex items-center mb-4">
+                                                <div>
+                                                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. {{ doctor.user.first_name }} {{ doctor.user.last_name }}</h3>
+                                                    <p class="text-blue-600 dark:text-blue-400 font-medium uppercase">
+                                                        {{ doctor.specialization }}
+                                                    </p>
+                                                    <p class="text-neutral-600 dark:text-neutral-400 mt-4 font-medium uppercase text-sm">
+                                                        {% if doctor.prac_address %}
+                                                            {{ doctor.prac_address }}
+                                                        {% else %}
+                                                            None
+                                                        {% endif %}
+                                                        
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div>
-                                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. {{ doctor.user.first_name }} {{ doctor.user.last_name }}</h3>
-                                            <p class="text-blue-600 dark:text-blue-400 font-medium uppercase">
-                                                {{ doctor.specialization }}
-                                            </p>
-                                            <p class="text-blue-600 dark:text-blue-400 font-medium uppercase">
-                                                {% if doctor.prac_address %}
-                                                    {{ doctor.prac_address }}
-                                                {% else %}
-                                                    None
-                                                {% endif %}
-                                                
-                                            </p>
+                                            <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
+                                                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+                                                Book Appointment
+                                                </button>
                                             </div>
-                                        </div>
-                                        <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
-                                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
-                                            Book Appointment
-                                            </button>
-                                        </div>
                                         </div>
                                     </div>
                                 {% endfor %}   

@@ -15,22 +15,32 @@ def home(request):
 
 # Our Doctors View
 def our_docts(request):
-    search_query = request.GET.get('doctor-search', '')
+    # Get search queries from GET request
+    doctor_name = request.GET.get('doctor-name', '').strip()
+    specialization = request.GET.get('specialization', '').strip()
+    locality = request.GET.get('locality', '').strip()
     
     doctors = Doctor.objects.filter(status='Approved')
 
-    if search_query:
+    if doctor_name:
         doctors = doctors.filter(
-            models.Q(user__first_name__icontains=search_query) | 
-            models.Q(user__last_name__icontains=search_query) | 
-            models.Q(specialization__icontains=search_query)
+            models.Q(user__first_name__icontains=doctor_name) | 
+            models.Q(user__last_name__icontains=doctor_name)
         )
+
+    if specialization:
+        doctors = doctors.filter(specialization__icontains=specialization)
+
+    if locality:
+        doctors = doctors.filter(prac_address__locality__icontains=locality)
 
     doctors_found = doctors.exists()
 
     return render(request, 'homepage/our_doctors.html', {
         'doctors': doctors,
-        'search_query': search_query,
+        'doctorname': doctor_name,
+        'specialization': specialization,
+        'locality': locality,
         'doctors_found': doctors_found,
     })
 
