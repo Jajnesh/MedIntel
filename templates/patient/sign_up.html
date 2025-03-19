@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <section id="registration-form" class="py-16">
         <div class="container mx-auto px-4">
-            <div class="max-w-2xl mx-auto">
+            <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 animate__animated animate__fadeIn">Patient Registration Portal</h2>
                 <p class="text-center text-lg mb-8 text-neutral-400 animate__animated animate__fadeIn animate__delay-1s">
                     Sign up to access quality healthcare and medical consultation.
@@ -299,81 +299,82 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="rounded-lg shadow-xl shadow-gray-500 p-6 md:p-8">
                     <form id="patient-registration-form" method="POST">
                         {% csrf_token %}
-                        
-                        <!-- Account Information -->
-                        <div class="mb-6">
-                            <h3 class="text-xl font-semibold mb-4 pb-2 border-b border-white">Personal Information</h3>
-                            <label for="username" class="block font-medium text-gray-700 mb-2">Enter Username</label>
-                            <input type="text" id="username" name="username"
-                                class="w-full px-4 py-2 border border-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                            <p id="username_error" class="error-message text-red-600 text-sm mt-2"></p>
+                        <!-- Credential Information -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold mb-6 pb-2 border-b border-neutral-400">Credentials</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="username" class="block font-medium text-gray-700 mb-2">Enter Username</label>
+                                    <div class="relative">
+                                        <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                                        <input type="text" id="username" name="username"
+                                            class="w-full px-10 py-2 border border-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" required>
+                                    </div>
+                                    <p id="username_error" class="error-message text-red-600 text-sm mt-2"></p>
+                                </div>
+                                <div>
+                                    <label for="password" class="block font-medium text-gray-700 mb-2">Enter Password</label>
+                                    <div class="relative">
+                                        <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                                        <input type="password" id="password" name="password"
+                                            class="w-full px-10 py-2 border border-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" required>
+                                    </div>
+                                    <p id="password_error" class="error-message text-red-600 text-sm mt-2"></p>
+                                </div>
+                                <div>
+                                    <label for="confirm_password" class="block font-medium text-gray-700 mb-2">Confirm Password</label>
+                                    <div class="relative">
+                                        <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                                        <input type="password" id="confirm_password" name="confirm_password"
+                                            class="w-full px-10 py-2 border border-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    </div>
+                                    <p id="confirm_password_error" class="error-message text-red-600 text-sm mt-2"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Personal Information -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold mb-6 pb-2 border-b border-neutral-400">Personal Information</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="fname" class="block mb-2 font-medium">First Name</label>
+                                    <input type="text" id="fname" name="first_name" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <p id="fname_error" class="error-message text-red-600 text-sm mt-2"></p>
+                                </div>
+                                <div>
+                                    <label for="lname" class="block mb-2 font-medium">Last Name</label>
+                                    <input type="text" id="lname" name="last_name" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <p id="lname_error" class="error-message text-red-500 text-sm mt-2"></p>
+                                </div>
+                                <div>
+                                    <label for="gender" class="block mb-2 font-medium">Gender</label>
+                                    <select id="gender" name="gender" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                        <option value="" disabled selected>Select gender</option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                        <option value="O">Other</option>
+                                    </select>
+                                    <p id="gender_error" class="error-message text-red-500 text-sm mt-2"></p>
+                                </div>
+                                <div>
+                                    <label for="dob" class="block font-medium text-gray-700 mb-2">Date of Birth</label>
+                                    <input type="date" id="dob" name="dob"
+                                        class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <p id="dob_error" class="error-message text-red-600 text-sm mt-2"></p>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 font-medium">Email Address</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <p id="email_error" class="error-message text-red-500 text-sm mt-2"></p>
+                                </div>
+                                <div>
+                                    <label for="mobile_no" class="block mb-2 font-medium">Phone Number</label>
+                                    <input type="number" id="mobile_no" name="mobile_no" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <p id="mobile_no_error" class="error-message text-red-500 text-sm mt-2"></p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="mb-6">
-                            <label for="fname" class="block font-medium text-gray-700 mb-2">First Name</label>
-                            <input type="text" id="fname" name="first_name"
-                                class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                            <p id="fname_error" class="error-message text-red-600 text-sm mt-2"></p>
-                        </div>
-    
-                        <div class="mb-6">
-                            <label for="lname" class="block font-medium text-gray-700 mb-2">Last Name</label>
-                            <input type="text" id="lname" name="last_name"
-                                class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                            <p id="lname_error" class="error-message text-red-600 text-sm mt-2"></p>
-                        </div>
-    
-                        <div class="mb-6">
-                            <label for="dob" class="block font-medium text-gray-700 mb-2">Date of Birth</label>
-                            <input type="date" id="dob" name="dob"
-                                class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                            <p id="dob_error" class="error-message text-red-600 text-sm mt-2"></p>
-                        </div>
-
-                        <!-- Mobile Number -->
-                        <div class="mb-6">
-                            <label for="mobile_no" class="block font-medium text-gray-700 mb-2">Mobile Number</label>
-                            <input type="tel" id="mobile_no" name="mobile_no" pattern="[0-9]{10}"
-                                class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                required>
-                            <p id="mobile_no_error" class="error-message text-red-600 text-sm mt-2"></p>
-                        </div>
-
-                        <!-- Gender Selection -->
-                        <div class="mb-6">
-                            <label for="gender" class="block font-medium text-gray-700 mb-2">Gender</label>
-                            <select id="gender" name="gender"
-                                class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                required>
-                                <option value="">Select Gender</option>
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
-                                <option value="O">Other</option>
-                            </select>
-                            <p id="gender_error" class="error-message text-red-600 text-sm mt-2"></p>
-                        </div>
-
-                        <div class="mb-6">
-                            <label for="email" class="block font-medium text-gray-700 mb-2">Email</label>
-                            <input type="email" id="email" name="email"
-                                class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                            <p id="email_error" class="error-message text-red-600 text-sm mt-2"></p>
-                        </div>
-
-                        <div class="mb-6">
-                            <label for="password" class="block font-medium text-gray-700 mb-2">Enter Password</label>
-                            <input type="password" id="password" name="password"
-                                class="w-full px-4 py-2 border border-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                            <p id="password_error" class="error-message text-red-600 text-sm mt-2"></p>
-                        </div>
-    
-                        <div class="mb-6">
-                            <label for="confirm_password" class="block font-medium text-gray-700 mb-2">Confirm Password</label>
-                            <input type="password" id="confirm_password" name="confirm_password"
-                                class="w-full px-4 py-2 border border-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
-                            <p id="confirm_password_error" class="error-message text-red-600 text-sm mt-2"></p>
-                        </div>
-    
                         <!-- Terms and Conditions -->
                         <div class="mb-6">
                             <div class="flex items-start">
@@ -389,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="text-center">
                             <button type="submit"
                                 class="bg-blue-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300">
-                                Register as Patient
+                                Submit
                             </button>
                         </div>
                     </form>
@@ -397,118 +398,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
     </section>
-</div>
-
-<section id="registration-steps" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 animate__animated animate__fadeIn">Registration Process</h2>
-            
-            <div class="space-y-12 md:space-y-0 md:grid md:grid-cols-3 md:gap-8">
-                <!-- Step 1 -->
-                <div class="flex flex-col items-center animate__animated animate__fadeInUp">
-                    <div class="relative">
-                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6">
-                            <span class="text-white text-2xl font-bold">1</span>
-                        </div>
-                        <div class="hidden md:block absolute top-8 left-full w-full h-0.5 bg-blue-200"></div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Complete Registration Form</h3>
-                    <p class="text-gray-600 text-center">Fill out your professional details, qualifications, and credentials in our secure registration portal.</p>
-                    <div class="mt-4 bg-blue-50 p-3 rounded-lg w-full">
-                        <ul class="text-sm text-gray-700 space-y-2">
-                            <li class="flex items-start">
-                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Personal information
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Professional details
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Upload credentials
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Step 2 -->
-                <div class="flex flex-col items-center animate__animated animate__fadeInUp animate__delay-1s">
-                    <div class="relative">
-                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6">
-                            <span class="text-white text-2xl font-bold">2</span>
-                        </div>
-                        <div class="hidden md:block absolute top-8 left-full w-full h-0.5 bg-blue-200"></div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Verification Process</h3>
-                    <p class="text-gray-600 text-center">Our team verifies your documents and professional background for quality assurance.</p>
-                    <div class="mt-4 bg-blue-50 p-3 rounded-lg w-full">
-                        <ul class="text-sm text-gray-700 space-y-2">
-                            <li class="flex items-start">
-                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Document verification
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                License validation
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Background check
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Step 3 -->
-                <div class="flex flex-col items-center animate__animated animate__fadeInUp animate__delay-2s">
-                    <div class="relative">
-                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6">
-                            <span class="text-white text-2xl font-bold">3</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Profile Activation</h3>
-                    <p class="text-gray-600 text-center">Upon approval, your profile is activated and becomes visible to patients searching for specialists.</p>
-                    <div class="mt-4 bg-blue-50 p-3 rounded-lg w-full">
-                        <ul class="text-sm text-gray-700 space-y-2">
-                            <li class="flex items-start">
-                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Profile activation
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Patient visibility
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-4 h-4 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Begin receiving appointments
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 </div>
 
 <script src="{% static "patient/js/sigup_form.js" %}"></script>

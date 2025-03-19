@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const formFields = [
         { id: 'username', validator: validateRequired },
         { id: 'password', validator: validatePassword },
+        { id: 'confirm_password', validator: validateConfirmPassword },
         { id: 'fname', validator: validateRequired },
         { id: 'lname', validator: validateRequired },
         { id: 'gender', validator: validateRequired },
@@ -146,23 +147,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function validatePassword(field) {
         const password = field.value.trim();
-    
+        let errors = [];
+
         if (password.length < 8) {
-            showError(field, "Password must be at least 8 characters long.");
+            errors.push("Password must be at least 8 characters long.");
         }
-        else if (!/[a-z]/.test(password)) {
-            showError(field, "Password must contain at least one lowercase letter.");
+        if (!/[a-z]/.test(password)) {
+            errors.push("Include at least one lowercase letter.");
         }
-        else if (!/[A-Z]/.test(password)) {
-            showError(field, "Password must contain at least one uppercase letter.");
+        if (!/[A-Z]/.test(password)) {
+            errors.push("Include at least one uppercase letter.");
         }
-        else if (!/[0-9]/.test(password)) {
-            showError(field, "Password must contain at least one number.");
+        if (!/[0-9]/.test(password)) {
+            errors.push("Include at least one number.");
         }
-        else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-            showError(field, "Password must contain at least one special character.");
+        if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+            errors.push("Include at least one special character.");
         }
-        else {
+
+        if (errors.length > 0) {
+            showError(field, errors.join(" "));
+        } else {
+            clearError(field);
+        }
+    }
+
+    function validateConfirmPassword(field) {
+        const passwordField = document.getElementById("password");
+        if (field.value.trim() !== passwordField.value.trim()) {
+            showError(field, "Passwords do not match.");
+        } else {
             clearError(field);
         }
     }
