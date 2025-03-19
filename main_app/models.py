@@ -58,3 +58,15 @@ class Doctor(models.Model):
     class Meta:
         verbose_name = 'Doctor'
         verbose_name_plural = 'Doctors'
+
+class Patient(models.Model):
+    GENDER_CHOICES = [
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+        ('Other', 'Other'),
+    ]
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='patient')
+    mobile_no = models.CharField(max_length = 20)
+    gender = models.CharField(max_length = 10, choices=GENDER_CHOICES)
+    dob = models.DateField()
