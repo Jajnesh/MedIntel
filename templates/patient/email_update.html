@@ -1,0 +1,46 @@
+{% extends "basic.html" %}
+{% block extrahead %}
+
+<style>
+    input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        transition: border-color 0.3s;
+    }
+    input[type="email"]:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+    }
+</style>
+{% endblock extrahead %}
+{% block content %}
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+        <h2 class="text-2xl font-semibold text-center text-blue-600 mb-4">Update Email</h2>
+        
+        <form method="post" action="{% url 'email_update' %}" class="space-y-4">
+            {% csrf_token %}
+            
+            <!-- Email Field -->
+            <div>
+                <label for="id_email" class="block text-sm font-medium text-gray-700 mb-1">
+                    {{ email_form.email.label }}
+                </label>
+                {{ email_form.email }}
+                {% if email_form.email.errors %}
+                    <p class="text-red-500 text-sm mt-1">{{ email_form.email.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" 
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">
+                Save Changes
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -246,13 +246,45 @@ tailwind.config = {
             <div class="root mx-auto my-auto px-10 py-10">
                 <div class="credential-card bg-white rounded-lg shadow-md overflow-hidden mb-6">
                     <div class="bg-blue-600 p-4 flex items-center justify-between">
-                        <div class="flex items-center">
+                        <!-- Profile Section -->
+                        {% comment %} <div class="flex items-center">
                             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-4">
-                                <span class="text-blue-600 font-bold text-lg">{{ doctor.user.first_name|slice:":1" }}{{ doctor.user.last_name|slice:":1" }}</span>
+                                <span class="text-blue-600 font-bold text-lg">
+                                    {{ doctor.user.first_name|slice:":1" }}{{ doctor.user.last_name|slice:":1" }}
+                                </span>
                             </div>
                             <div class="text-white">
-                            <h3 class="text-xl font-semibold">Dr. {{doctor.user.first_name}} {{doctor.user.last_name}}</h3>
+                                <h3 class="text-xl font-semibold">Dr. {{ doctor.user.first_name }} {{ doctor.user.last_name }}</h3>
                             </div>
+                            <div class="text-white">
+                                <h3 class="text-xl font-semibold">Welcome, {{ doctor.user.first_name }} {{ doctor.user.last_name }}</h3>
+                                <p class="text-sm ">Username: {{ doctor.user.username }}</p>
+                                <p class="text-sm ">Email: {{ doctor.user.email }}</p>
+                            </div>
+                        </div> {% endcomment %}
+
+
+                        <div class="flex items-center">
+                            <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                                <img src="{% static 'homepage/images/doctor.PNG' %}" alt="Profile Picture" class="w-full h-full object-cover">
+                            </div>
+                            <div class="text-white">
+                                <h3 class="text-xl font-semibold">Welcome, Dr. {{ doctor.user.first_name }} {{ doctor.user.last_name }}</h3>
+                                <p class="text-sm ">Username: {{ doctor.user.username }}</p>
+                                <p class="text-sm ">Email: {{ doctor.user.email }}</p>
+                            </div>
+                        </div>
+                    
+                        <!-- Buttons for Email & Password Update -->
+                        <div class="flex gap-2">
+                            <a href="{% url 'email_update' %}" 
+                               class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg text-center transition-colors font-medium">
+                                Update Email
+                            </a>
+                            <a href="{% url 'password_update' %}" 
+                               class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg text-center transition-colors font-medium">
+                                Edit Password
+                            </a>
                         </div>
                     </div>
                     

@@ -2,7 +2,7 @@
 {% load static %}
 
 <!-- Page Title -->
-{% block title %}Patient Page{% endblock title %}
+{% block title %}Appointment Page{% endblock title %}
 
 <!-- Header Content -->
 {% block extrahead %}
@@ -224,8 +224,6 @@ tailwind.config = {
                     {% for message in messages %}
                         <div class="flex items-center justify-between px-4 py-3 rounded-lg shadow-lg w-max whitespace-nowrap 
                             {% if message.tags == 'success' %} bg-green-200 {% elif message.tags == 'error' %} bg-red-200 {% else %} bg-blue-200 {% endif %}">
-                            
-                            <!-- ✅ Tick Icon -->
                             <div class="flex items-center">
                                 {% if message.tags == 'success' %}
                                     <span class="mr-2">✅</span>
@@ -236,64 +234,122 @@ tailwind.config = {
                                 {% endif %}
                                 <span>{{ message }}</span>
                             </div>
-
-                            <!-- ❌ Close Button -->
                             <button onclick="this.parentElement.remove()" class="ml-4 text-lg font-bold">✖</button>
                         </div>
                     {% endfor %}
                 </div>
             {% endif %}
-            
-            <div class="root mx-auto px-6 py-8 max-w-4xl">
-                <!-- User Info Card -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+            <div class="root mx-auto px-10 py-10">
+                <div class="credential-card bg-white rounded-lg shadow-md overflow-hidden mb-6">
                     <div class="bg-blue-600 p-4 flex items-center justify-between">
                         <div class="flex items-center">
-                            <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mr-4 overflow-hidden">
-                                <img src="{% static 'homepage/images/patient.PNG' %}" alt="Profile Picture" class="w-full h-full object-cover">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-4">
+                                <span class="text-blue-600 font-bold text-lg">
+                                    {{ patient.patient.first_name|slice:":1" }}{{ patient.patient.last_name|slice:":1" }}
+                                </span>
                             </div>
                             <div class="text-white">
-                                <h3 class="text-xl font-semibold">Welcome, {{ patient.full_name }}!</h3>
-                                <p class="text-sm ">Username: {{ user.username }}</p>
-                                <p class="text-sm ">Email: {{ user.email }}</p>
+                                <h3 class="text-xl font-semibold">Welcome, {{ patient.patient.first_name }} {{ patient.patient.last_name }}!</h3>
                             </div>
                         </div>
                     </div>
-            
-                    <!-- Buttons for Email & Password Update -->
-                    <div class="p-4 bg-gray-50 flex gap-4">
-                        <a href="{% url 'email_update' %}" 
-                           class="w-1/2 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg text-center transition-colors font-medium">
-                            Update Email
-                        </a>
-                        <a href="{% url 'password_update' %}" 
-                           class="w-1/2 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg text-center transition-colors font-medium">
-                            Edit Password
-                        </a>
-                    </div>
                 </div>
-            
-                <!-- Appointments Section -->
-                <div class="bg-white rounded-lg shadow-md p-4">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Your Appointments</h3>
-                    <div class="space-y-3">
-                        {% for appointment in appointments %}
-                        <div class="bg-gray-100 p-4 rounded-lg shadow">
-                            <p class="text-gray-500 text-sm">{{ appointment.date }}</p>
-                            <p class="text-gray-700">Purpose: {{ appointment.note }}</p>
-                            <p class="text-gray-700">Mobile: {{ appointment.mobile }}</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Appointment Booking Form -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold mb-3">Book An Appointment</h3>
+                        <form action="{% url 'appointment' %}" method="post" onsubmit="validateAppointment(event)">
+                            {% csrf_token %}
+                            <label class="block mb-2">Mobile</label>
+                            <input type="text" name="mobile" class="w-full p-2 border rounded" id="mobile">
+                            <label class="error text-red-500" id="mobileError"></label>
+
+                            <label class="block mt-3 mb-2">Date</label>
+                            <input type="date" name="date" class="w-full p-2 border rounded" id="date">
+                            <label class="error text-red-500" id="dateError"></label>
+
+                            <label class="block mt-3 mb-2">Purpose of Appointment</label>
+                            <textarea rows="4" class="w-full p-2 border rounded" name="note" id="note"></textarea>
+                            <label class="error text-red-500" id="noteError"></label>
+
+                            <button type="submit" class="mt-4 w-full bg-blue-600 text-white p-2 rounded">Submit</button>
+                        </form>
+                    </div>
+                    <!-- Current & Previous Bookings -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold mb-3">Current & Previous Bookings</h3>
+                        <div class="overflow-auto">
+                            <table class="w-full border-collapse border border-gray-200">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="border p-2">Date</th>
+                                        <th class="border p-2">Mobile</th>
+                                        <th class="border p-2">Note</th>
+                                        <th class="border p-2">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for app in appointments %}
+                                        <tr class="border">
+                                            <td class="border p-2">{{ app.date }}</td>
+                                            <td class="border p-2">{{ app.mobile }}</td>
+                                            <td class="border p-2">{{ app.note }}</td>
+                                            <td class="border p-2">
+                                                <a href="{% url 'update_appointment' app.id %}" class="text-blue-600">✏️</a>
+                                                <a href="{% url 'delete_appointment' app.id %}" class="text-red-600 ml-2" onclick="confirmDelete(event)">🗑️</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
                         </div>
-                        {% empty %}
-                        <p class="text-gray-500">No appointments scheduled.</p>
-                        {% endfor %}
                     </div>
                 </div>
             </div>
-        </main>
-
-<!-- {bodyScripts} -->
-<svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg>
-
-<script src="{% static "patient/js/index.js" %}"></script>
-
+        </div>
+    </main>
+</div>
 {% endblock content %}
+
+{% block javascript %}
+<script>
+    function confirmDelete(event) {
+        if (!confirm("Are you sure you want to delete this appointment?")) {
+            event.preventDefault();
+        }
+    }
+    function validateAppointment(e) {
+        let mobile = document.querySelector('#mobile').value;
+        let date = document.querySelector('#date').value;
+        let note = document.querySelector('#note').value;
+        let currentDate = new Date().toISOString().split('T')[0];
+        let maxDate = new Date();
+        maxDate.setDate(maxDate.getDate() + 7);
+        maxDate = maxDate.toISOString().split('T')[0];
+        let error = false;
+
+        if (mobile.length !== 10) {
+            document.querySelector('#mobileError').textContent = "Mobile Number must be 10 digits";
+            error = true;
+        } else {
+            document.querySelector('#mobileError').textContent = "";
+        }
+
+        if (date < currentDate || date > maxDate) {
+            document.querySelector('#dateError').textContent = "Date must be within the next 7 days";
+            error = true;
+        } else {
+            document.querySelector('#dateError').textContent = "";
+        }
+
+        if (!note.trim()) {
+            document.querySelector('#noteError').textContent = "Please enter a purpose for the appointment";
+            error = true;
+        } else {
+            document.querySelector('#noteError').textContent = "";
+        }
+
+        if (error) e.preventDefault();
+    }
+</script>
+{% endblock javascript %}

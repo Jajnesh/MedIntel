@@ -2,7 +2,7 @@
 {% load static %}
 
 <!-- Page Title -->
-{% block title %}Patient Page{% endblock title %}
+{% block title %}Appointment Update Page{% endblock title %}
 
 <!-- Header Content -->
 {% block extrahead %}
@@ -214,9 +214,9 @@ tailwind.config = {
 {% endblock extrahead %}
 
 <!-- Page Content -->
+
 {% block content %}
 <div class="antialiased text-gray-800 min-h-screen flex flex-col">
-    <!-- Main content area -->
     <main id="main-content" class="flex-1 relative h-full">
         <div id="RolloutPageContent">
             {% if messages %}
@@ -224,8 +224,6 @@ tailwind.config = {
                     {% for message in messages %}
                         <div class="flex items-center justify-between px-4 py-3 rounded-lg shadow-lg w-max whitespace-nowrap 
                             {% if message.tags == 'success' %} bg-green-200 {% elif message.tags == 'error' %} bg-red-200 {% else %} bg-blue-200 {% endif %}">
-                            
-                            <!-- ✅ Tick Icon -->
                             <div class="flex items-center">
                                 {% if message.tags == 'success' %}
                                     <span class="mr-2">✅</span>
@@ -236,64 +234,38 @@ tailwind.config = {
                                 {% endif %}
                                 <span>{{ message }}</span>
                             </div>
-
-                            <!-- ❌ Close Button -->
                             <button onclick="this.parentElement.remove()" class="ml-4 text-lg font-bold">✖</button>
                         </div>
                     {% endfor %}
                 </div>
             {% endif %}
-            
-            <div class="root mx-auto px-6 py-8 max-w-4xl">
-                <!-- User Info Card -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
-                    <div class="bg-blue-600 p-4 flex items-center justify-between">
-                        <div class="flex items-center">
-                            <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mr-4 overflow-hidden">
-                                <img src="{% static 'homepage/images/patient.PNG' %}" alt="Profile Picture" class="w-full h-full object-cover">
-                            </div>
-                            <div class="text-white">
-                                <h3 class="text-xl font-semibold">Welcome, {{ patient.full_name }}!</h3>
-                                <p class="text-sm ">Username: {{ user.username }}</p>
-                                <p class="text-sm ">Email: {{ user.email }}</p>
-                            </div>
+            <div class="root mx-auto my-auto px-10 py-10">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden max-w-lg mx-auto p-6">
+                    <div class="bg-blue-600 p-4 text-white text-center rounded-t-lg">
+                        <h3 class="text-xl font-semibold">Update Your Appointment</h3>
+                        <p class="text-sm">1 Appointment/Person/Day</p>
+                    </div>
+                    <form action="{% url 'update_appointment' appointment.id %}" method="post" class="p-4">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Mobile</label>
+                            <input type="text" name="mobile" class="w-full border rounded p-2" value="{{ appointment.mobile }}" required>
                         </div>
-                    </div>
-            
-                    <!-- Buttons for Email & Password Update -->
-                    <div class="p-4 bg-gray-50 flex gap-4">
-                        <a href="{% url 'email_update' %}" 
-                           class="w-1/2 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg text-center transition-colors font-medium">
-                            Update Email
-                        </a>
-                        <a href="{% url 'password_update' %}" 
-                           class="w-1/2 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg text-center transition-colors font-medium">
-                            Edit Password
-                        </a>
-                    </div>
-                </div>
-            
-                <!-- Appointments Section -->
-                <div class="bg-white rounded-lg shadow-md p-4">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Your Appointments</h3>
-                    <div class="space-y-3">
-                        {% for appointment in appointments %}
-                        <div class="bg-gray-100 p-4 rounded-lg shadow">
-                            <p class="text-gray-500 text-sm">{{ appointment.date }}</p>
-                            <p class="text-gray-700">Purpose: {{ appointment.note }}</p>
-                            <p class="text-gray-700">Mobile: {{ appointment.mobile }}</p>
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Date</label>
+                            <input type="date" name="date" class="w-full border rounded p-2" value="{{ appointment.date | date:'Y-m-d' }}" required>
                         </div>
-                        {% empty %}
-                        <p class="text-gray-500">No appointments scheduled.</p>
-                        {% endfor %}
-                    </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Purpose of Appointment</label>
+                            <textarea rows="5" class="w-full border rounded p-2" name="note" required>{{ appointment.note }}</textarea>
+                        </div>
+                        <div class="mt-4">
+                            <input type="submit" value="Update Appointment" class="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-700 cursor-pointer">
+                        </div>
+                    </form>
                 </div>
             </div>
-        </main>
-
-<!-- {bodyScripts} -->
-<svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg>
-
-<script src="{% static "patient/js/index.js" %}"></script>
-
+        </div>
+    </main>
+</div>
 {% endblock content %}

@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Doctor, Document, Patient
+from .models import Doctor, Document, Patient, Appointment, Visit
+from django_summernote.admin import SummernoteModelAdminMixin
 
 class DoctorAdmin(admin.ModelAdmin):
     list_display = ('user', 'mobile_no', 'gender', 'medical_license_no', 'status', 'specialization', 'year_of_registration', 'download_aadhar', 'download_qualification')
@@ -39,5 +40,21 @@ class PatientAdmin(admin.ModelAdmin):
     list_display = ('patient', 'full_name', 'email', 'date_of_birth', 'mobile_no', 'gender')
     search_fields = ('patient__username', 'patient__first_name', 'mobile_no')
 
+
+class AppointmentAdmin(admin.ModelAdmin):
+    list_display = ('user','mobile','date','note','status')
+    search_fields = ('user',)
+    list_filter = ('status','date')
+    list_editable = ('status',)
+    ordering=('-date',)
+    list_per_page = 25
+
+class VisitInline(SummernoteModelAdminMixin,admin.StackedInline):
+    model = Visit
+    extra = 1
+    summernote_fields = ('diagnosis',)
+
+
 admin.site.register(Patient,PatientAdmin)
 admin.site.register(Doctor, DoctorAdmin)
+admin.site.register(Appointment,AppointmentAdmin)

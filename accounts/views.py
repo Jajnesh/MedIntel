@@ -120,6 +120,7 @@ def signin_doctor(request):
                 if user.doctor.status == 'Approved':
                     login(request, user)
                     request.session['user_id'] = user.id
+                    messages.success(request, 'Login Successfull')
                     return redirect('doctor_ui')
                 elif user.doctor.status == 'Blocked':
                     messages.error(request, 'Sorry. Your account is blocked!. Kindly contact us for further enquiry.')
@@ -205,6 +206,7 @@ def signin_patient(request):
             if Patient.objects.filter(patient=user).exists():  # Check if Patient object exists
                 login(request, user)
                 request.session['user_id'] = user.id
+                messages.success(request, 'Login Successfull')
                 return redirect('home')  # Redirect patient to home or dashboard
             else:
                 messages.error(request, "You are not registered as a patient.")
