@@ -256,7 +256,7 @@ tailwind.config = {
                     <!-- Appointment Booking Form -->
                     <div class="bg-white p-6 rounded-lg shadow-md">
                         <h3 class="text-lg font-semibold mb-3">Book An Appointment</h3>
-                        <form action="{% url 'appointment' doctor.id %}" method="post" onsubmit="validateAppointment(event)">
+                        <form action="{% url 'appointment' doctor.id %}" method="post" onsubmit="return validateAppointment(event)">
                             {% csrf_token %}
                             <label class="block mb-2">Mobile</label>
                             <input type="text" name="mobile" class="w-full p-2 border rounded" id="mobile">
@@ -294,7 +294,7 @@ tailwind.config = {
                                             <td class="border p-2">{{ app.note }}</td>
                                             <td class="border p-2">
                                                 <a href="{% url 'update_appointment' app.id %}" class="text-blue-600">✏️</a>
-                                                <a href="{% url 'delete_appointment' app.id %}" class="text-red-600 ml-2" onclick="confirmDelete(event)">🗑️</a>
+                                                <a href="{% url 'delete_appointment' app.id %}" class="text-red-600 ml-2" onclick=" return confirmDelete(event)">🗑️</a>
                                             </td>
                                         </tr>
                                     {% endfor %}
@@ -316,38 +316,6 @@ tailwind.config = {
             event.preventDefault();
         }
     }
-    function validateAppointment(e) {
-        let mobile = document.querySelector('#mobile').value;
-        let date = document.querySelector('#date').value;
-        let note = document.querySelector('#note').value;
-        let currentDate = new Date().toISOString().split('T')[0];
-        let maxDate = new Date();
-        maxDate.setDate(maxDate.getDate() + 7);
-        maxDate = maxDate.toISOString().split('T')[0];
-        let error = false;
-
-        if (mobile.length !== 10) {
-            document.querySelector('#mobileError').textContent = "Mobile Number must be 10 digits";
-            error = true;
-        } else {
-            document.querySelector('#mobileError').textContent = "";
-        }
-
-        if (date < currentDate || date > maxDate) {
-            document.querySelector('#dateError').textContent = "Date must be within the next 7 days";
-            error = true;
-        } else {
-            document.querySelector('#dateError').textContent = "";
-        }
-
-        if (!note.trim()) {
-            document.querySelector('#noteError').textContent = "Please enter a purpose for the appointment";
-            error = true;
-        } else {
-            document.querySelector('#noteError').textContent = "";
-        }
-
-        if (error) e.preventDefault();
-    }
+    
 </script>
 {% endblock javascript %}

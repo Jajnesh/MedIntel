@@ -157,6 +157,19 @@ def appointment(request, doctor_id):
         date = request.POST.get('date')
         note = request.POST.get('note')
 
+        if not mobile:
+            messages.error(request, "Mobile number is required.")
+        elif len(mobile) != 10 or not mobile.isdigit():
+            messages.error(request, "Enter a valid 10-digit mobile number.")
+
+        if not date:
+            messages.error(request, "Date is required.")
+
+        if not note:
+            messages.error(request, "Purpose of appointment is required.")
+        if not mobile or not date or not note:
+            return redirect(request.path)
+
         if Appointment.objects.filter(user=request.user, date=date, doctor=doctor).exists():
             messages.error(request, f"Appointment for {date} with Dr. {doctor.user.username} is already booked.")
         elif Appointment.objects.filter(date=date, doctor=doctor).count() >= 20:
