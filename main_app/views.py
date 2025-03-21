@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django import forms
 from django.db import models, transaction
-from main_app.models import Doctor, Address, Patient, Appointment, Visit
+from main_app.models import APPOINTMENT_STATUS_OPTIONS, Doctor, Address, Patient, Appointment, Visit
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 
@@ -49,20 +49,41 @@ def our_docts(request):
 # Doctor UI
 @login_required(login_url='accounts:signin_doctor')
 def doctor_ui(request):
-    if not hasattr(request.user, 'doctor'):  # Ensure the user is a doctor
+    doctor = getattr(request.user, 'doctor', None)
+    if not doctor:
         messages.error(request, 'You are not logged in as a doctor.')
-        return redirect('signin_doctor')
+        return redirect('accounts:signin_doctor')
 
-    return render(request, 'doctor/index.html', {'doctor': request.user.doctor})
+    # Handle status update if form is submitted
+    if request.method == "POST":
+        appointment_id = request.POST.get("appointment_id")
+        new_status = request.POST.get("status")
+
+        if appointment_id and new_status:
+            appointment = get_object_or_404(Appointment, id=appointment_id, doctor=doctor)
+            if new_status in APPOINTMENT_STATUS_OPTIONS:
+                appointment.status = new_status
+                appointment.save()
+                messages.success(request, "Appointment status updated successfully.")
+            else:
+                messages.error(request, "Invalid status selected.")
+
+    appointments = Appointment.objects.filter(doctor=doctor)  # Fetch doctor's appointments
+
+    return render(request, 'doctor/index.html', {
+        'doctor': doctor,
+        'appointments': appointments,
+        'APPOINTMENT_STATUS_OPTIONS': APPOINTMENT_STATUS_OPTIONS  # Pass choices to template
+    })
 
 # Patient UI
 def patient_ui(request):
     user_id = request.session.get('user_id', None)
     if user_id is None:
         messages.error(request, 'You are not logged in as a patient.')
-        return redirect('signin_patient')
+        return redirect('accounts:signin_patient')
 
-    user = User.objects.get(id=user_id)
+    user = get_object_or_404(User, id=user_id)
 
     # ✅ Check if user has a related patient object
     patient = getattr(user, 'patient', None)  
@@ -70,7 +91,15 @@ def patient_ui(request):
         messages.error(request, 'You do not have a patient profile.')
         return redirect('home')  # Redirect to home or another appropriate page
 
-    return render(request, 'patient/index.html', {'patient': patient})
+    # ✅ Fetch visits and appointments
+    visits = Visit.objects.filter(patient=patient) if patient else []
+    appointments = Appointment.objects.filter(user=user)  # Fetch appointments
+
+    return render(request, 'patient/index.html', {
+        'patient': patient,
+        'visits': visits,
+        'appointments': appointments
+    })
 
 
 # Update address
@@ -104,75 +133,113 @@ def update_address(request):
     return redirect('doctor_ui')
 
 
-@login_required(login_url='accounts:signin_patient')
-def profile(request):
-    patient = Patient.objects.filter(patient=request.user).first()  # Get patient safely
+# @login_required(login_url='accounts/signin_patient')
+# def profile(request):
+#     patient = Patient.objects.filter(patient=request.user).first()  # Get patient safely
 
-    visits = Visit.objects.filter(patient=patient) if patient else []  # Fetch visits if patient exists
+#     visits = Visit.objects.filter(patient=patient) if patient else []  # Fetch visits if patient exists
+#     appointments = Appointment.objects.filter(user=request.user)  # Fetch appointments
 
-    context = {
-        'patient': patient,
-        'visits': visits,
-    }
+#     context = {
+#         'patient': patient,
+#         'visits': visits,
+#         'appointments': appointments,  # Include appointments in context
+#     }
 
-    return render(request, 'patient/index.html', context)
+#     return render(request, 'patient/index.html', context)
 
+@login_required(login_url='/accounts/signin_patient/')
+def appointment(request, doctor_id):
+    doctor = get_object_or_404(Doctor, id=doctor_id)
 
-@login_required(login_url='accounts:signin_patient')
-def appointment(request):
     if request.method == 'POST':
         mobile = request.POST.get('mobile')
         date = request.POST.get('date')
         note = request.POST.get('note')
 
-        # Check if user already has an appointment for that date
-        if Appointment.objects.filter(user=request.user, date=date).exists():
-            messages.error(request, f"You already have an appointment on {date}.")
-        # Limit slots to 20 per day
-        elif Appointment.objects.filter(date=date).count() >= 20:
-            messages.error(request, f"All slots for {date} are booked.")
+        if Appointment.objects.filter(user=request.user, date=date, doctor=doctor).exists():
+            messages.error(request, f"Appointment for {date} with Dr. {doctor.user.username} is already booked.")
+        elif Appointment.objects.filter(date=date, doctor=doctor).count() >= 20:
+            messages.error(request, f"All slots for {date} with Dr. {doctor.name} are booked.")
         else:
-            Appointment.objects.create(user=request.user, mobile=mobile, date=date, note=note)
-            messages.success(request, "Appointment booked successfully!")
+            appointment = Appointment(user=request.user, doctor=doctor, mobile=mobile, date=date, note=note)
+            appointment.save()
+            messages.success(request, f"Appointment booked with Dr. {doctor.user.username}")
 
-    # Get all appointments of logged-in user
-    appointments = Appointment.objects.filter(user=request.user).order_by('-date')
-    return render(request, 'patient/appointment.html', {'appointments': appointments})
+    # Fetch only the logged-in user's appointments with this doctor
+    appointments = Appointment.objects.filter(user=request.user, doctor=doctor)
 
+    context = {
+        'appointments': appointments,
+        'doctor': doctor
+    }
+    return render(request, 'patient/appointment.html', context)
+
+
+# @login_required(login_url='/accounts/signin_doctor/')
+# def doctor_appointments(request):
+#     doctor = get_object_or_404(Doctor, user=request.user)  
+#     appointments = Appointment.objects.filter(doctor=doctor)  
+    
+#     context = {
+#         'appointments': appointments
+#     }
+#     return render(request, 'doctor/index.html', context)  
 
 @login_required(login_url='accounts:signin_patient')
 def delete_appointment(request, aid):
-    appointment = get_object_or_404(Appointment, id=aid, user=request.user)
-    appointment.delete()
-    messages.success(request, "Appointment deleted successfully.")
-    return redirect('appointment')
+    try:
+        app = Appointment.objects.get(id=aid)
+
+        # Ensure only the user who booked it can delete
+        if app.user == request.user:
+            app.delete()
+            messages.success(request, "Appointment Deleted")
+        else:
+            messages.error(request, "Unauthorized action!")
+    except Appointment.DoesNotExist:
+        messages.error(request, "Appointment not found!")
+
+    return redirect('appointment', doctor_id=app.doctor.id)
 
 
 @login_required(login_url='accounts:signin_patient')
 def update_appointment(request, aid):
-    appointment = get_object_or_404(Appointment, id=aid, user=request.user)
+    try:
+        appointment = Appointment.objects.get(id=aid)
 
-    if request.method == 'POST':
-        mobile = request.POST.get('mobile')
-        date = request.POST.get('date')
-        note = request.POST.get('note')
+        # Ensure only the user who booked it can update
+        if appointment.user != request.user:
+            messages.error(request, "Unauthorized action!")
+            return redirect('appointment', doctor_id=appointment.doctor.id)
 
-        # Check if the new date is already taken
-        if Appointment.objects.filter(user=request.user, date=date).exclude(id=aid).exists():
-            messages.error(request, f"You already have an appointment on {date}.")
-        elif Appointment.objects.filter(date=date).count() >= 20:
-            messages.error(request, f"All slots for {date} are booked.")
-        else:
-            with transaction.atomic():  # Ensures the update is done safely
+        if request.method == 'POST':
+            mobile = request.POST.get('mobile')
+            date = request.POST.get('date')
+            note = request.POST.get('note')
+
+            if Appointment.objects.filter(user=request.user, date=date, doctor=appointment.doctor).exclude(id=aid).exists():
+                messages.error(request, f"Appointment for {date} with Dr. {appointment.doctor.name} is already booked.")
+            elif Appointment.objects.filter(date=date, doctor=appointment.doctor).count() >= 20:
+                messages.error(request, f"All slots for {date} with Dr. {appointment.doctor.name} are booked.")
+            else:
+                # Update only modified fields
                 appointment.mobile = mobile
                 appointment.date = date
                 appointment.note = note
                 appointment.save()
-                messages.success(request, "Appointment updated successfully!")
-                return redirect('appointment')
+                messages.success(request, "Appointment Updated")
+                return redirect('appointment', doctor_id=appointment.doctor.id)
 
-    return render(request, 'patient/appointment_update.html', {'appointment': appointment})
+        context = {
+            'appointment': appointment
+        }
+        return render(request, 'patient/appointment_update.html', context)
 
+    except Appointment.DoesNotExist:
+        messages.error(request, "Appointment not found!")
+        return redirect('home')
+    
 class EmailChangeForm(forms.ModelForm):
     class Meta:
         model = User
@@ -248,7 +315,7 @@ def password_update(request):
 
 
     # Render the appropriate template based on user type
-    if hasattr(request.user, 'doctor'):  
-        return render(request, 'doctor/password_update.html', {'password_form': password_form})
-    else:
-        return render(request, 'patient/password_update.html', {'password_form': password_form})
+    # if hasattr(request.user, 'doctor'):  
+    #     return render(request, 'doctor/password_update.html', {'password_form': password_form})
+    # else:
+    #     return render(request, 'patient/password_update.html', {'password_form': password_form})

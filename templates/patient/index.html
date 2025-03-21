@@ -273,23 +273,42 @@ tailwind.config = {
                     </div>
                 </div>
             
-                <!-- Appointments Section -->
-                <div class="bg-white rounded-lg shadow-md p-4">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Your Appointments</h3>
-                    <div class="space-y-3">
-                        {% for appointment in appointments %}
-                        <div class="bg-gray-100 p-4 rounded-lg shadow">
-                            <p class="text-gray-500 text-sm">{{ appointment.date }}</p>
-                            <p class="text-gray-700">Purpose: {{ appointment.note }}</p>
-                            <p class="text-gray-700">Mobile: {{ appointment.mobile }}</p>
-                        </div>
-                        {% empty %}
-                        <p class="text-gray-500">No appointments scheduled.</p>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </main>
+        <!-- View My Appointments Button -->
+        <div class="mb-4">
+            <button id="toggleAppointments" class="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition">
+                View My Appointments
+            </button>
+        </div>
+    
+        <!-- Appointments Table (Hidden by Default) -->
+    <div id="appointmentsSection" class="bg-white rounded-lg shadow-md p-4 hidden">
+    <h3 class="text-lg font-semibold text-gray-800 mb-3">Your Appointments</h3>
+    
+    {% if appointments %}
+    <table class="w-full border-collapse border border-gray-200">
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="border p-2">Date</th>
+                <th class="border p-2">Purpose</th>
+                <th class="border p-2">Mobile</th>
+                <th class="border p-2">Doctor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr class="border">
+                <td class="border p-2">{{ appointment.date }}</td>
+                <td class="border p-2">{{ appointment.note }}</td>
+                <td class="border p-2">{{ appointment.mobile }}</td>
+                <td class="border p-2">{{ appointment.doctor.user.username }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="text-gray-500 text-center mt-4">No appointments scheduled.</p>
+    {% endif %}
+</div>
 
 <!-- {bodyScripts} -->
 <svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg>

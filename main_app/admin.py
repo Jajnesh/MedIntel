@@ -49,11 +49,12 @@ class AppointmentAdmin(admin.ModelAdmin):
     ordering=('-date',)
     list_per_page = 25
 
-class VisitInline(SummernoteModelAdminMixin,admin.StackedInline):
+class VisitInline(SummernoteModelAdminMixin, admin.StackedInline):
     model = Visit
     extra = 1
     summernote_fields = ('diagnosis',)
-
+    fields = ('patient', 'doctor', 'diagnosis', 'created_at')
+    readonly_fields = ('created_at',)
 
 admin.site.register(Patient,PatientAdmin)
 admin.site.register(Doctor, DoctorAdmin)

@@ -85,8 +85,8 @@ APPOINTMENT_STATUS_OPTIONS = {
 }
 
 class Appointment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)  # Patient
-    # doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True, blank=True)  # New Field
     mobile = models.CharField(max_length=20)
     date = models.DateField()
     note = models.TextField()
@@ -96,9 +96,10 @@ class Appointment(models.Model):
         return f"{self.user.first_name} {self.user.last_name}"
     
 class Visit(models.Model):
-    patient = models.ForeignKey(Patient,on_delete=models.CASCADE)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True, blank=True)  # New Field
     created_at = models.DateTimeField(auto_now_add=True)
     diagnosis = models.TextField()
 
     def __str__(self):
-        return f"{self.created_at}"
+        return f"Visit on {self.created_at} - {self.patient.user.first_name} with Dr. {self.doctor.name}"

@@ -243,13 +243,11 @@ tailwind.config = {
                 <div class="credential-card bg-white rounded-lg shadow-md overflow-hidden mb-6">
                     <div class="bg-blue-600 p-4 flex items-center justify-between">
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-4">
-                                <span class="text-blue-600 font-bold text-lg">
-                                    {{ patient.patient.first_name|slice:":1" }}{{ patient.patient.last_name|slice:":1" }}
-                                </span>
+                            <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                                <img src="{% static 'homepage/images/patient.PNG' %}" alt="Profile Picture" class="w-full h-full object-cover">
                             </div>
                             <div class="text-white">
-                                <h3 class="text-xl font-semibold">Welcome, {{ patient.patient.first_name }} {{ patient.patient.last_name }}!</h3>
+                                <h3 class="text-xl font-semibold">Welcome,{{ user.patient.full_name }}!</h3>
                             </div>
                         </div>
                     </div>
@@ -258,7 +256,7 @@ tailwind.config = {
                     <!-- Appointment Booking Form -->
                     <div class="bg-white p-6 rounded-lg shadow-md">
                         <h3 class="text-lg font-semibold mb-3">Book An Appointment</h3>
-                        <form action="{% url 'appointment' %}" method="post" onsubmit="validateAppointment(event)">
+                        <form action="{% url 'appointment' doctor.id %}" method="post" onsubmit="validateAppointment(event)">
                             {% csrf_token %}
                             <label class="block mb-2">Mobile</label>
                             <input type="text" name="mobile" class="w-full p-2 border rounded" id="mobile">

@@ -316,11 +316,11 @@ tailwind.config = {
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div class="border-t border-gray-200 dark:border-neutral-700 pt-4 mt-4">
-                                                <button>
+                                            <a href="{% url 'appointment' doctor.id %}">
+                                                <button class="bg-blue-600 text-white px-4 py-2 rounded">
                                                     Book Appointment
                                                 </button>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                 {% endfor %}   
