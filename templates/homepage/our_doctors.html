@@ -223,8 +223,8 @@ tailwind.config = {
                 <section id="search" class="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-neutral-900">
                     <div class="max-w-7xl mx-auto">
                         <div class="text-center mb-10">
-                            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Doctors</h1>
-                            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Find the right specialist for your needs by searching for doctor name, specialization, or locality.</p>
+                            <h1 class="text-3xl sm:text-4xl font-bold bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text mb-4">Our Doctors</h1>
+                            <p class="text-lg text-gray-500 dark:text-gray-300 max-w-2xl mx-auto">Find the right specialist for your needs by searching for doctor name, specialization, or locality.</p>
                         </div>
                         
                         <!-- Search Doctors -->
@@ -270,7 +270,7 @@ tailwind.config = {
 
                             <!-- Search Button -->
                             <div class="mt-4 text-center">
-                                <button type="submit" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                <button type="submit" class="px-6 py-3 bg-gradient-to-br from-blue-600 to-purple-700 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                     Search
                                 </button>
                             </div>
@@ -287,7 +287,7 @@ tailwind.config = {
                             </p>
                             <form method="GET">
                                 <!-- All Doctors Button -->
-                                <button type="submit" class="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                <button type="submit" class="px-6 py-2 bg-gradient-to-br from-blue-600 to-purple-700 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                     Show All Doctors
                                 </button>
                             </form>
@@ -298,15 +298,15 @@ tailwind.config = {
                             {% if doctors_found %}
                                 {% for doctor in doctors %}
                                     <!-- Doctor Card -->
-                                    <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                                    <div class="bg-white dark:bg-neutral-800 rounded-lg shadow-[0_4px_10px_rgba(0,0,255,0.2)] overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
                                         <div class="p-6">
                                             <div class="flex items-center mb-4">
                                                 <div>
                                                     <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dr. {{ doctor.user.first_name }} {{ doctor.user.last_name }}</h3>
-                                                    <p class="text-blue-600 dark:text-blue-400 font-medium uppercase">
+                                                    <p class="text-blue-400 dark:text-neutral-400 font-medium uppercase">
                                                         {{ doctor.specialization }}
                                                     </p>
-                                                    <p class="text-neutral-600 dark:text-neutral-400 mt-4 font-medium uppercase text-sm">
+                                                    <p class="text-neutral-900 dark:text-neutral-400 mt-4 font-medium uppercase text-sm">
                                                         {% if doctor.prac_address %}
                                                             {{ doctor.prac_address }}
                                                         {% else %}
@@ -317,7 +317,7 @@ tailwind.config = {
                                                 </div>
                                             </div>
                                             <a href="{% url 'appointment' doctor.id %}">
-                                                <button class="bg-blue-600 text-white px-4 py-2 rounded">
+                                                <button class="bg-green-600 text-white px-4 py-2 rounded">
                                                     Book Appointment
                                                 </button>
                                             </a>

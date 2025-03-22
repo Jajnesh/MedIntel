@@ -207,7 +207,7 @@ def signin_patient(request):
                 login(request, user)
                 request.session['user_id'] = user.id
                 messages.success(request, 'Login Successfull')
-                return redirect('home')  # Redirect patient to home or dashboard
+                return redirect('patient_ui')  # Redirect patient to dashboard
             else:
                 messages.error(request, "You are not registered as a patient.")
                 return redirect('signin_patient')

@@ -291,24 +291,24 @@ document.addEventListener('DOMContentLoaded', function() {
     <section id="registration-form" class="py-16">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 animate__animated animate__fadeIn">Patient Registration Portal</h2>
-                <p class="text-center text-lg mb-8 text-neutral-400 animate__animated animate__fadeIn animate__delay-1s">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Patient Registration Portal</h2>
+                <p class="text-center text-lg mb-8 text-neutral-600 animate__animated animate__fadeIn animate__delay-1s">
                     Sign up to access quality healthcare and medical consultation.
                 </p>
     
-                <div class="rounded-lg shadow-xl shadow-gray-500 p-6 md:p-8">
+                <div class="rounded-lg shadow-[0_4px_10px_rgba(0,0,255,0.2)] p-6 md:p-8">
                     <form id="patient-registration-form" method="POST">
                         {% csrf_token %}
                         <!-- Credential Information -->
                         <div class="mb-8">
-                            <h3 class="text-xl font-semibold mb-6 pb-2 border-b border-neutral-400">Credentials</h3>
+                            <h3 class="text-xl font-semibold mb-6 pb-2 bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text border-b border-blue-400">Credentials</h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label for="username" class="block font-medium text-gray-700 mb-2">Enter Username</label>
                                     <div class="relative">
                                         <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
                                         <input type="text" id="username" name="username"
-                                            class="w-full px-10 py-2 border border-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" required>
+                                            class="w-full p-2 pl-10 border border-blue-500 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" required>
                                     </div>
                                     <p id="username_error" class="error-message text-red-600 text-sm mt-2"></p>
                                 </div>
@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <div class="relative">
                                         <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
                                         <input type="password" id="password" name="password"
-                                            class="w-full px-10 py-2 border border-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" required>
+                                            class="w-full p-2 pl-10 border border-blue-500 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" required>
                                     </div>
                                     <p id="password_error" class="error-message text-red-600 text-sm mt-2"></p>
                                 </div>
@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <div class="relative">
                                         <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
                                         <input type="password" id="confirm_password" name="confirm_password"
-                                            class="w-full px-10 py-2 border border-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                            class="w-full p-2 pl-10 border border-blue-500 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" required>
                                     </div>
                                     <p id="confirm_password_error" class="error-message text-red-600 text-sm mt-2"></p>
                                 </div>
@@ -334,21 +334,21 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                         <!-- Personal Information -->
                         <div class="mb-8">
-                            <h3 class="text-xl font-semibold mb-6 pb-2 border-b border-neutral-400">Personal Information</h3>
+                            <h3 class="text-xl font-semibold mb-6 pb-2 border-b border-blue-400 bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Personal Information</h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label for="fname" class="block mb-2 font-medium">First Name</label>
-                                    <input type="text" id="fname" name="first_name" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <input type="text" id="fname" name="first_name" class="w-full p-2 border border-blue-500 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" required>
                                     <p id="fname_error" class="error-message text-red-600 text-sm mt-2"></p>
                                 </div>
                                 <div>
                                     <label for="lname" class="block mb-2 font-medium">Last Name</label>
-                                    <input type="text" id="lname" name="last_name" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <input type="text" id="lname" name="last_name" class="w-full p-2 border border-blue-500 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" required>
                                     <p id="lname_error" class="error-message text-red-500 text-sm mt-2"></p>
                                 </div>
                                 <div>
                                     <label for="gender" class="block mb-2 font-medium">Gender</label>
-                                    <select id="gender" name="gender" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <select id="gender" name="gender" class="w-full p-2 border border-blue-500 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" required>
                                         <option value="" disabled selected>Select gender</option>
                                         <option value="M">Male</option>
                                         <option value="F">Female</option>
@@ -359,17 +359,17 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <div>
                                     <label for="dob" class="block font-medium text-gray-700 mb-2">Date of Birth</label>
                                     <input type="date" id="dob" name="dob"
-                                        class="w-full px-4 py-2 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                        class="w-full p-2 border border-blue-500 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" required>
                                     <p id="dob_error" class="error-message text-red-600 text-sm mt-2"></p>
                                 </div>
                                 <div>
                                     <label for="email" class="block mb-2 font-medium">Email Address</label>
-                                    <input type="email" id="email" name="email" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <input type="email" id="email" name="email" class="w-full p-2 border border-blue-500 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" required>
                                     <p id="email_error" class="error-message text-red-500 text-sm mt-2"></p>
                                 </div>
                                 <div>
                                     <label for="mobile_no" class="block mb-2 font-medium">Phone Number</label>
-                                    <input type="number" id="mobile_no" name="mobile_no" class="w-full px-4 py-2  border border-neutral-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <input type="number" id="mobile_no" name="mobile_no" class="w-full p-2 border border-blue-500 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" required>
                                     <p id="mobile_no_error" class="error-message text-red-500 text-sm mt-2"></p>
                                 </div>
                             </div>

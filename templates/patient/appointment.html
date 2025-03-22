@@ -240,66 +240,90 @@ tailwind.config = {
                 </div>
             {% endif %}
             <div class="root mx-auto px-10 py-10">
-                <div class="credential-card bg-white rounded-lg shadow-md overflow-hidden mb-6">
-                    <div class="bg-blue-600 p-4 flex items-center justify-between">
-                        <div class="flex items-center">
-                            <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mr-4 overflow-hidden">
-                                <img src="{% static 'homepage/images/patient.PNG' %}" alt="Profile Picture" class="w-full h-full object-cover">
-                            </div>
-                            <div class="text-white">
-                                <h3 class="text-xl font-semibold">Welcome,{{ user.patient.full_name }}!</h3>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-center mb-12 animate__animated animate__fadeIn" style="visibility: visible;">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Book Your Appointment</h2>
+                    <p class="text-lg text-gray-400 max-w-2xl mx-auto">Schedule your visit with our medical professionals quickly and easily using our appointment form.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Appointment Booking Form -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-lg font-semibold mb-3">Book An Appointment</h3>
-                        <form action="{% url 'appointment' doctor.id %}" method="post" onsubmit="return validateAppointment(event)">
-                            {% csrf_token %}
-                            <label class="block mb-2">Mobile</label>
-                            <input type="text" name="mobile" class="w-full p-2 border rounded" id="mobile">
-                            <label class="error text-red-500" id="mobileError"></label>
-
-                            <label class="block mt-3 mb-2">Date</label>
-                            <input type="date" name="date" class="w-full p-2 border rounded" id="date">
-                            <label class="error text-red-500" id="dateError"></label>
-
-                            <label class="block mt-3 mb-2">Purpose of Appointment</label>
-                            <textarea rows="4" class="w-full p-2 border rounded" name="note" id="note"></textarea>
-                            <label class="error text-red-500" id="noteError"></label>
-
-                            <button type="submit" class="mt-4 w-full bg-blue-600 text-white p-2 rounded">Submit</button>
-                        </form>
+                <div class="p-5 container shadow-[0_4px_10px_rgba(0,0,255,0.2)] rounded-lg bg-gradient-to-br from-blue-100 to-purple-200">
+                    <div class="mx-auto rounded-lg shadow-lg overflow-hidden mb-6">
+                        <div class="md:flex">
+                            <div class="md:w-1/2 bg-gradient-to-br from-blue-600 to-purple-700 shadow-[0_4px_10px_rgba(0,0,255,0.2)] p-8 flex items-center justify-center">
+                                <div class="text-center animate__animated animate__fadeInLeft animate__fadeIn text-white" style="visibility: visible;">
+                                    <svg class="w-24 h-24 mx-auto mb-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5zm2 4h10v2H7v-2zm0 4h7v2H7v-2z"></path>
+                                    </svg>
+                                    <h3 class="text-xl font-bold mb-2">Why Schedule Online?</h3>
+                                    <ul class="text-left text-sm space-y-2">
+                                        <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        Save time with online booking
+                                        </li>
+                                        <li class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        Choose your preferred doctor
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Appointment Booking Form -->
+                            <div class="md:w-1/2 bg-white p-6 shadow-[0_4px_10px_rgba(0,0,255,0.2)]">
+                                <form action="{% url 'appointment' doctor.id %}" method="post" onsubmit="return validateAppointment(event)">
+                                    {% csrf_token %}
+                                    <label class="block mb-2">Contact No.</label>
+                                    <input type="text" name="mobile" class="w-full p-2 border border-blue-500 rounded" id="mobile">
+                                    <label class="error text-red-500" id="mobileError"></label>
+        
+                                    <label class="block mt-3 mb-2">Date</label>
+                                    <input type="date" name="date" class="w-full p-2 border border-blue-500 rounded" id="date">
+                                    <label class="error text-red-500" id="dateError"></label>
+        
+                                    <label class="block mt-3 mb-2">Purpose of Appointment</label>
+                                    <textarea rows="4" class="w-full p-2 border border-blue-500 rounded" name="note" id="note"></textarea>
+                                    <label class="error text-red-500" id="noteError"></label>
+        
+                                    <button type="submit" class="bg-gradient-to-br from-blue-600 to-purple-700 mt-4 w-full bg-blue-600 text-white p-2 rounded">Submit</button>
+                                </form>
+                            </div>
+                        </div> 
                     </div>
                     <!-- Current & Previous Bookings -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-lg font-semibold mb-3">Current & Previous Bookings</h3>
-                        <div class="overflow-auto">
-                            <table class="w-full border-collapse border border-gray-200">
-                                <thead>
-                                    <tr class="bg-gray-100">
-                                        <th class="border p-2">Date</th>
-                                        <th class="border p-2">Mobile</th>
-                                        <th class="border p-2">Note</th>
-                                        <th class="border p-2">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for app in appointments %}
-                                        <tr class="border">
-                                            <td class="border p-2">{{ app.date }}</td>
-                                            <td class="border p-2">{{ app.mobile }}</td>
-                                            <td class="border p-2">{{ app.note }}</td>
-                                            <td class="border p-2">
-                                                <a href="{% url 'update_appointment' app.id %}" class="text-blue-600">✏️</a>
-                                                <a href="{% url 'delete_appointment' app.id %}" class="text-red-600 ml-2" onclick=" return confirmDelete(event)">🗑️</a>
-                                            </td>
+                    <div class="rounded-lg shadow-md bg-white">
+                        <div class="bg-gradient-to-br from-blue-600 to-purple-700 text-center rounded-t-lg">
+                            <h3 class="text-lg py-3 font-semibold mb-3 text-white">Current &amp; Previous Bookings</h3>
+                        </div>
+                        
+                        <div class="px-5 overflow-auto">
+                            {% if appointments %}
+                                <table class="min-w-full divide-y divide-blue-700">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="px-7 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Date</th>
+                                            <th scope="col" class="px-6 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Contact No.</th>
+                                            <th scope="col" class="px-6 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Note</th>
+                                            <th scope="col" class="px-6 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Action</th>
                                         </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody class="divide-y divide-blue-700">
+                                        {% for app in appointments %}
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ app.date }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ app.mobile }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">{{ app.note }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <a href="{% url 'update_appointment' app.id %}" class="text-blue-600">✏️</a>
+                                                    <a href="{% url 'delete_appointment' app.id %}" class="text-red-600 ml-2" onclick=" return confirmDelete(event)">🗑️</a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p class="px-7 py-3 text-left font-semibold uppercase tracking-wider text-red-500">No appointment to show.</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
