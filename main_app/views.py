@@ -54,26 +54,34 @@ def doctor_ui(request):
         messages.error(request, 'You are not logged in as a doctor.')
         return redirect('accounts:signin_doctor')
 
-    # Handle status update if form is submitted
+    # Handle form submission for updating individual appointment status and notes
     if request.method == "POST":
-        appointment_id = request.POST.get("appointment_id")
-        new_status = request.POST.get("status")
+        # Handle the submission of each appointment's note and status
+        for appointment in Appointment.objects.filter(doctor=doctor):
+            note_key = f"note_{appointment.id}"
+            status_key = f"status_{appointment.id}"
 
-        if appointment_id and new_status:
-            appointment = get_object_or_404(Appointment, id=appointment_id, doctor=doctor)
-            if new_status in APPOINTMENT_STATUS_OPTIONS:
-                appointment.status = new_status
-                appointment.save()
-                messages.success(request, "Appointment status updated successfully.")
-            else:
-                messages.error(request, "Invalid status selected.")
+            # Update the note for this appointment
+            note_value = request.POST.get(note_key)
+            if note_value:
+                appointment.note = note_value
 
-    appointments = Appointment.objects.filter(doctor=doctor)  # Fetch doctor's appointments
+            # Update the status for this appointment
+            status_value = request.POST.get(status_key)
+            if status_value in APPOINTMENT_STATUS_OPTIONS:
+                appointment.status = status_value
+
+            appointment.save()
+
+        messages.success(request, "Appointments updated successfully.")
+
+    # Fetch doctor's appointments to display in the template
+    appointments = Appointment.objects.filter(doctor=doctor)
 
     return render(request, 'doctor/index.html', {
         'doctor': doctor,
         'appointments': appointments,
-        'APPOINTMENT_STATUS_OPTIONS': APPOINTMENT_STATUS_OPTIONS  # Pass choices to template
+        'APPOINTMENT_STATUS_OPTIONS': APPOINTMENT_STATUS_OPTIONS  # Pass status options to template
     })
 
 # Patient UI

@@ -97,6 +97,8 @@ def signup_doctor(request):
 
 @never_cache
 def signin_doctor(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method == 'GET':
         return render(request, 'doctor/sign_in.html')
 
@@ -187,6 +189,8 @@ def signup_patient(request):
         
 @never_cache
 def signin_patient(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method == "GET":
         return render(request, 'patient/sign_in.html')
 
