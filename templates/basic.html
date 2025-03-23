@@ -400,13 +400,16 @@
               <h3 class="text-xl font-bold mb-4 text-white">User Resources</h3>
               <ul class="space-y-2">
                 <li>
-                  <a href="#signin" class="text-gray-300 hover:text-blue-400 transition duration-300">Sign In</a>
+                  <a href="{% url "signin_patient" %}" class="text-gray-300 hover:text-blue-400 transition duration-300">Sign In As Patient</a>
                 </li>
                 <li>
-                  <a href="#register" class="text-gray-300 hover:text-blue-400 transition duration-300">Register as Patient</a>
+                  <a href="{% url "signin_doctor" %}" class="text-gray-300 hover:text-blue-400 transition duration-300">Sign In As Doctor</a>
                 </li>
                 <li>
-                  <a href="#register-doctor" class="text-gray-300 hover:text-blue-400 transition duration-300">Register as Doctor</a>
+                  <a href="{% url "signup_patient" %}" class="text-gray-300 hover:text-blue-400 transition duration-300">Register as Patient</a>
+                </li>
+                <li>
+                  <a href="{% url "signup_doctor" %}" class="text-gray-300 hover:text-blue-400 transition duration-300">Register as Doctor</a>
                 </li>
                 <li>
                   <a href="#admin" class="text-gray-300 hover:text-blue-400 transition duration-300">Admin Portal</a>

@@ -243,7 +243,7 @@ tailwind.config = {
                     {% endfor %}
                 </div>
             {% endif %}
-            <div class="root mx-auto px-6 py-8 max-w-4xl">
+            <div class="root mx-auto px-6 py-8 max-w-6xl">
                 <!-- User Info Card -->
                 <div class="rounded-lg shadow-md overflow-hidden mb-6">
                     <div class="bg-gradient-to-br from-blue-600 to-purple-700 p-4 flex items-center justify-between">
@@ -399,7 +399,13 @@ tailwind.config = {
                                             </tr>
                                             {% endfor %}
                                         </tbody>
+                    
                                     </table>
+                                    <div class="flex justify-center mt-6">
+                                        <button type="submit" name="bulk_update" value="1" class="bg-gradient-to-r from-blue-600 to-purple-700 text-white font-semibold px-6 py-2 rounded shadow-md hover:shadow-lg transition">
+                                            Update All
+                                        </button>
+                                    </div>
                                 {% else %}
                                     <p class="text-gray-500 text-center mt-4">No appointments to show.</p>
                                 {% endif %}
@@ -491,59 +497,60 @@ tailwind.config = {
 
 <script>
     // Get the button and info section elements
-    const personalInfoButton = document.getElementById('personalInfoButton');
-    const personalInfoSection = document.getElementById('personalInfoSection');
-    const professionalInfoButton = document.getElementById('professionalInfoButton');
-    const professionalInfoSection = document.getElementById('professionalInfoSection');
-    const appointmentsButton = document.getElementById('appointmentsButton');
-    const appointmentsSection = document.getElementById('appointmentsSection');
+const personalInfoButton = document.getElementById('personalInfoButton');
+const personalInfoSection = document.getElementById('personalInfoSection');
+const professionalInfoButton = document.getElementById('professionalInfoButton');
+const professionalInfoSection = document.getElementById('professionalInfoSection');
+const appointmentsButton = document.getElementById('appointmentsButton');
+const appointmentsSection = document.getElementById('appointmentsSection');
 
-    // Set initial state (hidden by default)
+// Set initial state (hidden by default)
+professionalInfoSection.classList.add('hidden');
+appointmentsSection.classList.add('hidden');
+personalInfoButton.classList.add("text-yellow-400", "border-b-2", "border-yellow-400");
+
+// Add event listener to toggle visibility
+personalInfoButton.addEventListener('click', function () {
+    personalInfoSection.classList.remove('hidden');
     professionalInfoSection.classList.add('hidden');
     appointmentsSection.classList.add('hidden');
+
     personalInfoButton.classList.add("text-yellow-400", "border-b-2", "border-yellow-400");
+    professionalInfoButton.classList.remove("text-yellow-400", "border-b-2", "border-yellow-400");
+    appointmentsButton.classList.remove("text-yellow-400", "border-b-2", "border-yellow-400");
 
-    // Add event listener to toggle visibility
-    personalInfoButton.addEventListener('click', function () {
-        personalInfoSection.classList.remove('hidden');
-        professionalInfoSection.classList.add('hidden');
-        appointmentsSection.classList.add('hidden');
-        
-        personalInfoButton.classList.add("text-yellow-400", "border-b-2", "border-yellow-400");
-        professionalInfoButton.classList.remove("text-yellow-400", "border-b-2", "border-yellow-400");
-        appointmentsButton.classList.remove("text-yellow-400", "border-b-2", "border-yellow-400");
+    appointmentsButton.classList.add("hover:text-yellow-400");
+    professionalInfoButton.classList.add("hover:text-yellow-400");
+});
 
-        appointmentsButton.classList.add("hover:text-yellow-400");
-        professionalInfoButton.classList.add("hover:text-yellow-400");
-    });
+// Add event listener to toggle visibility
+professionalInfoButton.addEventListener('click', function () {
+    professionalInfoSection.classList.remove('hidden');
+    personalInfoSection.classList.add('hidden');
+    appointmentsSection.classList.add('hidden');
 
-    // Add event listener to toggle visibility
-    professionalInfoButton.addEventListener('click', function () {
-        professionalInfoSection.classList.remove('hidden');
-        personalInfoSection.classList.add('hidden');
-        appointmentsSection.classList.add('hidden');
-        
-        professionalInfoButton.classList.add("text-yellow-400", "border-b-2", "border-yellow-400");
-        personalInfoButton.classList.remove("text-yellow-400", "border-b-2", "border-yellow-400");
-        appointmentsButton.classList.remove("text-yellow-400", "border-b-2", "border-yellow-400");
+    professionalInfoButton.classList.add("text-yellow-400", "border-b-2", "border-yellow-400");
+    personalInfoButton.classList.remove("text-yellow-400", "border-b-2", "border-yellow-400");
+    appointmentsButton.classList.remove("text-yellow-400", "border-b-2", "border-yellow-400");
 
-        appointmentsButton.classList.add("hover:text-yellow-400");
-        personalInfoButton.classList.add("hover:text-yellow-400");
-    });
+    appointmentsButton.classList.add("hover:text-yellow-400");
+    personalInfoButton.classList.add("hover:text-yellow-400");
+});
 
-    // Add event listener to toggle visibility
-    appointmentsButton.addEventListener('click', function () {
-        appointmentsSection.classList.remove('hidden');
-        professionalInfoSection.classList.add('hidden');
-        personalInfoSection.classList.add('hidden');
-        
-        appointmentsButton.classList.add("text-yellow-400", "border-b-2", "border-yellow-400");
-        personalInfoButton.classList.remove("text-yellow-400", "border-b-2", "border-yellow-400");
-        professionalInfoButton.classList.remove("text-yellow-400", "border-b-2", "border-yellow-400");
+// Add event listener to toggle visibility
+appointmentsButton.addEventListener('click', function () {
+    appointmentsSection.classList.remove('hidden');
+    professionalInfoSection.classList.add('hidden');
+    personalInfoSection.classList.add('hidden');
 
-        professionalInfoButton.classList.add("hover:text-yellow-400");
-        personalInfoButton.classList.add("hover:text-yellow-400");
-    });
+    appointmentsButton.classList.add("text-yellow-400", "border-b-2", "border-yellow-400");
+    personalInfoButton.classList.remove("text-yellow-400", "border-b-2", "border-yellow-400");
+    professionalInfoButton.classList.remove("text-yellow-400", "border-b-2", "border-yellow-400");
+
+    professionalInfoButton.classList.add("hover:text-yellow-400");
+    personalInfoButton.classList.add("hover:text-yellow-400");
+});
+
 </script>
 
 {% endblock content %}

@@ -158,9 +158,6 @@
           MedIntel uses advanced artificial intelligence to predict potential health conditions with high accuracy, connecting patients with verified doctors for consultation and treatment.
         </p>
         <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-          {% comment %} <a href="#register" class="bg-white text-blue-800 hover:bg-blue-100 font-semibold py-3 px-6 rounded-lg transition duration-300 text-center shadow-lg">
-            Register Now
-          </a> {% endcomment %}
           <a href="#services" class="bg-transparent border-2 border-white hover:bg-white/10 font-semibold py-3 px-6 rounded-lg transition duration-300 text-center">
             Learn More
           </a>
@@ -319,7 +316,7 @@
           <div class="bg-blue-600 py-4 px-8">
             <div class="flex justify-between items-center">
               <p class="text-white font-medium">Ready to take control of your health?</p>
-              <a href="#register" class="bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg font-medium transition duration-300">Get Started</a>
+              <a href="{% url "signup_patient" %}" class="bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg font-medium transition duration-300">Get Started</a>
             </div>
           </div>
         </div>
@@ -416,7 +413,7 @@
               <span class="text-gray-600 dark:text-gray-300">Detailed health reports</span>
             </li>
           </ul>
-          <a href="#register" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+          <a href="{% url "signup_patient" %}" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
             Try It Now
           </a>
         </div>
@@ -494,7 +491,7 @@
               <span class="text-gray-600 dark:text-gray-300">Progress tracking</span>
             </li>
           </ul>
-          <a href="#register" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+          <a href="{% url "signup_patient" %}" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
             Learn More
           </a>
         </div>
@@ -543,7 +540,7 @@
               <span class="text-gray-600 dark:text-gray-300">Feedback submission for continuous improvement</span>
             </li>
           </ul>
-          <a href="#register" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+          <a href="{% url "signup_patient" %}" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
             Register as Patient
           </a>
         </div>
@@ -585,7 +582,7 @@
               <span class="text-gray-600 dark:text-gray-300">Professional profile for potential patients</span>
             </li>
           </ul>
-          <a href="#register" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+          <a href="{% url "signup_doctor" %}" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
             Register as Doctor
           </a>
         </div>
@@ -932,7 +929,7 @@
               </li>
             </ul>
             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <a href="#register-doctor" class="bg-white text-blue-600 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg transition duration-300 text-center shadow-lg">
+              <a href="{% url "signup_doctor" %}" class="bg-white text-blue-600 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg transition duration-300 text-center shadow-lg">
                 Register as Doctor
               </a>
               <a href="#doctor-info" class="bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 text-center">
@@ -1103,7 +1100,7 @@
     <div class="mt-16 text-center">
       <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6">Ready to Take Control of Your Health?</h3>
       <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-        <a href="#register" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 shadow-lg">
+        <a href="{% url "signup_patient" %}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 shadow-lg">
           Register Now
         </a>
         <a href="#contact" class="inline-block bg-gray-200 dark:bg-neutral-700 hover:bg-gray-300 dark:hover:bg-neutral-600 text-gray-800 dark:text-gray-200 font-semibold py-3 px-8 rounded-lg transition duration-300">
@@ -1301,7 +1298,6 @@
   </svg>
 </button>
 </div>
-    <!-- {bodyScripts} -->
-    <script src="{% static "homepage/js/base.js" %}"></script>
+<script src="{% static "homepage/js/base.js" %}"></script>
 </body>
 {% endblock %}

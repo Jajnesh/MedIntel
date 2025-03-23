@@ -12,3 +12,11 @@
     min-width: 150px;
     z-index: 50;
 }
+.faq-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+  
+  .rotate-180 {
+    transform: rotate(180deg);
+  }

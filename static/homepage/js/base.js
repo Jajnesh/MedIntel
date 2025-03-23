@@ -187,31 +187,33 @@ if (contactForm) {
 
 
   // FAQ Toggle Functionality
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const faqToggles = document.querySelectorAll('.faq-toggle');
-    
+
     faqToggles.forEach(toggle => {
-      toggle.addEventListener('click', () => {
-        const content = toggle.nextElementSibling;
-        const icon = toggle.querySelector('svg');
-        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-        
-        // Toggle the aria-expanded state
-        toggle.setAttribute('aria-expanded', !isExpanded);
-        
-        // Toggle content visibility
-        if (isExpanded) {
-          content.style.maxHeight = '0';
-          content.classList.add('hidden');
-          icon.classList.remove('rotate-180');
-        } else {
-          content.classList.remove('hidden');
-          content.style.maxHeight = content.scrollHeight + 'px';
-          icon.classList.add('rotate-180');
-        }
-      });
+        toggle.addEventListener('click', () => {
+            const content = toggle.nextElementSibling;
+            const icon = toggle.querySelector('svg');
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+            // Toggle the aria-expanded state
+            toggle.setAttribute('aria-expanded', !isExpanded);
+
+            if (isExpanded) {
+                // Collapse the content
+                content.style.maxHeight = '0';
+                icon.classList.remove('rotate-180');
+                setTimeout(() => content.classList.add('hidden'), 300); // Delay to allow transition
+            } else {
+                // Expand the content
+                content.classList.remove('hidden'); // Make it visible before animation
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.classList.add('rotate-180');
+            }
+        });
     });
-  });
+});
+
 
       // Testimonials Slider Functionality
       document.addEventListener('DOMContentLoaded', function() {
