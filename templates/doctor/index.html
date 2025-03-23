@@ -354,58 +354,58 @@ tailwind.config = {
                                         </p>
                                     </div>
                                 </div>
-                                <p class="bg-red-100 text-red-800">Note: Should you require any updates or changes to your professional details, please feel free to reach out to us via email for assistance.</p>
+                                <p class="text-red-500 text-center">Note: Should you require any updates or changes to your professional details, please feel free to reach out to us via email for assistance.</p>
                             </div>
                         </div>
                         <div class="appointments-info" id="appointmentsSection">
                             <div class="space-y-3 overflow-y-auto">
                                 {% if appointments %}
-                                    <table class="w-full divide-y divide-blue-700">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" class="px-3 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Sl. no.</th>
-                                                <th scope="col" class="px-4 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Patient Name</th>
-                                                <th scope="col" class="px-6 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Date</th>
-                                                <th scope="col" class="px-6 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Mobile</th>
-                                                <th scope="col" class="px-6 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Note</th>
-                                                <th scope="col" class="px-6 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Status</th>
-                                                <th scope="col" class="px-6 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="divide-y divide-blue-700 text-neutral-800">
-                                            {% for appointment in appointments %}
-                                            <tr class="bg-white py-0">
-                                                <td class="px-4 whitespace-nowrap">{{ forloop.counter }}</td>
-                                                <td class="px-4 whitespace-nowrap">{{ appointment.user }}</td>
-                                                <td class="px-4 whitespace-nowrap">{{ appointment.date }}</td>
-                                                <td class="px-4 whitespace-nowrap">{{ appointment.mobile }}</td>
-                                                <td class="px-4 whitespace-nowrap">{{ appointment.note }}</td>
-                                                <td class="px-4 whitespace-nowrap">
-                                                    <form method="post" action="" class="flex flex-col items-center pt-3">
-                                                        {% csrf_token %}
-                                                        <input type="hidden" name="appointment_id" value="{{ appointment.id }}">
-                                                        <select name="status" class="text-center rounded-full {% if appointment.status == 'Visited' %}bg-green-100 text-green-800{% elif appointment.status == 'Booked' %}bg-yellow-100 text-yellow-800{% else %}bg-red-100 text-red-800{% endif %}">
+                                    <form method="post" action="">
+                                        {% csrf_token %}
+                                        <table class="w-full divide-y divide-blue-700">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" class="px-3 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Sl. no.</th>
+                                                    <th scope="col" class="px-4 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Patient Name</th>
+                                                    <th scope="col" class="px-6 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Date</th>
+                                                    <th scope="col" class="px-6 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Mobile</th>
+                                                    <th scope="col" class="px-6 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Note<span class="text-red-500">*</span></th>
+                                                    <th scope="col" class="px-6 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Status<span class="text-red-500">*</span></th>
+                                                    <th scope="col" class="px-6 py-3 text-left font-semibold uppercase tracking-wider bg-gradient-to-br from-blue-600 to-purple-700 text-transparent bg-clip-text">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="divide-y divide-blue-700 text-neutral-800">
+                                                {% for appointment in appointments %}
+                                                <tr class="bg-white">
+                                                    <td class="px-4 whitespace-nowrap">{{ forloop.counter }}</td>
+                                                    <td class="px-4 whitespace-nowrap">{{ appointment.user }}</td>
+                                                    <td class="px-4 whitespace-nowrap">{{ appointment.date }}</td>
+                                                    <td class="px-4 whitespace-nowrap">{{ appointment.mobile }}</td>
+                                                    <td class="px-4 whitespace-nowrap">
+                                                        <input type="text" name="note_{{ appointment.id }}" value="{{ appointment.note }}" class="hover:text-blue-500">
+                                                    </td>
+                                                    <td class="px-4 whitespace-nowrap">
+                                                        <select name="status_{{ appointment.id }}" class="text-center rounded-full {% if appointment.status == 'Visited' %}bg-green-100 text-green-800{% elif appointment.status == 'Booked' %}bg-yellow-100 text-yellow-800{% else %}bg-red-100 text-red-800{% endif %}">
                                                             {% for key, value in APPOINTMENT_STATUS_OPTIONS.items %}
-                                                                <option value="{{ key }}" {% if appointment.status == key %}selected{% endif %}>
-                                                                    {{ value }}
-                                                                </option>
+                                                            <option value="{{ key }}" {% if appointment.status == key %}selected{% endif %}>
+                                                                {{ value }}
+                                                            </option>
                                                             {% endfor %}
                                                         </select>
-                                                        <td class="px-4 whitespace-nowrap">
-                                                            <button type="submit" class="bg-blue-500 text-white px-4 py-1 rounded">Update</button>
-                                                        </td>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                    
-                                    </table>
-                                    <div class="flex justify-center mt-6">
-                                        <button type="submit" name="bulk_update" value="1" class="bg-gradient-to-r from-blue-600 to-purple-700 text-white font-semibold px-6 py-2 rounded shadow-md hover:shadow-lg transition">
-                                            Update All
-                                        </button>
-                                    </div>
+                                                    </td>
+                                                    <td class="px-4 whitespace-nowrap">
+                                                        <button type="submit" name="update_appointment_{{ appointment.id }}" value="{{ appointment.id }}" class="bg-blue-500 text-white px-4 py-1 my-2 rounded">Update</button>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                        
+                                        <div class="text-center mt-4">
+                                            <button type="submit" class="bg-blue-600 text-white px-4 py-1 rounded">Update All</button>
+                                            <p class="text-red-500 mt-2">* marked fields can be updated.</p>
+                                        </div>
+                                    </form>
                                 {% else %}
                                     <p class="text-gray-500 text-center mt-4">No appointments to show.</p>
                                 {% endif %}
