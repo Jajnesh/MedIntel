@@ -382,10 +382,10 @@ tailwind.config = {
                                                     <td class="px-4 whitespace-nowrap">{{ appointment.date }}</td>
                                                     <td class="px-4 whitespace-nowrap">{{ appointment.mobile }}</td>
                                                     <td class="px-4 whitespace-nowrap">
-                                                        <input type="text" name="note_{{ appointment.id }}" value="{{ appointment.note }}" class="hover:text-blue-500">
+                                                        <input type="text" name="note_{{ appointment.id }}" value="{{ appointment.note }}" class="note-input hover:text-blue-500" data-id="{{ appointment.id }}">
                                                     </td>
                                                     <td class="px-4 whitespace-nowrap">
-                                                        <select name="status_{{ appointment.id }}" class="text-center rounded-full {% if appointment.status == 'Visited' %}bg-green-100 text-green-800{% elif appointment.status == 'Booked' %}bg-yellow-100 text-yellow-800{% else %}bg-red-100 text-red-800{% endif %}">
+                                                        <select name="status_{{ appointment.id }}" class="status-select text-center rounded-full {% if appointment.status == 'Visited' %}bg-green-100 text-green-800{% elif appointment.status == 'Booked' %}bg-yellow-100 text-yellow-800{% else %}bg-red-100 text-red-800{% endif %}" data-id="{{ appointment.id }}" data-default-status="{{ appointment.status }}">
                                                             {% for key, value in APPOINTMENT_STATUS_OPTIONS.items %}
                                                             <option value="{{ key }}" {% if appointment.status == key %}selected{% endif %}>
                                                                 {{ value }}
@@ -394,7 +394,7 @@ tailwind.config = {
                                                         </select>
                                                     </td>
                                                     <td class="px-4 whitespace-nowrap">
-                                                        <button type="submit" name="update_appointment_{{ appointment.id }}" value="{{ appointment.id }}" class="bg-blue-500 text-white px-4 py-1 my-2 rounded">Update</button>
+                                                        <button type="submit" name="update_appointment_{{ appointment.id }}" value="{{ appointment.id }}" class="update-btn bg-blue-300 text-white px-4 py-1 my-2 rounded" disabled>Update</button>
                                                     </td>
                                                 </tr>
                                                 {% endfor %}
@@ -495,6 +495,7 @@ tailwind.config = {
 
 <script src="{% static "doctor/js/index.js" %}"></script>
 
+<!-- Script for section toggle -->
 <script>
     // Get the button and info section elements
     const personalInfoButton = document.getElementById('personalInfoButton');
@@ -549,6 +550,54 @@ tailwind.config = {
 
         professionalInfoButton.classList.add("hover:text-yellow-400");
         personalInfoButton.classList.add("hover:text-yellow-400");
+    });
+</script>
+
+<!-- Script for Update button enabling -->
+<script>
+    // Get all the note inputs and status selects
+    const noteInputs = document.querySelectorAll('.note-input');
+    const statusSelects = document.querySelectorAll('.status-select');
+    const updateBtns = document.querySelectorAll('.update-btn');
+
+    noteInputs.forEach(function (input) {
+        input.addEventListener('input', function () {
+            const appointmentId = input.dataset.id;
+            const currentNote = input.value;
+            const originalNote = document.querySelector(`input[name="note_${appointmentId}"]`).defaultValue;
+            const correspondingButton = document.querySelector(`button[name="update_appointment_${appointmentId}"]`);
+
+            // If note has changed, enable the button
+            if (currentNote !== originalNote) {
+                correspondingButton.disabled = false;
+                correspondingButton.classList.remove("bg-blue-300");
+                correspondingButton.classList.add("bg-blue-600");
+            } else {
+                correspondingButton.disabled = true;
+                correspondingButton.classList.remove("bg-blue-600");
+                correspondingButton.classList.add("bg-blue-300");
+            }
+        });
+    });
+
+    statusSelects.forEach(function (select) {
+        select.addEventListener('change', function () {
+            const appointmentId = select.dataset.id;
+            const statusSelect = document.querySelector(`select[name="status_${appointmentId}"]`);
+            const originalStatus = statusSelect.dataset.defaultStatus;
+            const correspondingButton = document.querySelector(`button[name="update_appointment_${appointmentId}"]`);
+
+            // If status has changed, enable the button
+            if (originalStatus !== statusSelect.value) {
+                correspondingButton.disabled = false;
+                correspondingButton.classList.remove("bg-blue-300");
+                correspondingButton.classList.add("bg-blue-600");
+            } else {
+                correspondingButton.disabled = true;
+                correspondingButton.classList.remove("bg-blue-600");
+                correspondingButton.classList.add("bg-blue-300");
+            }
+        });
     });
 </script>
 
