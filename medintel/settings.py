@@ -138,3 +138,7 @@ LOGOUT_REDIRECT_URL = '/'
 MEDIA_URL = '/media/'
 # Path where media is stored'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# For sending password reset emails
+# The reset emails will appear in the console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
