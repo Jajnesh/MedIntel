@@ -165,19 +165,6 @@ def appointment(request, doctor_id):
         date = request.POST.get('date')
         note = request.POST.get('note')
 
-        if not mobile:
-            messages.error(request, "Mobile number is required.")
-        elif len(mobile) != 10 or not mobile.isdigit():
-            messages.error(request, "Enter a valid 10-digit mobile number.")
-
-        if not date:
-            messages.error(request, "Date is required.")
-
-        if not note:
-            messages.error(request, "Purpose of appointment is required.")
-        if not mobile or not date or not note:
-            return redirect(request.path)
-
         if Appointment.objects.filter(user=request.user, date=date, doctor=doctor).exists():
             messages.error(request, f"Appointment for {date} with Dr. {doctor.user.username} is already booked.")
         elif Appointment.objects.filter(date=date, doctor=doctor).count() >= 20:
@@ -197,15 +184,6 @@ def appointment(request, doctor_id):
     return render(request, 'patient/appointment.html', context)
 
 
-# @login_required(login_url='/accounts/signin_doctor/')
-# def doctor_appointments(request):
-#     doctor = get_object_or_404(Doctor, user=request.user)  
-#     appointments = Appointment.objects.filter(doctor=doctor)  
-    
-#     context = {
-#         'appointments': appointments
-#     }
-#     return render(request, 'doctor/index.html', context)  
 
 @login_required(login_url='accounts:signin_patient')
 def delete_appointment(request, aid):
@@ -222,6 +200,7 @@ def delete_appointment(request, aid):
         messages.error(request, "Appointment not found!")
 
     return redirect('appointment', doctor_id=app.doctor.id)
+
 
 
 @login_required(login_url='accounts:signin_patient')

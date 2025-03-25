@@ -314,8 +314,9 @@ tailwind.config = {
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ app.mobile }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ app.note }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                    <a href="{% url 'update_appointment' app.id %}" class="text-blue-600">✏️</a>
-                                                    <a href="{% url 'delete_appointment' app.id %}" class="text-red-600 ml-2" onclick=" return confirmDelete(event)">🗑️</a>
+                                                    <a href="{% url 'update_appointment' app.id %}" class="text-blue-600"><i class="fa-solid fa-pen-to-square me-2"></i></a>
+                                                    <a href="{% url 'delete_appointment' app.id %}" class="text-red-600 ml-2" onclick=" return confirmDelete(event)"><i class="fa-solid fa-trash"></i></a>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         {% endfor %}
@@ -331,15 +332,117 @@ tailwind.config = {
         </div>
     </main>
 </div>
-{% endblock content %}
-
 {% block javascript %}
 <script>
-    function confirmDelete(event) {
-        if (!confirm("Are you sure you want to delete this appointment?")) {
+    function confirmDelete(event){
+        let res = confirm("Are you sure, you want to delete?")
+        if(!res){
             event.preventDefault();
         }
     }
-    
+    function validateAppointment(e) {
+        let mobile = document.querySelector('#mobile').value.trim();
+        let date = document.querySelector('#date').value;
+        let note = document.querySelector('#note').value.trim();
+        let currentDate = new Date().toISOString().split('T')[0];
+        let maxDate = new Date();
+        maxDate.setDate(maxDate.getDate() + 7);
+        maxDate = maxDate.toISOString().split('T')[0];
+
+        let error = false;
+
+        // Mobile Number Validation
+        if (mobile === "" || mobile === null) {
+            document.querySelector('#mobileError').innerHTML = "Please enter your Mobile Number";
+            document.querySelector('#mobile').style.border = "1px solid red";
+            error = true;
+        } else if (mobile.length !== 10 || !/^\d{10}$/.test(mobile)) {
+            document.querySelector('#mobileError').innerHTML = "Mobile Number must be 10 digits";
+            document.querySelector('#mobile').style.border = "1px solid red";
+            error = true;
+        } else {
+            document.querySelector('#mobileError').innerHTML = "";
+            document.querySelector('#mobile').style.border = "1px solid #3b82f6"; // Blue border for valid input
+        }
+
+        // Date Validation
+        if (date === "" || date === null) {
+            document.querySelector('#dateError').innerHTML = "Please enter Date of Appointment";
+            document.querySelector('#date').style.border = "1px solid red";
+            error = true;
+        } else if (date < currentDate || date > maxDate) {
+            document.querySelector('#dateError').innerHTML = "Date of Appointment must be within the next 7 days";
+            document.querySelector('#date').style.border = "1px solid red";
+            error = true;
+        } else {
+            document.querySelector('#dateError').innerHTML = "";
+            document.querySelector('#date').style.border = "1px solid #3b82f6";
+        }
+
+        // Note Validation
+        if (note === "" || note === null) {
+            document.querySelector('#noteError').innerHTML = "Please enter Purpose of Appointment";
+            document.querySelector('#note').style.border = "1px solid red";
+            error = true;
+        } else {
+            document.querySelector('#noteError').innerHTML = "";
+            document.querySelector('#note').style.border = "1px solid #3b82f6";
+        }
+
+        if (error) {
+            e.preventDefault();
+        }
+    }
+    document.querySelector("form").addEventListener("submit", validateAppointment);
+
+    // ✅ Real-time Validation: Remove errors as users type or select values
+    document.querySelector("#mobile").addEventListener("input", function () {
+        let mobile = this.value.trim();
+        if (mobile.length === 10 && /^\d{10}$/.test(mobile)) {
+            document.querySelector('#mobileError').innerHTML = "";
+            this.style.border = "1px solid #3b82f6";
+        }
+    });
+
+    document.querySelector("#date").addEventListener("input", function () {
+        let date = this.value;
+        let currentDate = new Date().toISOString().split('T')[0];
+        let maxDate = new Date();
+        maxDate.setDate(maxDate.getDate() + 7);
+        maxDate = maxDate.toISOString().split('T')[0];
+
+        if (date >= currentDate && date <= maxDate) {
+            document.querySelector('#dateError').innerHTML = "";
+            this.style.border = "1px solid #3b82f6";
+        }
+    });
+
+    document.querySelector("#note").addEventListener("input", function () {
+        if (this.value.trim() !== "") {
+            document.querySelector('#noteError').innerHTML = "";
+            this.style.border = "1px solid #3b82f6";
+        }
+    });
+    window.onload = function() {
+        let currentDate = new Date().toISOString().split('T')[0];
+        let maxDate = new Date();
+        maxDate.setDate(maxDate.getDate() + 7);
+        maxDate = maxDate.toISOString().split('T')[0];
+
+        let dateInput = document.querySelector('#date');
+        dateInput.setAttribute('min', currentDate);
+        dateInput.setAttribute('max', maxDate);
+
+        // Restrict calendar view
+        dateInput.addEventListener('focus', function() {
+            this.setAttribute('min', currentDate);
+            this.setAttribute('max', maxDate);
+        });
+    }
+
+
 </script>
+
 {% endblock javascript %}
+{% endblock content %}
+
